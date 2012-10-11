@@ -35,7 +35,8 @@ function check_command_dependency () {
 }
 
 function install_dependency () {
-  HOMEBREW_OUTPUT=`brew install $@ 2>&1`
+  log "Checking for the presence of $1"
+  HOMEBREW_OUTPUT=`brew install $1 2>&1`
   handle_error $1 "Homebrew had a problem\n($HOMEBREW_OUTPUT):"
 }
 
@@ -47,11 +48,10 @@ function backup_dotfiles () {
 }
 
 function homebrew_dependencies () {
-  CONTENT=`cat $INSTALL_DIR/homebrew_dependencies`
-  for recipe in $CONTENT
-    do
-      install_dependency $recipe
-    done
+  while read recipe; do
+    echo "Installing recipe $recipe"
+    install_dependency $recipe
+  done < "$INSTALL_DIR/homebrew_dependencies"
 }
 
 log "Starting Hermes installation"
