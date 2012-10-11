@@ -59,4 +59,4 @@ check_command_dependency rvm
 install_dependency macvim --override-system-vim
 install_dependency reattach-to-user-namespace
 install_dependency ack
-install_dependency tmuxx
+install_dependency tmux
