@@ -1,0 +1,4 @@
+macvim --override-system-vim
+reattach-to-user-namespace
+ack
+tmux

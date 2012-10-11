@@ -10,9 +10,7 @@ function log () {
 }
 
 function customise_manifest () {
-
   CONTENT=`cat $INSTALL_DIR/dotfile_manifest`
-
   for file in $CONTENT
     do
       if [ -e $HOME/.$file ]
@@ -21,6 +19,7 @@ function customise_manifest () {
       fi
     done
 }
+
 
 function handle_error () {
   if [ "$?" != "0" ]
@@ -47,6 +46,14 @@ function backup_dotfiles () {
   handle_error "($?)" "Backup failed, please see the install log for details"
 }
 
+function homebrew_dependencies () {
+  CONTENT=`cat $INSTALL_DIR/homebrew_dependencies`
+  for recipe in $CONTENT
+    do
+      install_dependency $recipe
+    done
+}
+
 log "Starting Hermes installation"
 
 backup_dotfiles
@@ -55,8 +62,4 @@ backup_dotfiles
 check_command_dependency brew
 check_command_dependency rvm
 
-# Install required tools
-install_dependency macvim --override-system-vim
-install_dependency reattach-to-user-namespace
-install_dependency ack
-install_dependency tmux
+homebrew_dependencies
