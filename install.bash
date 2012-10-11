@@ -9,24 +9,23 @@ function log () {
   echo -e $@ >> $LOGFILE
 }
 
-function customise_manifest () {
-  CONTENT=`cat $INSTALL_DIR/dotfile_manifest`
-  for file in $CONTENT
-    do
-      if [ -e $HOME/.$file ]
-        then
-          echo "$HOME/.$file" >> $TEMP_MANIFEST
-      fi
-    done
+function handle_error () {
+  if [ "$?" != "0" ]; then
+    echo -e "$2 $1"
+    exit 1
+  fi
 }
 
+function customise_manifest () {
+  CONTENT=`cat $INSTALL_DIR/dotfile_manifest`
+  for file in $CONTENT; do
+    if [ -e $HOME/.$file ]
+      then
+        echo "$HOME/.$file" >> $TEMP_MANIFEST
+    fi
+  done
+}
 
-function handle_error () {
-  if [ "$?" != "0" ]
-    then
-      echo -e "$2 $1"
-      exit 1
-  fi
 }
 
 function check_command_dependency () {
