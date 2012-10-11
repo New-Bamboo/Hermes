@@ -1,0 +1,2 @@
+export POW_TIMEOUT=1800
+export PATH=/usr/local/bin:$HOME/.rvm/bin:$PATH
