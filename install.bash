@@ -15,9 +15,9 @@ function customise_manifest () {
 
   for file in $CONTENT
     do
-      if [ -e $HOME/$file ]
+      if [ -e $HOME/.$file ]
         then
-          echo $file >> $TEMP_MANIFEST
+          echo "$HOME/.$file" >> $TEMP_MANIFEST
       fi
     done
 }
