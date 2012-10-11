@@ -26,6 +26,17 @@ function customise_manifest () {
   done
 }
 
+function link_dotfiles () {
+  CONTENT=`cat $INSTALL_DIR/dotfile_manifest`
+  for file in $CONTENT; do
+    SOURCE_FILE=$HOME/.hermes/hermes/$file
+    TARGET_FILE=$HOME/.$file
+    if [ -e $SOURCE_FILE]; then
+      echo "Symlinking hermes dotfile $file to $HOME"
+      ln -sf $SOURCE_FILE $TARGET_FILE
+      handle_error "Could not link to $TARGET_FILE" "Symlinking:"
+    fi
+  done
 }
 
 function check_command_dependency () {
@@ -62,3 +73,5 @@ check_command_dependency brew
 check_command_dependency rvm
 
 homebrew_dependencies
+
+link_dotfiles
