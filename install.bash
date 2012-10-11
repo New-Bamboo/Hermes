@@ -44,10 +44,16 @@ function check_command_dependency () {
   handle_error $1 'There was a problem with:'
 }
 
-function install_dependency () {
+function install_homebrew () {
   log "Checking for the presence of $1"
   HOMEBREW_OUTPUT=`brew install $1 2>&1`
   handle_error $1 "Homebrew had a problem\n($HOMEBREW_OUTPUT):"
+}
+
+function remove_homebrew () {
+  log "Removing homebrew recipe $1"
+  HOMEBREW_OUTPUT=`brew uninstall $1 2>&1`
+  handle_error $1 "Homebrew had a problem while removing\n($HOMEBREW_OUTPUT):"
 }
 
 function backup_dotfiles () {
@@ -57,10 +63,33 @@ function backup_dotfiles () {
   handle_error "($?)" "Backup failed, please see the install log for details"
 }
 
+function homebrew_checkinstall_recipe () {
+  SKIP=`brew list | grep $1`
+  if [ "$SKIP" -ne "" ]; then
+    echo "Your $1 installation is fine. Doing nothing."
+  else
+    install_homebrew $1
+  fi
+}
+
+function homebrew_checkinstall_vim () {
+  SKIP=`vim --version | grep '+clipboard'`
+  if [ "$SKIP" -ne "" ]; then
+    echo "Your vim installation is fine. Doing nothing."
+  else
+    remove_homebrew macvim
+    install_homebrew $1
+  fi
+}
+
 function homebrew_dependencies () {
   while read recipe; do
     echo "Installing recipe $recipe"
-    install_dependency $recipe
+    if [[ $recipe == macvim* ]]; then
+      homebrew_checkinstall_vim $recipe
+    else
+      homebrew_checkinstall_recipe $recipe
+    fi
   done < "$INSTALL_DIR/homebrew_dependencies"
 }
 
