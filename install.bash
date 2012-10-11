@@ -2,7 +2,7 @@
 INSTALL_DIR=`pwd`
 TIMESTAMP=`date +%Y%m%d%H%M%S`
 LOGFILE=$INSTALL_DIR/install-$TIMESTAMP.log
-TEMP_MANIFEST=/tmp/hermes_custom_manifest
+TEMP_MANIFEST=/tmp/$USER-hermes_custom_manifest
 touch $TEMP_MANIFEST
 
 function log () {
