@@ -69,7 +69,7 @@ function backup_dotfiles () {
 }
 
 function homebrew_checkinstall_recipe () {
-  brew list $1
+  brew list $1 &> /dev/null
   if [ $? == 0 ]; then
     log "Your $1 installation is fine. Doing nothing."
   else
