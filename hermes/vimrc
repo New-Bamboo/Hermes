@@ -19,6 +19,10 @@ syntax on
 
 " Send more characters for redraws
 set ttyfast
+
+" Use Bash as shell
+set shell=/usr/local/bin/bash
+
 " Enable mouse use in all modes
 set mouse=a
 set ttymouse=xterm2
