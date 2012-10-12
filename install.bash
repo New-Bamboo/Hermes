@@ -5,8 +5,20 @@ LOGFILE=$INSTALL_DIR/install-$TIMESTAMP.log
 TEMP_MANIFEST=/tmp/$USER-hermes_custom_manifest
 touch $TEMP_MANIFEST
 
+# Colours
+txtund=$(tput sgr 0 1)          # Underline
+txtbld=$(tput bold)             # Bold
+bldred=${txtbld}$(tput setaf 1) #  red
+bldblu=${txtbld}$(tput setaf 4) #  blue
+bldwht=${txtbld}$(tput setaf 7) #  white
+txtrst=$(tput sgr0)             # Reset
+info=${bldwht}*${txtrst}        # Feedback
+pass=${bldblu}*${txtrst}
+warn=${bldred}*${txtrst}
+ques=${bldblu}?${txtrst}
+
 function log () {
-  echo -e "$1"
+  echo -e "$(tput bold) $1"
   echo -e $@ >> $LOGFILE
 }
 
@@ -112,7 +124,7 @@ function get_submodules () {
   handle_error
 }
 
-log "Starting Hermes installation"
+log "$(tput bold)Starting Hermes installation"
 
 backup_dotfiles
 
