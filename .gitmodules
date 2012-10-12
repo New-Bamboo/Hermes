@@ -1,57 +1,57 @@
-[submodule "vim/bundle/vim-pathogen"]
-	path = vim/bundle/vim-pathogen
+[submodule "hermes/vim/bundle/vim-pathogen"]
+	path = hermes/vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/vim-rails"]
-	path = vim/bundle/vim-rails
+[submodule "hermes/vim/bundle/vim-rails"]
+	path = hermes/vim/bundle/vim-rails
 	url = https://github.com/tpope/vim-rails
-[submodule "vim/bundle/vim-endwise"]
-	path = vim/bundle/vim-endwise
+[submodule "hermes/vim/bundle/vim-endwise"]
+	path = hermes/vim/bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
-[submodule "vim/bundle/vim-surround"]
-	path = vim/bundle/vim-surround
+[submodule "hermes/vim/bundle/vim-surround"]
+	path = hermes/vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
+[submodule "hermes/vim/bundle/vim-fugitive"]
+	path = hermes/vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/snipmate.vim"]
-	path = vim/bundle/snipmate.vim
+[submodule "hermes/vim/bundle/snipmate.vim"]
+	path = hermes/vim/bundle/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
+[submodule "hermes/vim/bundle/ctrlp.vim"]
+	path = hermes/vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/vim-powerline"]
-	path = vim/bundle/vim-powerline
+[submodule "hermes/vim/bundle/vim-powerline"]
+	path = hermes/vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "vim/bundle/zencoding-vim"]
-	path = vim/bundle/zencoding-vim
+[submodule "hermes/vim/bundle/zencoding-vim"]
+	path = hermes/vim/bundle/zencoding-vim
 	url = https://github.com/mattn/zencoding-vim.git
-[submodule "vim/bundle/tabular"]
-	path = vim/bundle/tabular
+[submodule "hermes/vim/bundle/tabular"]
+	path = hermes/vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "vim/bundle/vimux"]
-	path = vim/bundle/vimux
+[submodule "hermes/vim/bundle/vimux"]
+	path = hermes/vim/bundle/vimux
 	url = https://github.com/benmills/vimux.git
-[submodule "vim/bundle/vimux-cucumber"]
-	path = vim/bundle/vimux-cucumber
+[submodule "hermes/vim/bundle/vimux-cucumber"]
+	path = hermes/vim/bundle/vimux-cucumber
 	url = https://github.com/cloud8421/vimux-cucumber
-[submodule "vim/bundle/vimux-ruby-test"]
-	path = vim/bundle/vimux-ruby-test
+[submodule "hermes/vim/bundle/vimux-ruby-test"]
+	path = hermes/vim/bundle/vimux-ruby-test
 	url = https://github.com/pgr0ss/vimux-ruby-test
-[submodule "vim/bundle/vim-turbux"]
-	path = vim/bundle/vim-turbux
+[submodule "hermes/vim/bundle/vim-turbux"]
+	path = hermes/vim/bundle/vim-turbux
 	url = https://github.com/jgdavey/vim-turbux
-[submodule "vim/bundle/vim-cucumber"]
-	path = vim/bundle/vim-cucumber
+[submodule "hermes/vim/bundle/vim-cucumber"]
+	path = hermes/vim/bundle/vim-cucumber
 	url = https://github.com/tpope/vim-cucumber
-[submodule "vim/bundle/tComment.git"]
-	path = vim/bundle/tComment.git
+[submodule "hermes/vim/bundle/tComment.git"]
+	path = hermes/vim/bundle/tComment.git
 	url = https://github.com/vim-scripts/tComment.git
-[submodule "vim/bundle/vim-unimpaired"]
-	path = vim/bundle/vim-unimpaired
+[submodule "hermes/vim/bundle/vim-unimpaired"]
+	path = hermes/vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
-[submodule "vim/bundle/vim-textobj-rubyblock"]
-	path = vim/bundle/vim-textobj-rubyblock
+[submodule "hermes/vim/bundle/vim-textobj-rubyblock"]
+	path = hermes/vim/bundle/vim-textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock
-[submodule "vim/bundle/vim-textobj-user"]
-	path = vim/bundle/vim-textobj-user
+[submodule "hermes/vim/bundle/vim-textobj-user"]
+	path = hermes/vim/bundle/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user
