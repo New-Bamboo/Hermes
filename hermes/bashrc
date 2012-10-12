@@ -1,22 +1,28 @@
 function load_command_completions {
-  for f in "/etc/bash_completion.d/*.bash"; do
-   source "$f"
-  done
-  unset f
+  if [ -d "/etc/bash_completion.d" ]; then
+    for f in "/etc/bash_completion.d/*.bash"; do
+     source "$f"
+    done
+    unset f
+  fi
 }
 
 function load_homebrew_command_completions {
-  for f in "/usr/local/etc/bash_completion.d/*.bash"; do
-   source "$f"
-  done
-  unset f
+  if [ -d "/usr/local/etc/bash_completion.d" ]; then
+    for f in "/usr/local/etc/bash_completion.d/*.bash"; do
+     source "$f"
+    done
+    unset f
+  fi
 }
 
 function source_modules {
-  for f in "$HOME/.bashrc.d/*.bash"; do
-   source "$f"
-  done
-  unset f
+  if [ -d "$HOME/.bashrc.d" ]; then
+    for f in "$HOME/.bashrc.d/*.bash"; do
+     source "$f"
+    done
+    unset f
+  fi
 }
 
 function configure_rvm {
