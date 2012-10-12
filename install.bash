@@ -108,6 +108,7 @@ function homebrew_dependencies () {
 
 function get_submodules () {
   log "Installing git submodules"
+  cd $INSTALL_DIR
   git submodule init && git submodule update
   handle_error
 }
