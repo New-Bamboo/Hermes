@@ -81,8 +81,6 @@ function homebrew_checkinstall_vim () {
   log "Checking for a reasonable Vim installation."
   SKIP=`vim --version | grep '+clipboard'`
   if [[ "$SKIP" == "" ]]; then
-    log "Your Vim installation is just fine. Doing nothing."
-  else
     brew list macvim
     if [ $? == 0 ]; then
       log "Removing Homebrew's macvim recipe."
@@ -91,6 +89,8 @@ function homebrew_checkinstall_vim () {
       log "You don't have Homebrew's macvim installed at all."
     fi
     install_homebrew $1
+  else
+    log "Your Vim installation is just fine. Doing nothing."
   fi
 }
 

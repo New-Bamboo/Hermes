@@ -1,3 +1,4 @@
+bash
 macvim --override-system-vim
 reattach-to-user-namespace
 fish
