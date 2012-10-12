@@ -1,19 +1,15 @@
 function load_homebrew_command_completions {
-  if [ "$(ls -A '/usr/local/etc/bash_completion.d')" ]; then
-    for f in "/usr/local/etc/bash_completion.d/*.bash"; do
-     source "$f"
-    done
-    unset f
-  fi
+  for f in "/usr/local/etc/bash_completion.d/*.bash"; do
+   source "$f" &> /dev/null
+  done
+  unset f
 }
 
 function source_modules {
-  if [ "$(ls $HOME/.bashrc.d)" ]; then
-      for f in "$HOME/.bashrc.d/*.bash"; do
-     source "$f"
-    done
-    unset f
-  fi
+  for f in "$HOME/.bashrc.d/*.bash"; do
+    source "$f" &> /dev/null
+  done
+  unset f
 }
 
 function configure_rvm {
