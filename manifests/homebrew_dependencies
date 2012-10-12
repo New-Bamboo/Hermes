@@ -1,6 +1,8 @@
 bash
+bash-completion
 macvim --override-system-vim
 reattach-to-user-namespace
 fish
 ack
 tmux
+rails-completion
