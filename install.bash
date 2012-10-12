@@ -78,10 +78,10 @@ function homebrew_checkinstall_recipe () {
 }
 
 function homebrew_checkinstall_vim () {
-  log "Checking for a reasonable Vim installation."
+  log "Checking for a sane Vim installation."
   SKIP=`vim --version | grep '+clipboard'`
   if [[ "$SKIP" == "" ]]; then
-    brew list macvim
+    brew list macvim &> /dev/null
     if [ $? == 0 ]; then
       log "Removing Homebrew's macvim recipe."
       remove_homebrew "macvim"
@@ -95,9 +95,8 @@ function homebrew_checkinstall_vim () {
 }
 
 function homebrew_dependencies () {
-  log "Installing Homebrew dependencies"
+  log "Installing Homebrew dependencies. This may take a while."
   while read recipe; do
-    log "Installing recipe $recipe"
     if [[ $recipe == macvim* ]]; then
       homebrew_checkinstall_vim $recipe
     else
@@ -107,9 +106,9 @@ function homebrew_dependencies () {
 }
 
 function get_submodules () {
-  log "Installing git submodules"
+  log "Installing git submodules. This may take a while."
   cd $INSTALL_DIR
-  git submodule init && git submodule update
+  git submodule init && git submodule update &> /dev/null
   handle_error
 }
 
