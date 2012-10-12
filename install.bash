@@ -6,12 +6,13 @@ TEMP_MANIFEST=/tmp/$USER-hermes_custom_manifest
 touch $TEMP_MANIFEST
 
 function log () {
+  echo -e "$1"
   echo -e $@ >> $LOGFILE
 }
 
 function handle_error () {
   if [ "$?" != "0" ]; then
-    echo -e "$2 $1"
+    log "$2 $1"
     exit 1
   fi
 }
@@ -27,6 +28,7 @@ function customise_manifest () {
 }
 
 function link_dotfiles () {
+  log "Linking the dotfiles to your home folder."
   CONTENT=`cat $INSTALL_DIR/dotfile_manifest`
   for file in $CONTENT; do
     SOURCE_FILE=$HOME/.hermes/hermes/$file
@@ -45,51 +47,57 @@ function check_command_dependency () {
 }
 
 function install_homebrew () {
-  log "Checking for the presence of $1"
+  log "Installing Homebrew recipe $1."
   HOMEBREW_OUTPUT=`brew install $1 2>&1`
   handle_error $1 "Homebrew had a problem\n($HOMEBREW_OUTPUT):"
 }
 
 function remove_homebrew () {
-  log "Removing homebrew recipe $1"
+  log "Removing homebrew recipe $1."
   HOMEBREW_OUTPUT=`brew uninstall $1 2>&1`
   handle_error $1 "Homebrew had a problem while removing\n($HOMEBREW_OUTPUT):"
 }
 
 function backup_dotfiles () {
+  log "Backing up your dotfiles."
   customise_manifest
   cd $HOME
-  tar zcvf $INSTALL_DIR/dotfile_backup-$TIMESTAMP.tar.gz -I $TEMP_MANIFEST >> $LOGFILE 2>&1
+  BACKUP_FILE=$INSTALL_DIR/dotfile_backup-$TIMESTAMP.tar.gz
+  tar zcvf $BACKUP_FILE -I $TEMP_MANIFEST >> $LOGFILE 2>&1
   handle_error "($?)" "Backup failed, please see the install log for details"
+  log "Your dotfiles are now backed up to $BACKUP_FILE."
 }
 
 function homebrew_checkinstall_recipe () {
   brew list $1
   if [ $? == 0 ]; then
-    echo "Your $1 installation is fine. Doing nothing."
+    log "Your $1 installation is fine. Doing nothing."
   else
     install_homebrew $1
   fi
 }
 
 function homebrew_checkinstall_vim () {
+  log "Checking for a reasonable Vim installation."
   SKIP=`vim --version | grep '+clipboard'`
   if [[ "$SKIP" != "" ]]; then
     echo "Your vim installation is fine. Doing nothing."
   else
     brew list macvim
     if [ $? == 0 ]; then
+      log "Removing Homebrew's macvim recipe."
       remove_homebrew "macvim"
     else
-      echo "No vim to remove"
+      log "You don't have Homebrew's macvim installed at all."
     fi
     install_homebrew $1
   fi
 }
 
 function homebrew_dependencies () {
+  log "Installing Homebrew dependencies"
   while read recipe; do
-    echo "Installing recipe $recipe"
+    log "Installing recipe $recipe"
     if [[ $recipe == macvim* ]]; then
       homebrew_checkinstall_vim $recipe
     else
