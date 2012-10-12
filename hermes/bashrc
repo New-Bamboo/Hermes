@@ -1,12 +1,3 @@
-function load_command_completions {
-  if [ "$(ls -A '/etc/bash_completion.d/')" ]; then
-    for f in "/etc/bash_completion.d/*.bash"; do
-     source "$f"
-    done
-    unset f
-  fi
-}
-
 function load_homebrew_command_completions {
   if [ "$(ls -A '/usr/local/etc/bash_completion.d')" ]; then
     for f in "/usr/local/etc/bash_completion.d/*.bash"; do
@@ -34,7 +25,6 @@ function tmuxify_command_prompt {
   export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 }
 
-load_command_completions
 load_homebrew_command_completions
 source_modules
 configure_rvm
