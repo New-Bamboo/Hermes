@@ -18,7 +18,7 @@ warn=${bldred}*${txtrst}
 ques=${bldblu}?${txtrst}
 
 function log () {
-  echo -e "$(tput bold) $1"
+  echo -e "$(tput bold)$1$(tput sgr0)"
   echo -e $@ >> $LOGFILE
 }
 
