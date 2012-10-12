@@ -40,3 +40,9 @@
 [submodule "vim/bundle/vim-turbux"]
 	path = vim/bundle/vim-turbux
 	url = https://github.com/jgdavey/vim-turbux
+[submodule "vim/bundle/vim-cucumber"]
+	path = vim/bundle/vim-cucumber
+	url = https://github.com/tpope/vim-cucumber
+[submodule "vim/bundle/tComment.git"]
+	path = vim/bundle/tComment.git
+	url = https://github.com/vim-scripts/tComment.git
