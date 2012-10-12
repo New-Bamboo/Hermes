@@ -1,5 +1,7 @@
 profile
+bash_profile
 bashrc
+bashrc.d
 vim
 vimrc
 tmux.conf

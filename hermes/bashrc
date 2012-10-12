@@ -1,0 +1,37 @@
+source "$HOME/.profile"
+
+function load_command_completions {
+  for f in "/etc/bash_completion.d/*.bash"; do
+   source "$f"
+  done
+  unset f
+}
+
+function load_homebrew_command_completions {
+  for f in "/usr/local/etc/bash_completion.d/*.bash"; do
+   source "$f"
+  done
+  unset f
+}
+
+function source_modules {
+  for f in "$HOME/.bashrc.d/*.bash"; do
+   source "$f"
+  done
+  unset f
+}
+
+function configure_rvm {
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+  export PATH=$PATH:$HOME/.rvm/bin
+}
+
+function tmuxify_command_prompt {
+  export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
+}
+
+load_command_completions
+load_homebrew_command_completions
+source_modules
+configure_rvm
+tmuxify_command_prompt
