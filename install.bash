@@ -125,4 +125,5 @@ check_command_dependency rvm
 
 homebrew_dependencies
 
+mkdir -p $HOME/.config
 link_dotfiles
