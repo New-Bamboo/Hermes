@@ -1,5 +1,5 @@
 function load_command_completions {
-  if [ -d "/etc/bash_completion.d" ]; then
+  if [ "$(ls -A '/etc/bash_completion.d/')" ]; then
     for f in "/etc/bash_completion.d/*.bash"; do
      source "$f"
     done
@@ -8,7 +8,7 @@ function load_command_completions {
 }
 
 function load_homebrew_command_completions {
-  if [ -d "/usr/local/etc/bash_completion.d" ]; then
+  if [ "$(ls -A '/usr/local/etc/bash_completion.d')" ]; then
     for f in "/usr/local/etc/bash_completion.d/*.bash"; do
      source "$f"
     done
@@ -17,8 +17,8 @@ function load_homebrew_command_completions {
 }
 
 function source_modules {
-  if [ -d "$HOME/.bashrc.d" ]; then
-    for f in "$HOME/.bashrc.d/*.bash"; do
+  if [ "$(ls $HOME/.bashrc.d)" ]; then
+      for f in "$HOME/.bashrc.d/*.bash"; do
      source "$f"
     done
     unset f
