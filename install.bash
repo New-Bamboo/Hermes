@@ -18,7 +18,7 @@ function handle_error () {
 }
 
 function customise_manifest () {
-  CONTENT=`cat $INSTALL_DIR/dotfile_manifest`
+  CONTENT=`cat $INSTALL_DIR/manifests/dotfile_manifest`
   for file in $CONTENT; do
     if [ -e $HOME/.$file ]
       then
@@ -29,7 +29,7 @@ function customise_manifest () {
 
 function link_dotfiles () {
   log "Linking the dotfiles to your home folder."
-  CONTENT=`cat $INSTALL_DIR/dotfile_manifest`
+  CONTENT=`cat $INSTALL_DIR/manifests/dotfile_manifest`
   for file in $CONTENT; do
     SOURCE_FILE=$HOME/.hermes/hermes/$file
     TARGET_FILE=$HOME/.$file
@@ -103,7 +103,7 @@ function homebrew_dependencies () {
     else
       homebrew_checkinstall_recipe $recipe
     fi
-  done < "$INSTALL_DIR/homebrew_dependencies"
+  done < "$INSTALL_DIR/manifests/homebrew_dependencies"
 }
 
 function get_submodules () {
