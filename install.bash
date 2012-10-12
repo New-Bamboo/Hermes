@@ -116,6 +116,8 @@ log "Starting Hermes installation"
 
 backup_dotfiles
 
+get_submodules
+
 # Check for dependencies
 check_command_dependency brew
 check_command_dependency rvm
