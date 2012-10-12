@@ -106,6 +106,12 @@ function homebrew_dependencies () {
   done < "$INSTALL_DIR/homebrew_dependencies"
 }
 
+function get_submodules () {
+  log "Installing git submodules"
+  git submodule init && git submodule update
+  handle_error
+}
+
 log "Starting Hermes installation"
 
 backup_dotfiles
