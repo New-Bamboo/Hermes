@@ -11,3 +11,4 @@ irbrc
 powconfig
 pryrc
 tmux.conf
+config/fish
