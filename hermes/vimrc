@@ -1,3 +1,7 @@
+" loading pathogen at runtime as it's bundled
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+
 set nocompatible  " Use Vim settings, rather then Vi settings
 set nobackup
 set nowritebackup
@@ -44,5 +48,9 @@ set wildmode=list:longest,list:full
 set complete=.,w,b
 
 " Tags
-let Tlist_Ctags_Cmd = "/usr/local/bin/ctags -R --exclude=.git --exclude=log --exclude='*.js' -f ./.tags *"
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags -R --exclude=.git --exclude=log -f ./.tags *"
 set tags+=.tags
+
+source $HOME/.vim/autocommands.vim
+source $HOME/.vim/plugins.vim
+source $HOME/.vim/shortcuts.vim
