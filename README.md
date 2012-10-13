@@ -94,4 +94,67 @@ Let's now go with some defaults for a basic `.vimrc` file:
     set wildmode=list:longest,list:full
     set complete=.,w,b"
 
-These settings will let you efficiently edit any file whose type is supported by default, and that already covers javascript and ruby.
+These settings will let you efficiently edit any file whose type is supported by default, and that already covers javascript and ruby. The enable standard features like line numbering and syntax highlight but also take care of some compatibility settings with OsX and iTerm (like mouse support and clipboard sharing).
+
+#### Plugins
+
+Plugins are a powerful way to extend Vim's capabilities. Implementation may change, however expectations from a modern text editor can be condensed in the following requirements:
+
+- Support for fuzzy search inside a directory tree, so that I can easily open a file by name without manually browsing the tree itself;
+- Full text search inside a directory tree;
+- Snippet support with expansion, tab stops and completion (in a Textmate fashion);
+- Integration with the testing framework, so that I can run tests with shortcuts without leaving the editor;
+- Tabs and split windows, so I can have tests and implementation visible at the same time and I can easily switch from one to the other.
+- Language specific features, like syntax awareness for indentation conventions
+
+Needless to say, other text editors support these features, like Sublime Text 2 or Emacs. Vim, however, combines this with the modal editing approach, becoming an extremely effective text manipulation machine.
+
+Hermes provides a good number of plugins, aiming to strike a balance between features and speed. You can see the complete list under `hermes/vim/bundle`, but some highlights are:
+
+- [Ctrlp](https://github.com/kien/ctrlp.vim): fuzzy finder, supports file and tag based search.
+- [Snipmate](https://github.com/msanders/snipmate.vim): heavily inspired by Textmate, tab completion based on snippet files that can be language specific.
+- [The silver searcher](https://github.com/epmatsw/ag.vim): vim bindings for the crazy fast ack alternative.
+- [TComment](https://github.com/vim-scripts/tComment): toggle comments in any language.
+- [Rails.vim](https://github.com/tpope/vim-rails): shortcuts, generators and settings for a Ruby on Rails project. Absolutely killer.
+- [Vimux](https://github.com/benmills/vimux): a bridge with Tmux to send text and commands to a Tmux pane. This plugins is essential for the whole testing support topic.
+
+There are, however, arguments that can be made against plugin abuse:
+
+- Vim has ways and conventions to accomplish certain tasks, and while it's possible to change this, it's important to try to understand the vim way first and break it only if strictly necessary;
+- One of Vim's benefits is speed and low memory footprint, which makes it always responsive even when opening huge files (like logs). An extremely complicated configuration with tons of plugins can make this harder;
+- Sometimes a plugin is not necessary, instead a smaller but better conceived setting in `.vimrc` is enough;
+- Albeit powerful, it's a text editor and it should just do this job, according the one thing well philosophy.
+
+Vim's approach to plugin management is a bit counterintuitive: by default, Vim looks into `~/.vim` for additional scripts to load, divided into subfolders according to the circumstances when they need to be activated. For example, a script can be split into the `plugin` and the `autoload` directory, the former for the bulk, load-once functionality while the latter for anything that requires constant recalculation. This means that a manual installation affects multiple directories, becoming cumbersome to manage and update.
+
+Enter [Pathogen](https://github.com/tpope/vim-pathogen), a package manager that makes this process painless and that reverses the perspective, as it lets you organize plugins by name. With Pathogen, you can simply clone a repository in your `~/.vim` folder and you're done. This is the first stepping stone to a proper dotfiles management through Github, where you can add every plugin as a git submodule and update them all with a single command.
+
+Hermes uses the git submodule pattern: because every plugin can be kept in a single folder thanks to Pathogen, it's possible to add it as a submodule in the `hermes/vim/bundle` folder. This makes it dead easy to add other plugins when needed:
+
+    cd ~/.hermes
+    git submodule add <github-url> hermes/vim/bundle/<plugin-name>
+
+And you're done! In a similar fashion, updating plugins is also straightforward
+
+    cd ~/.hermes
+    git submodule foreach git pull origin master
+
+As in every other github based project, it's advisable to fork a plugin if you need to make changes that go beyond simple configuration (which we usually add to `~/.hermes/vim/plugins.vim`). In that case, you need to remove the original submodule and add it back again using your fork as a url.
+
+Pathogen loads the content of `~/.vim/bundle` by default. including itself. This is controlled by the first two lines in the `~/.vimrc` file:
+
+    " loading pathogen at runtime as it's bundled
+    runtime bundle/vim-pathogen/autoload/pathogen.vim
+    call pathogen#infect()
+
+#### Managing configuration
+
+If you keep extending your `.vimrc`, it comes to a point where it's simply too long, so it makes sense to split it into separate chunks that are somewhat related: here's a sample from the bottom of my `.vimrc`:
+
+    source $HOME/.vim/autocommands.vim
+    source $HOME/.vim/plugins.vim
+    source $HOME/.vim/shortcuts.vim
+
+As a bonus, pressing `gf` in normal mode will open the file under the cursor.
+
+In addition, always take care of reading the documentation for the plugins you use, as they're usually extremely configurable (an example is the `plugins.vim`) file.
