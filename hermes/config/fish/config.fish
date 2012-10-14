@@ -1,6 +1,6 @@
 if status --is-login
 
-  for p in /usr/local/bin /usr/local/sbin /usr/local/share/npm/bin /usr/bin /opt/local/bin ~/.config/fish/bin
+  for p in /usr/local/bin /usr/local/sbin /usr/local/share/npm/bin /usr/bin /opt/local/bin ~/.hermes/bin
     if test -d $p
       set PATH $p $PATH
     end
