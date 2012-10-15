@@ -13,6 +13,14 @@ Hermes gives you a lot of things for free:
 
 ## Installation
 
+### Prerequisites
+
+Hermes relies on Homebrew and RVM to work properly. While the former is a de facto standard in the Mac OsX development community, there are a good number of developers that use RBenv instead, so support for that is in the pipeline.
+
+If they're not available, the installer script will halt. Please refer to the original guides for instructions if you need them.
+
+### Fork first!
+
 As first step, you should fork the project, as this will make it easier to customize your installation. After you're done, you can run:
 
     curl https://raw.github.com/<your username>/Hermes/master/go.bash | bash
@@ -23,7 +31,29 @@ This will perform the following actions:
 - Backup any file or folder that would be overwritten by the installer process
 - Install all dotfiles and plugins available in the `hermes` directory and symlink them to the right locations in your home folder
 
-You may also want to add Hermes's repository as upstream, so you can pull in the changes done on the main trunk whenever you need.
+You may also want to add Hermes's repository as upstream, so you can pull in the changes done on the main trunk whenever you need to.
+
+### What's included in the installer
+
+The installer will:
+
+- check for dependencies
+- backup any existing dotfile that would be overwritten in a timestamped tar file that you can use to restore your machine
+- install the needed software for homebrew
+- create a `~/hermes` directory and symlink its content to your home folder where every piece of software expects to find its main configuration file(s)
+
+Hermes includes:
+
+- configuration and plugins for Vim
+- configuration for Tmux
+- configuration and additional functionality for two shells: Bash and Fish.
+- settings for `gem`, `ack`, `pow`, `pry` and `irb`
+
+In addition, Hermes glues all components together so they work properly among them and with the rest of the os. Two examples are setting support for the system clipboard and mouse integration where needed.
+
+### Updates
+
+Being a git based project, you can update Hermes by simply pulling from the remote. If you forked, please remember to add the original repo as upstream, otherwise it's just a matter of pulling from origin.
 
 ## How it's built
 
