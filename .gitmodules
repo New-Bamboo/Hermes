@@ -58,3 +58,6 @@
 [submodule "hermes/vim/bundle/nerdtree"]
 	path = hermes/vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "hermes/vim/bundle/matchit"]
+	path = hermes/vim/bundle/matchit
+	url = https://github.com/tmhedberg/matchit
