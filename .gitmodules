@@ -61,3 +61,6 @@
 [submodule "hermes/vim/bundle/matchit"]
 	path = hermes/vim/bundle/matchit
 	url = https://github.com/tmhedberg/matchit
+[submodule "hermes/vim/bundle/vim-buffergator"]
+	path = hermes/vim/bundle/vim-buffergator
+	url = https://github.com/jeetsukumaran/vim-buffergator
