@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+while true; do
+  if [[ -n $(/usr/local/bin/tmux showb 2> /dev/null) ]]; then
+    $(/usr/local/bin/tmux saveb -|pbcopy && /usr/local/bin/tmux deleteb)
+  fi
+  sleep 1
+done
