@@ -1,19 +1,19 @@
 function load_homebrew_command_completions {
-  for f in "/usr/local/etc/bash_completion.d/*.bash"; do
+  for f in /usr/local/etc/bash_completion.d/*.bash; do
    source "$f" &> /dev/null
   done
   unset f
 }
 
 function source_modules {
-  for f in "$HOME/.bashrc.d/*.bash"; do
+  for f in $HOME/.bashrc.d/*.bash; do
     source "$f" &> /dev/null
   done
   unset f
 }
 
 function configure_rvm {
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+  [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
   export PATH=$PATH:$HOME/.rvm/bin
 }
 
