@@ -1,1 +1,1 @@
-export PATH=$HOME/.hermes/bin:$PATH
+export PATH=$HOME/.hermes/hermes/bin:$PATH
