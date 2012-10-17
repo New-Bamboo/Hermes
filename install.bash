@@ -3,6 +3,7 @@ INSTALL_DIR=`pwd`
 TIMESTAMP=`date +%Y%m%d%H%M%S`
 LOGFILE=$INSTALL_DIR/install-$TIMESTAMP.log
 TEMP_MANIFEST=/tmp/$USER-hermes_custom_manifest
+LAUNCHAGENTS_DIR=$HOME/Library/LaunchAgents
 touch $TEMP_MANIFEST
 
 # Colours
@@ -138,3 +139,12 @@ homebrew_dependencies
 
 mkdir -p $HOME/.config
 link_dotfiles
+
+# Install required Launch Agent for Tmux copy
+log "Installing Tmux paste buffer launch agent"
+mkdir -p $LAUNCHAGENTS_DIR
+cp $INSTALL_DIR/launch_agents/uk.co.newbamboo.hermes.plist $LAUNCHAGENTS_DIR/
+launchctl -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
+log "Tmux paste buffer launch agent installed."
+log "To disable temporarily, run: launchctl unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
+log "To disable permanently, run: launchctl -w unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
