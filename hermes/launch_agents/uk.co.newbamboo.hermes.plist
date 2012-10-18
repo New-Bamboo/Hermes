@@ -8,7 +8,7 @@
     <array>
       <string>/usr/local/bin/reattach-to-user-namespace</string>
       <string>-l</string>
-      <string>~/.hermes/bin/tmux-paste-buffer</string>
+      <string>~/.hermes/hermes/bin/tmux-paste-buffer</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
