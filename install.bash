@@ -125,6 +125,38 @@ function get_submodules () {
   handle_error
 }
 
+function install_tmux_paste_buffer () {
+
+  mkdir -p $LAUNCHAGENTS_DIR
+
+(
+cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>uk.co.newbamboo.hermes</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>$(which reattach-to-user-namespace)</string>
+      <string>-l</string>
+      <string>$HOME/.hermes/hermes/bin/tmux-paste-buffer</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+  </dict>
+</plist>
+EOF
+) > $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
+
+  log "Installing Tmux paste buffer launch agent"
+  launchctl -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
+  log "Tmux paste buffer launch agent installed."
+  log "To disable temporarily, run: launchctl unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
+  log "To disable permanently, run: launchctl -w unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
+}
+
 log "$(tput bold)Starting Hermes installation"
 
 backup_dotfiles
@@ -140,11 +172,4 @@ homebrew_dependencies
 mkdir -p $HOME/.config
 link_dotfiles
 
-# Install required Launch Agent for Tmux copy
-log "Installing Tmux paste buffer launch agent"
-mkdir -p $LAUNCHAGENTS_DIR
-cp $INSTALL_DIR/launch_agents/uk.co.newbamboo.hermes.plist $LAUNCHAGENTS_DIR/
-launchctl -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
-log "Tmux paste buffer launch agent installed."
-log "To disable temporarily, run: launchctl unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
-log "To disable permanently, run: launchctl -w unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
+install_tmux_paste_buffer
