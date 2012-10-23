@@ -188,3 +188,39 @@ If you keep extending your `.vimrc`, it comes to a point where it's simply too l
 As a bonus, pressing `gf` in normal mode will open the file under the cursor.
 
 In addition, always take care of reading the documentation for the plugins you use, as they're usually extremely configurable (an example is the `plugins.vim`) file.
+
+Documentation is usually available by typing `:help <term-to-search>`, however Hermes has a custom shortcut you can use: by pressing `<leader>h` with the cursor on a word, it will search the help docs for the word itself.
+
+Plugin configuration is vital in the long run, as the purpose of plugins should be to help you, not getting in your way.
+
+As an example, let's look at the configuration Hermes supplies for Ctrl-p (in `~/.hermes/hermes/vim/plugins.vim`):
+
+    set wildignore+=*/.hg/*,*/.svn/*,*/vendor/cache/*,*/public/system/*,*/tmp/*,*/log/*,*/.git/*,*/.jhw-cache/*,*/solr/data/*,*/node_modules/*,*/.DS_Store
+
+The `wildignore` flag is not Ctrl-p specific, as it's used by Vim for a lot autocompletion and expansion functions: the more we remove paths and files it's unlikely we want to parse, the better Vim will perform. And as Ctrl-p uses this pattern to determine a baseline for excluding files to create its index, by setting it right we keep it snappy.
+
+#### Daily use cases
+
+Here are a few examples of what you can do with Vim, bearing in mind that this is not meant to be an exhaustive guide. Instead, we will focus on recurring tasks that usually pop up during a normal workday.
+
+##### Shelling out
+
+Having the shell at your disposal can speed up your workflow tenfold, but to really take advantage of this it's important to learn how to alternate between Vim and the command line.
+
+Sometimes you just need to run a simple shell command, like creating a directory or touching a file. In that situation, press `:` in normal mode to enter the command mode. Then type `!` to tell Vim to shell out and perform the command in the shell. So, if you want to create a `sample` directory, you can type:
+
+    :!mkdir sample
+
+The command will be performed in the current working directory, you can verify that with `:pwd`.
+
+When you need to step out the file you're editing, perform a few tasks and then go back, your best option is to suspend Vim with `ctrl-z` and then resume it with `fg` when you're done. This is a very straightforward approach, widely used in the Unix world. It works out of the box and has no other requirements.
+
+Alternatively, you can use a different window or pane with Tmux, as we're detailing in chapter XXX.
+
+As always, you can associate a shortcut for a shell command you want to run: a good example is creating a leader command to run the current file as a spec.
+
+    noremap <leader>s :!bundle exec rspec %<cr>
+
+We use `noremap` to tell vim to create a key map for normal mode, assign it to `<leader>s` and then specify the command, a simple `bundle exec rspec` where we press the current file as an argument and then press enter (carriage return).
+
+

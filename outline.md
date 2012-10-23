@@ -47,6 +47,7 @@
   - Search and replace
   - Visual block
   - Macros vs normal mode
+  - Reading from a file or a command
   - Surround
   - Text objects
   - `gf`
