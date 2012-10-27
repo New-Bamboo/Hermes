@@ -64,3 +64,9 @@
 [submodule "hermes/vim/bundle/vim-buffergator"]
 	path = hermes/vim/bundle/vim-buffergator
 	url = https://github.com/jeetsukumaran/vim-buffergator
+[submodule "hermes/vim/bundle/ack.vim"]
+	path = hermes/vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim
+[submodule "hermes/vim/bundle/vim-javascript"]
+	path = hermes/vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
