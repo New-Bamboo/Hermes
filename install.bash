@@ -151,7 +151,7 @@ EOF
 ) > $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
 
   log "Installing Tmux paste buffer launch agent"
-  launchctl -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
+  launchctl load -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
   log "Tmux paste buffer launch agent installed."
   log "To disable temporarily, run: launchctl unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
   log "To disable permanently, run: launchctl -w unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
