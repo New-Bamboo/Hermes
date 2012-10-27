@@ -1,6 +1,6 @@
 if status --is-login
 
-  for p in /usr/local/bin /usr/local/sbin /usr/local/share/npm/bin /usr/bin /opt/local/bin ~/.hermes/hermes/bin
+  for p in /usr/local/bin /usr/local/sbin /usr/local/share/npm/bin /opt/local/bin ~/.hermes/hermes/bin
     if test -d $p
       set PATH $p $PATH
     end
