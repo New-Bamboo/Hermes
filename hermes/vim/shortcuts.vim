@@ -1,3 +1,6 @@
+"Change leader key
+let mapleader="§"
+
 " Help for word under cursor
 :map <leader>h "zyw:exe "h ".@z.""<CR>
 
@@ -46,3 +49,16 @@ nmap <F10> <C-w>t<C-w>K
 
 "enable . in visual mode
 vnoremap . :norm.<CR>
+
+" NERDTree
+map <leader>3 :NERDTreeToggle<CR>
+
+"Ctrlp shortcuts
+nmap <silent> <leader>1 :CtrlP<cr>
+nmap <silent> <Leader>2 :CtrlPTag<cr>
+
+"Automplete with §
+imap § <C-n>
+
+"Fixes end of line movement in visual mode
+vmap $ g_
