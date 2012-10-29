@@ -3,7 +3,8 @@ bash
 bash-completion
 macvim --override-system-vim
 reattach-to-user-namespace
-fish
+fishfish
 ack
 tmux
 rails-completion
+grc

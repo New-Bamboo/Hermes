@@ -1,15 +1,9 @@
 if status --is-login
 
-  for p in /usr/local/bin /usr/local/sbin /usr/local/share/npm/bin /usr/bin /opt/local/bin ~/.config/fish/bin
+  for p in /usr/local/bin /usr/local/sbin /usr/local/share/npm/bin /opt/local/bin ~/.hermes/hermes/bin
     if test -d $p
       set PATH $p $PATH
     end
-  end
-
-  # script that needs to start once per fishd session
-  if test $RUNNING_TMUX_COPY == false
-    tmux_copy &
-    set -U RUNNING_TMUX_COPY true
   end
 
 end
@@ -33,20 +27,27 @@ function flush
 end
 
 function fish_prompt -d "Write out the prompt"
-# printf '%s%s@%s%s' (set_color brown) (whoami) (hostname|cut -d . -f 1) (set_color normal)
+  set -l last_status $status
 
-# Color writeable dirs green, read-only dirs red
-if test -w "."
-  printf '%s%s' (set_color brown) (prompt_pwd)
-else
-  printf '%s%s' (set_color red) (prompt_pwd)
-end
+  # color writeable dirs green, read-only dirs red
+  if test -w "."
+    printf '%s%s' (set_color brown) (prompt_pwd)
+  else
+    printf '%s%s' (set_color red) (prompt_pwd)
+  end
 
-# Print git branch
-if test -d ".git"
-  prompt_git
-end
+  # Print git branch
+  if test -d ".git"
+    prompt_git
+  end
 
-printf ' %s%s%s ± %s' (set_color green) (rvm-prompt v) (set_color brown) (set_color normal)
+  # Print RVM info
+  printf ' %s%s' (set_color green) (rvm-prompt v)
+
+  # Print last fg task exit status
+  printf ' %s%s' (set_color red) (echo $last_status)
+
+  # Separator and reset
+  printf '%s ± %s' (set_color brown) (set_color normal)
 
 end
