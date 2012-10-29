@@ -24,7 +24,7 @@ If they're not available, the installer script will halt. Please refer to the or
 As first step, you should fork the project, as this will make it easier to customize your installation. After you're done, you can run:
 
     mkdir -p ~/.hermes
-    git clone https://github.com/<your_username>/Hermes.git ~/.hermes
+    git clone https://github.com/<your_github_username>/Hermes.git ~/.hermes
     cd ~/.hermes
     ./install.bash
 
