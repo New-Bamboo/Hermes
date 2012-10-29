@@ -23,7 +23,10 @@ If they're not available, the installer script will halt. Please refer to the or
 
 As first step, you should fork the project, as this will make it easier to customize your installation. After you're done, you can run:
 
-    curl https://raw.github.com/<your username>/Hermes/master/go.bash | bash
+    mkdir -p ~/.hermes
+    git clone https://github.com/<your_username>/Hermes.git ~/.hermes
+    cd ~/.hermes
+    ./install.bash
 
 This will perform the following actions:
 
