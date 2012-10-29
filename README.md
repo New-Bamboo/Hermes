@@ -11,6 +11,8 @@ Hermes gives you a lot of things for free:
 - Mouse and window integration, allowing selections within tmux panes, not across them.
 - Vim packages that provide git integration, command- and block-completion, fuzzy file search and ease of testing.
 
+Documentation is a work in progress, will be extended throughout time.
+
 ## Installation
 
 ### Prerequisites
