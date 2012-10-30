@@ -11,6 +11,20 @@ Hermes gives you a lot of things for free:
 - Mouse and window integration, allowing selections within tmux panes, not across them.
 - Vim packages that provide git integration, command- and block-completion, fuzzy file search and ease of testing.
 
+Documentation is a work in progress, will be extended throughout time.
+
+## Preliminary Thanks
+
+Hermes combines plugins, settings, snippets, gists, ideas from countless developers around the world. We wish to thank:
+
+- The [Vim](http://www.vim.org/) team;
+- The [Tmux](http://tmux.sourceforge.net/) team;
+- The Bash and [Fish](http://ridiculousfish.com/shell/) team;
+- The [Homebrew](http://mxcl.github.com/homebrew/) team;
+- [Tim Pope](http://tpo.pe/). Seriously, you're awesome;
+- [Thoughtbot](http://thoughtbot.com/) for their dotfiles, essential in getting the Tmux configuration right;
+- [Vimcasts](http://vimcasts.org/), for showing how powerful Vim can be.
+
 ## Installation
 
 ### Prerequisites
@@ -24,7 +38,7 @@ If they're not available, the installer script will halt. Please refer to the or
 As first step, you should fork the project, as this will make it easier to customize your installation. After you're done, you can run:
 
     mkdir -p ~/.hermes
-    git clone https://github.com/<your_username>/Hermes.git ~/.hermes
+    git clone https://github.com/<your_github_username>/Hermes.git ~/.hermes
     cd ~/.hermes
     ./install.bash
 
