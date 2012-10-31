@@ -13,4 +13,4 @@ set -g message-attr bold
 set -g status-left '#[fg=colour252] #S #[fg=colour238,bg=colour234,nobold]'
 set -g window-status-format "#[fg=white,bg=colour235] #I #W "
 set -g window-status-current-format "#[bg=colour203,fg=colour233,noreverse,bold] #I #W #[fg=colour39,bg=colour234,nobold]"
-set -g status-right '#[fg=color39] #(battery-life) #(battery-time) #[fg=colour203] #(date +"%F %H:%M ")'
+set -g status-right '#[fg=colour39] #(battery-life) #(battery-time) #[fg=colour203] #(date +"%F %H:%M ")'
