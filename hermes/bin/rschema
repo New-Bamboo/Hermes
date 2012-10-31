@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+awk "/create_table \"$1\"/, /  end/" db/schema.rb
