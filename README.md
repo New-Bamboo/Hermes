@@ -8,14 +8,15 @@ Hermes gives you a lot of things for free:
 
 - Sensible defaults for developers.
 - Integration of Vim into tmux and tmux into iTerm 2.
-- Mouse and window integration, allowing selections within tmux panes, not across them.
+- Mouse and window integration, allowing selections within tmux and Vim panes, not across them.
 - Vim packages that provide git integration, command- and block-completion, fuzzy file search and ease of testing.
 
-Documentation is a work in progress, will be extended throughout time.
+We feel that good documentation is a key part of using any new technology with lots of moving parts, so we will be improving Hermes' documentation in the days and weeks to come.
+
 
 ## Preliminary Thanks
 
-Hermes combines plugins, settings, snippets, gists, ideas from countless developers around the world. We wish to thank:
+Hermes combines plugins, settings, snippets, gists, and ideas from countless developers around the world. We would like to thank:
 
 - The [Vim](http://www.vim.org/) team;
 - The [Tmux](http://tmux.sourceforge.net/) team;
@@ -25,17 +26,19 @@ Hermes combines plugins, settings, snippets, gists, ideas from countless develop
 - [Thoughtbot](http://thoughtbot.com/) for their dotfiles, essential in getting the Tmux configuration right;
 - [Vimcasts](http://vimcasts.org/), for showing how powerful Vim can be.
 
+
 ## Installation
 
 ### Prerequisites
 
-Hermes relies on Homebrew and RVM to work properly. While the former is a de facto standard in the Mac OsX development community, there are a good number of developers that use RBenv instead, so support for that is in the pipeline.
+Hermes relies on Homebrew and RVM to work properly. While Homebrew is a de facto standard developers using OS X, there are a good number of people that use RBenv, so support for that is in the pipeline. We are happy to look at any pull requests.
 
-If they're not available, the installer script will halt. Please refer to the original guides for instructions if you need them.
+If these two tools are not available, the installer script will halt. Please refer to these tools' excellent documentation for installation instructions.
+
 
 ### Fork first!
 
-As first step, you should fork the project, as this will make it easier to customize your installation. After you're done, you can run:
+As the very first step, you should fork the Hermes on Github since this will make it easier for you to customize your installation. After you're done, you can run:
 
     mkdir -p ~/.hermes
     git clone https://github.com/<your_github_username>/Hermes.git ~/.hermes
@@ -45,32 +48,36 @@ As first step, you should fork the project, as this will make it easier to custo
 This will perform the following actions:
 
 - Check that you have all the needed Homebrew dependencies
-- Backup any file or folder that would be overwritten by the installer process
+- Back up any file or folder that would be overwritten by the installer process
 - Install all dotfiles and plugins available in the `hermes` directory and symlink them to the right locations in your home folder
 
-You may also want to add Hermes's repository as upstream, so you can pull in the changes done on the main trunk whenever you need to.
+You may also want to add Hermes's repository as an upstream repository, so you can pull in the changes done on the main trunk whenever you need to.
+
 
 ### What's included in the installer
 
 The installer will:
 
 - check for dependencies
-- backup any existing dotfile that would be overwritten in a timestamped tar file that you can use to restore your machine
-- install the needed software for homebrew
+- backup any existing dotfile that would be overwritten in a timestamped tar file that you can use to restore your previous configuration
+- install a number of required Homebrew packages
 - create a `~/hermes` directory and symlink its content to your home folder where every piece of software expects to find its main configuration file(s)
 
 Hermes includes:
 
 - configuration and plugins for Vim
 - configuration for Tmux
+- configuration for git
 - configuration and additional functionality for two shells: Bash and Fish.
 - settings for `gem`, `ack`, `pow`, `pry` and `irb`
 
-In addition, Hermes glues all components together so they work properly among them and with the rest of the os. Two examples are setting support for the system clipboard and mouse integration where needed.
+In addition, Hermes glues all components together so they play nicely with each other and the OS. Two examples of this integration are are Hermes' support for the system clipboard in OS X and window/pane aware mouse integration.
+
 
 ### Updates
 
-Being a git based project, you can update Hermes by simply pulling from the remote. If you forked, please remember to add the original repo as upstream, otherwise it's just a matter of pulling from origin.
+Being a git-based project, you can update Hermes by simply pulling from the remote. If you forked the project, please remember to add the original repo as an upstream repository to make getting new project updates easier.
+
 
 ## How it's built
 
