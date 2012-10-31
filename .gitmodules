@@ -73,3 +73,6 @@
 [submodule "hermes/vim/bundle/vim-coffee-script"]
 	path = hermes/vim/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "hermes/vim/bundle/vim-markdown"]
+	path = hermes/vim/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git

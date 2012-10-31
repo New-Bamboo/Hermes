@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+tree app/models/ -P "*$1*" --prune -C
