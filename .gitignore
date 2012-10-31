@@ -1,5 +1,2 @@
 *.log
 *.gz
-
-/hermes/config/fish/fish_history
-/hermes/config/fish/fishd.midgard.local
