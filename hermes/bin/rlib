@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+tree lib/ -P "*$1*" --prune -C

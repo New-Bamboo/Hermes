@@ -1,5 +1,5 @@
 function gst
-  git status
+  git status --short
 end
 
 function gc
