@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
+# usage: rcontroller users
+
 tree app/controllers/ -P "*$1*" --prune -C
