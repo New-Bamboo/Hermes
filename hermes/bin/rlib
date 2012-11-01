@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
+
+# usage: rlib user
+
 tree lib/ -P "*$1*" --prune -C
