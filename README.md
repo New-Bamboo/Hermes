@@ -29,6 +29,8 @@ Hermes combines plugins, settings, snippets, gists, and ideas from countless dev
 
 ## Installation
 
+**Warning!** Hermes is still early in development, so as an extra caution step you should try it on a dedicated user account, not your main one.
+
 ### Prerequisites
 
 Hermes relies on Homebrew and RVM to work properly. While Homebrew is a de facto standard developers using OS X, there are a good number of people that use RBenv, so support for that is in the pipeline. We are happy to look at any pull requests.
