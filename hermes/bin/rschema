@@ -8,7 +8,6 @@ cut -d . -f 2 | # remove object
 sed 's/,//' | # remove commas
 sed 's/"/:/' | # changes first " with :
 sed 's/"//' | # remove "
-awk '{print "-> " $2,$1}' | # swap column order
+awk '{print "-> \033[1;32m" $2, "\033[0m" $1}' | # swap column order
 sort |
-column -t |
-pygmentize -l ruby
+column -t
