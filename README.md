@@ -71,25 +71,40 @@ Hermes includes:
 - configuration and additional functionality for two shells: Bash and Fish.
 - settings for `gem`, `ack`, `pow`, `pry` and `irb`
 
-In addition, Hermes glues all components together so they play nicely with each other and the OS. Two examples of this integration are are Hermes' support for the system clipboard in OS X and window/pane aware mouse integration.
+In addition, Hermes glues all components together so they play nicely with each
+other and the OS. Two examples of this integration are are Hermes' support for
+the system clipboard in OS X and window/pane aware mouse integration.
 
 
 ### Updates
 
-Being a git-based project, you can update Hermes by simply pulling from the remote. If you forked the project, please remember to add the original repo as an upstream repository to make getting new project updates easier.
+Being a git-based project, you can update Hermes by simply pulling from the
+remote. If you forked the project, please remember to add the original repo as
+an upstream repository to make getting new project updates easier.
 
 
 ## How it's built
 
-The purpose of Hermes is to lay down a good structure where you can build upon, without adding extra configuration layers on top. For example, all of Vim's configuration is managed through the `~/.vimrc` file and the `~/.vim` folder, so that you don't have any surprises. The only big difference is that under the hood, those files are actually symlkins to your `hermes` folder.
+Hermes goal is to provide a solid structure for you to build on top of without
+having to deal with any intermediate configuration layers.  For example, Vim's
+entire configuration is managed canonically through the `~/.vimrc` file and the
+`~/.vim` folder. The only significant difference is that under the hood, those
+files are actually symlinks to your `hermes` folder.
 
-To customise Hermes, it's important to understand how all of its pieces are tied together.
+Knowing how Hermes ties everything together is useful when it comes time to
+configure it.
+
 
 ### Vim
 
-A stock vim installation with a basic configuration can go a long way and can be really beneficial when it comes to editing files on a server.
+A stock vim installation with a basic configuration can go a long way and can
+be really beneficial when it comes to editing files on a server.
 
-There is however a very simple problem with the default Vim installation that OsX provides: it cannot access the system clipboard, so if you copy anything from outside the editor, it's not available inside Vim's registers. Worse than that, if you copy anything in Vim (using its internal commands) is not shared with the rest of the system.
+There is however a very simple problem with the default Vim installation that
+OS X provides: it cannot access the system clipboard. That means if you copy
+anything from outside the editor, it's not available in any of Vim's registers.
+Worse yet, if you copy anything in Vim using its internal commands, it won't be
+available to the rest of the system
 
 To sort this out, Hermes installed Homebrew's version of Vim, which can be made available through MacVim.
 
@@ -148,7 +163,12 @@ Let's now go with some defaults for a basic `.vimrc` file:
     set wildmode=list:longest,list:full
     set complete=.,w,b"
 
-These settings will let you efficiently edit any file whose type is supported by default, and that already covers javascript and ruby. The enable standard features like line numbering and syntax highlight but also take care of some compatibility settings with OsX and iTerm (like mouse support and clipboard sharing).
+These settings will allow you to efficiently edit any file whose type is
+supported by default, so Javascript and Ruby are already covered. The settings
+enable standard features like line numbering and syntax highlighting and also
+turn on features like mouse support and clipboard sharing that are useful in
+integrating Vim into iTerm and OS X.
+
 
 #### Plugins
 
