@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
+# usage: rmodel user
+
 tree app/models/ -P "*$1*" --prune -C
