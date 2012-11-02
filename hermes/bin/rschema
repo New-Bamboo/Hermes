@@ -2,4 +2,11 @@
 
 # usage: rschema users
 
-awk "/create_table \"$1\"/, /  end/ { print $2 }" db/schema.rb | sed '1d;$d' | cut -d . -f 2 | column -t | pygmentize -l ruby
+awk "/create_table \"$1\"/, /  end/ { print $2 }" db/schema.rb | # extract table
+sed '1d;$d' | # remove surrounding block
+cut -d . -f 2 | # remove object
+sed 's/,//' | # remove commas
+awk '{print "-> " $2,$1}' | # swap column order
+sort |
+column -t |
+pygmentize -l ruby
