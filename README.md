@@ -38,8 +38,10 @@ developers around the world. We would like to thank:
 
 ## Installation
 
-**Warning!** Hermes is still early in development, so as an extra caution step
-you should try it on a dedicated user account, not your main one.
+**Warning!** Hermes is still early in development, so just to be
+careful, we strongly encourage you to install it in a separate
+user account, not your main one. That said, we *have* tested it on
+our own user accounts, where it worked just fine.
 
 
 ### Prerequisites
