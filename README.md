@@ -1,5 +1,7 @@
 # Hermes
 
+![Hermes screenshot](https://raw.github.com/New-Bamboo/Hermes/master/hermes.png)
+
 Hermes is an environment for Ruby and JavaScript developers in Darwin using
 [Tmux](http://tmux.sourceforge.net/), [Vim](http://www.vim.org/) and [iTerm
 2](http://www.iterm2.com/) that focuses on speed and ease of use.
