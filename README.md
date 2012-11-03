@@ -217,22 +217,22 @@ Hermes provides a good number of plugins, aiming to strike a balance between
 features and speed. You can see the complete list under `hermes/vim/bundle`,
 but here are some highlights:
 
-- [Ctrlp](https://github.com/kien/ctrlp.vim): A tool for fuzzy searching by
+- [Ctrlp](https://github.com/kien/ctrlp.vim): a tool for fuzzy searching by
   file and tag.
-- [Snipmate](https://github.com/msanders/snipmate.vim): Unashamedly borrowing
+- [Snipmate](https://github.com/msanders/snipmate.vim): unashamedly borrowing
   from Textmate, Snipmate provides tab completion based on snippet files.
-- [The silver searcher](https://github.com/epmatsw/ag.vim): Ag is a faster
+- [The silver searcher](https://github.com/epmatsw/ag.vim): `ag` is a faster
   alternative to Ack.
-- [TComment](https://github.com/vim-scripts/tComment): Toggles comments in
+- [TComment](https://github.com/vim-scripts/tComment): toggles comments in
   nearly any language.
-- [Rails.vim](https://github.com/tpope/vim-rails): Provides shortcuts,
+- [Rails.vim](https://github.com/tpope/vim-rails): provides shortcuts,
   generators and settings for working with Ruby on Rails projects.  Absolutely
   killer.
-- [Vimux](https://github.com/benmills/vimux): Forms a bridge with Tmux to send
+- [Vimux](https://github.com/benmills/vimux): forms a bridge with Tmux to send
   text and commands to a Tmux pane. Vimux is essential for Hermes' testing
   support.
 
-Still, we encourage you to be wary of plugins for several reasons:
+However, we encourage you to be wary of plugins for several reasons:
 
 - Vim has many conventional ways to accomplish certain tasks, and while it's
   possible to do things in many ways, it's important to try to understand the
