@@ -248,9 +248,24 @@ However, we encourage you to be wary of plugins for several reasons:
   be achieved with smaller, well thought-out changes in your .vimrc.
 - Although powerful, Vim is a text editor and should do just this one job well.
 
-Vim's approach to plugin management is a little counterintuitive: by default, Vim looks into `~/.vim` for additional scripts to load, divided into subfolders according to the circumstances when they need to be activated. For example, a script can be split into the `plugin` and the `autoload` directory, the former for the bulk, load-once functionality while the latter for anything that requires constant recalculation. This means that a manual installation affects multiple directories, becoming cumbersome to manage and update.
+Vim's approach to plugin management is a little counterintuitive:
+by default, Vim looks for additional scripts to load in `~/.vim`,
+which has subfolders that determine when the configuration is
+loaded. For example, a script can be split across the `plugin` and
+the `autoload` directories, the former for the bulk, load-once
+functionality while the latter for anything that requires constant
+recalculation. This means that a manual installation may be spread
+across multiple directories, resulting in a structure that is
+difficult to maintain and update.
 
-Enter [Pathogen](https://github.com/tpope/vim-pathogen), a package manager that makes this process painless and that reverses the perspective, as it lets you organize plugins by name. With Pathogen, you can simply clone a repository in your `~/.vim` folder and you're done. This is the first stepping stone to a proper dotfiles management through Github, where you can add every plugin as a git submodule and update them all with a single command.
+Enter [Pathogen](https://github.com/tpope/vim-pathogen), a package
+manager that makes this process painless and that inverts the
+usual installation pattern, as it lets you organize plugins based
+on their name. With Pathogen, you can simply clone a repository into
+your `~/.vim` folder and you're done. This is the first stepping
+stone to efficient dotfile management through a git repository
+where you can add all your plugins as git submodules and update
+all of them with a single command.
 
 Hermes uses the git submodule pattern: because every plugin can be kept in a single folder thanks to Pathogen, it's possible to add it as a submodule in the `hermes/vim/bundle` folder. This makes it dead easy to add other plugins when needed:
 
