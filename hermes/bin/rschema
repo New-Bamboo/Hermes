@@ -2,12 +2,19 @@
 
 # usage: rschema users
 
-awk "/create_table \"$1\"/, /  end/ { print $2 }" $(git rev-parse --show-toplevel)/db/schema.rb | # extract table
-sed '1d;$d' | # remove surrounding block
-cut -d . -f 2 | # remove object
-sed 's/,//' | # remove commas
-sed 's/"/:/' | # changes first " with :
-sed 's/"//' | # remove "
-awk '{print "-> \033[1;32m" $2, "\033[0m" $1}' | # swap column order
-sort |
-column -t
+RAILS_SCHEMA=$(git rev-parse --show-toplevel)/db/schema.rb
+if [ -f $RAILS_SCHEMA ]; then
+  # Extracts the table
+  awk "/create_table \"$1\"/, /  end/ { print $2 }" $RAILS_SCHEMA | \
+  sed '1d;$d' | \
+  cut -d . -f 2 | \
+  sed 's/,//' | \
+  sed 's/"/:/' | \
+  sed 's/"//' | \
+  # Swaps the columns
+  awk '{print "-> \033[1;32m" $2, "\033[0m" $1}' | \
+  sort | \
+  column -t
+else
+  echo "Not a Rails project"
+fi
