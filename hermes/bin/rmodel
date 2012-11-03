@@ -2,4 +2,4 @@
 
 # usage: rmodel user
 
-tree app/models/ -P "*$1*" --prune -C
+tree $(git rev-parse --show-toplevel)/app/models/ -P "*$1*" --prune -C

@@ -2,4 +2,4 @@
 
 # usage: rlib user
 
-tree lib/ -P "*$1*" --prune -C
+tree $(git rev-parse --show-toplevel)/lib/ -P "*$1*" --prune -C

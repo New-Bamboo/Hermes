@@ -2,4 +2,4 @@
 
 # usage: rcontroller users
 
-tree app/controllers/ -P "*$1*" --prune -C
+tree $(git rev-parse --show-toplevel)/app/controllers/ -P "*$1*" --prune -C

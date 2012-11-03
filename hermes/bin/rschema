@@ -2,7 +2,7 @@
 
 # usage: rschema users
 
-awk "/create_table \"$1\"/, /  end/ { print $2 }" db/schema.rb | # extract table
+awk "/create_table \"$1\"/, /  end/ { print $2 }" $(git rev-parse --show-toplevel)/db/schema.rb | # extract table
 sed '1d;$d' | # remove surrounding block
 cut -d . -f 2 | # remove object
 sed 's/,//' | # remove commas
