@@ -1,46 +1,65 @@
 # Hermes
 
-Hermes is an environment for Ruby and JavaScript developers in Darwin using [Tmux](http://tmux.sourceforge.net/), [Vim](http://www.vim.org/) and [iTerm 2](http://www.iterm2.com/) that focuses on speed and ease of use.
+Hermes is an environment for Ruby and JavaScript developers in Darwin using
+[Tmux](http://tmux.sourceforge.net/), [Vim](http://www.vim.org/) and [iTerm
+2](http://www.iterm2.com/) that focuses on speed and ease of use.
 
-Hermes is opinionated where having an opinion is important, but does not prevent you from customizing your tools.
+Hermes is opinionated where having an opinion is important, but does not
+prevent you from customizing your tools.
 
 Hermes gives you a lot of things for free:
 
 - Sensible defaults for developers.
 - Integration of Vim into tmux and tmux into iTerm 2.
-- Mouse and window integration, allowing selections within tmux and Vim panes, not across them.
-- Vim packages that provide git integration, command- and block-completion, fuzzy file search and ease of testing.
+- Mouse and window integration, allowing selections within tmux and Vim panes,
+  not across them.
+- Vim packages that provide git integration, command- and block-completion,
+  fuzzy file search and ease of testing.
 
-We feel that good documentation is a key part of using any new technology with lots of moving parts, so we will be improving Hermes' documentation in the days and weeks to come.
+We feel that good documentation is a key part of using any new technology with
+lots of moving parts, so we will be improving Hermes' documentation in the days
+and weeks to come.
 
 
 ## Preliminary Thanks
 
-Hermes combines plugins, settings, snippets, gists, and ideas from countless developers around the world. We would like to thank:
+Hermes combines plugins, settings, snippets, gists, and ideas from countless
+developers around the world. We would like to thank:
 
-- The [Vim](http://www.vim.org/) team;
-- The [Tmux](http://tmux.sourceforge.net/) team;
-- The Bash and [Fish](http://ridiculousfish.com/shell/) team;
-- The [Homebrew](http://mxcl.github.com/homebrew/) team;
-- [Tim Pope](http://tpo.pe/). Seriously, you're awesome;
-- [Thoughtbot](http://thoughtbot.com/) for their dotfiles, essential in getting the Tmux configuration right;
-- [Vimcasts](http://vimcasts.org/), for showing how powerful Vim can be.
+- The [Vim](http://www.vim.org/) team.
+- The [Tmux](http://tmux.sourceforge.net/) team.
+- The [GNU Bash](http://www.gnu.org/software/bash/bash.html) and [Fish](http://ridiculousfish.com/shell/) teams
+- The [Homebrew](http://mxcl.github.com/homebrew/) team.
+- [Tim Pope](http://tpo.pe/). Seriously, you're awesome.
+- [Thoughtbot](http://thoughtbot.com/) for their dotfiles, essential in getting
+  the Tmux configuration right.
+- [Vimcasts](http://vimcasts.org/), for showing the world just how powerful Vim can be.
 
 
 ## Installation
 
-**Warning!** Hermes is still early in development, so as an extra caution step you should try it on a dedicated user account, not your main one.
+**Warning!** Hermes is still early in development, so just to be
+careful, we strongly encourage you to install it in a separate
+user account, not your main one. That said, we *have* tested it on
+our own user accounts, where it worked just fine.
+
 
 ### Prerequisites
 
-Hermes relies on Homebrew and RVM to work properly. While Homebrew is a de facto standard developers using OS X, there are a good number of people that use RBenv, so support for that is in the pipeline. We are happy to look at any pull requests.
+Hermes relies on Homebrew and RVM to work properly. While Homebrew is a de
+facto standard developers using OS X, there are a good number of people that
+use RBenv, so support for that is in the pipeline. We are happy to look at any
+pull requests.
 
-If these two tools are not available, the installer script will halt. Please refer to these tools' excellent documentation for installation instructions.
+If these two tools are not available, the installer script will halt. Please
+refer to these tools' excellent documentation for installation instructions.
 
 
 ### Fork first!
 
-As the very first step, you should fork the Hermes on Github since this will make it easier for you to customize your installation. After you're done, you can run:
+As the very first step, you should fork the Hermes on Github since this will
+make it easier for you to customize your installation. After you're done, you
+can run:
 
     mkdir -p ~/.hermes
     git clone https://github.com/<your_github_username>/Hermes.git ~/.hermes
@@ -51,9 +70,11 @@ This will perform the following actions:
 
 - Check that you have all the needed Homebrew dependencies
 - Back up any file or folder that would be overwritten by the installer process
-- Install all dotfiles and plugins available in the `hermes` directory and symlink them to the right locations in your home folder
+- Install all dotfiles and plugins available in the `hermes` directory and
+  symlink them to the right locations in your home folder
 
-You may also want to add Hermes's repository as an upstream repository, so you can pull in the changes done on the main trunk whenever you need to.
+You may also want to add Hermes's repository as an upstream repository, so you
+can pull in the changes done on the main trunk whenever you need to.
 
 
 ### What's included in the installer
@@ -61,9 +82,11 @@ You may also want to add Hermes's repository as an upstream repository, so you c
 The installer will:
 
 - check for dependencies
-- backup any existing dotfile that would be overwritten in a timestamped tar file that you can use to restore your previous configuration
+- backup any existing dotfile that would be overwritten in a timestamped tar
+  file that you can use to restore your previous configuration
 - install a number of required Homebrew packages
-- create a `~/hermes` directory and symlink its content to your home folder where every piece of software expects to find its main configuration file(s)
+- create a `~/hermes` directory and symlink its content to your home folder
+  where every piece of software expects to find its main configuration file(s)
 
 Hermes includes:
 
@@ -73,27 +96,43 @@ Hermes includes:
 - configuration and additional functionality for two shells: Bash and Fish.
 - settings for `gem`, `ack`, `pow`, `pry` and `irb`
 
-In addition, Hermes glues all components together so they play nicely with each other and the OS. Two examples of this integration are are Hermes' support for the system clipboard in OS X and window/pane aware mouse integration.
+In addition, Hermes glues all components together so they play nicely with each
+other and the OS. Two examples of this integration are are Hermes' support for
+the system clipboard in OS X and window/pane aware mouse integration.
 
 
 ### Updates
 
-Being a git-based project, you can update Hermes by simply pulling from the remote. If you forked the project, please remember to add the original repo as an upstream repository to make getting new project updates easier.
+Being a git-based project, you can update Hermes by simply pulling from the
+remote. If you forked the project, please remember to add the original repo as
+an upstream repository to make getting new project updates easier.
 
 
 ## How it's built
 
-The purpose of Hermes is to lay down a good structure where you can build upon, without adding extra configuration layers on top. For example, all of Vim's configuration is managed through the `~/.vimrc` file and the `~/.vim` folder, so that you don't have any surprises. The only big difference is that under the hood, those files are actually symlkins to your `hermes` folder.
+Hermes goal is to provide a solid structure for you to build on top of without
+having to deal with any intermediate configuration layers.  For example, Vim's
+entire configuration is managed canonically through the `~/.vimrc` file and the
+`~/.vim` folder. The only significant difference is that under the hood, those
+files are actually symlinks to your `hermes` folder.
 
-To customise Hermes, it's important to understand how all of its pieces are tied together.
+Knowing how Hermes ties everything together is useful when it comes time to
+configure it.
+
 
 ### Vim
 
-A stock vim installation with a basic configuration can go a long way and can be really beneficial when it comes to editing files on a server.
+A stock vim installation with a basic configuration can go a long way and can
+be really beneficial when it comes to editing files on a server.
 
-There is however a very simple problem with the default Vim installation that OsX provides: it cannot access the system clipboard, so if you copy anything from outside the editor, it's not available inside Vim's registers. Worse than that, if you copy anything in Vim (using its internal commands) is not shared with the rest of the system.
+There is however a very simple problem with the default Vim installation that
+OS X provides: it cannot access the system clipboard. That means if you copy
+anything from outside the editor, it's not available in any of Vim's registers.
+Worse yet, if you copy anything in Vim using its internal commands, it won't be
+available to the rest of the system
 
-To sort this out, Hermes installed Homebrew's version of Vim, which can be made available through MacVim.
+To sort this out, Hermes installed Homebrew's version of Vim, which can be made
+available through MacVim.
 
     brew install macvim --override-system-vim
 
@@ -150,38 +189,64 @@ Let's now go with some defaults for a basic `.vimrc` file:
     set wildmode=list:longest,list:full
     set complete=.,w,b"
 
-These settings will let you efficiently edit any file whose type is supported by default, and that already covers javascript and ruby. The enable standard features like line numbering and syntax highlight but also take care of some compatibility settings with OsX and iTerm (like mouse support and clipboard sharing).
+These settings will allow you to efficiently edit any file whose type is
+supported by default, so Javascript and Ruby are already covered. The settings
+enable standard features like line numbering and syntax highlighting and also
+turn on features like mouse support and clipboard sharing that are useful in
+integrating Vim into iTerm and OS X.
+
 
 #### Plugins
 
-Plugins are a powerful way to extend Vim's capabilities. Implementation may change, however expectations from a modern text editor can be condensed in the following requirements:
+Plugins are a powerful way to extend Vim's capabilities. The implementation may
+change, but we feel you should be able to expect the following from a modern
+text editor:
 
-- Support for fuzzy search inside a directory tree, so that I can easily open a file by name without manually browsing the tree itself;
-- Full text search inside a directory tree;
-- Snippet support with expansion, tab stops and completion (in a Textmate fashion);
-- Integration with the testing framework, so that I can run tests with shortcuts without leaving the editor;
-- Tabs and split windows, so I can have tests and implementation visible at the same time and I can easily switch from one to the other.
-- Language specific features, like syntax awareness for indentation conventions
+- Support for fuzzy search inside a directory tree. You should be able to
+  easily open a file by name without navigating the tree.
+- Full text search inside a directory tree.
+- Snippet support with expansion, tab stops and completion. Like Textmate.
+- Integration with testing frameworks. You should be able to run tests without
+  leaving the editor.
+- Tabs and split windows. You should be able to see tests and the corresponding
+  code at the same time and be able to easily switch from one to the other.
+- Language specific features, like syntax-aware indentation and navigation.
 
-Needless to say, other text editors support these features, like Sublime Text 2 or Emacs. Vim, however, combines this with the modal editing approach, becoming an extremely effective text manipulation machine.
+Needless to say, a number of other text editors support these features. Vim,
+however, combines this with its extremely efficient modal editing approach.
 
-Hermes provides a good number of plugins, aiming to strike a balance between features and speed. You can see the complete list under `hermes/vim/bundle`, but some highlights are:
+Hermes provides a good number of plugins, aiming to strike a balance between
+features and speed. You can see the complete list under `hermes/vim/bundle`,
+but here are some highlights:
 
-- [Ctrlp](https://github.com/kien/ctrlp.vim): fuzzy finder, supports file and tag based search.
-- [Snipmate](https://github.com/msanders/snipmate.vim): heavily inspired by Textmate, tab completion based on snippet files that can be language specific.
-- [The silver searcher](https://github.com/epmatsw/ag.vim): vim bindings for the crazy fast ack alternative.
-- [TComment](https://github.com/vim-scripts/tComment): toggle comments in any language.
-- [Rails.vim](https://github.com/tpope/vim-rails): shortcuts, generators and settings for a Ruby on Rails project. Absolutely killer.
-- [Vimux](https://github.com/benmills/vimux): a bridge with Tmux to send text and commands to a Tmux pane. This plugins is essential for the whole testing support topic.
+- [Ctrlp](https://github.com/kien/ctrlp.vim): a tool for fuzzy searching by
+  file and tag.
+- [Snipmate](https://github.com/msanders/snipmate.vim): unashamedly borrowing
+  from Textmate, Snipmate provides tab completion based on snippet files.
+- [The silver searcher](https://github.com/epmatsw/ag.vim): `ag` is a faster
+  alternative to Ack.
+- [TComment](https://github.com/vim-scripts/tComment): toggles comments in
+  nearly any language.
+- [Rails.vim](https://github.com/tpope/vim-rails): provides shortcuts,
+  generators and settings for working with Ruby on Rails projects.  Absolutely
+  killer.
+- [Vimux](https://github.com/benmills/vimux): forms a bridge with Tmux to send
+  text and commands to a Tmux pane. Vimux is essential for Hermes' testing
+  support.
 
-There are, however, arguments that can be made against plugin abuse:
+However, we encourage you to be wary of plugins for several reasons:
 
-- Vim has ways and conventions to accomplish certain tasks, and while it's possible to change this, it's important to try to understand the vim way first and break it only if strictly necessary;
-- One of Vim's benefits is speed and low memory footprint, which makes it always responsive even when opening huge files (like logs). An extremely complicated configuration with tons of plugins can make this harder;
-- Sometimes a plugin is not necessary, instead a smaller but better conceived setting in `.vimrc` is enough;
-- Albeit powerful, it's a text editor and it should just do this job, according the one thing well philosophy.
+- Vim has many conventional ways to accomplish certain tasks, and while it's
+  possible to do things in many ways, it's important to try to understand the
+  Vim way of doing things and play to its strengths.
+- One of Vim's benefits is speed and low memory footprint, making it responsive
+  even when opening huge files. Increasing Vim's footprint through exxcessive
+  numbers of plugins can eliminate this benefit.
+- Sometimes a plugin is not necessary. Similar or identical effects can often
+  be achieved with smaller, well thought-out changes in your .vimrc.
+- Although powerful, Vim is a text editor and should do just this one job well.
 
-Vim's approach to plugin management is a bit counterintuitive: by default, Vim looks into `~/.vim` for additional scripts to load, divided into subfolders according to the circumstances when they need to be activated. For example, a script can be split into the `plugin` and the `autoload` directory, the former for the bulk, load-once functionality while the latter for anything that requires constant recalculation. This means that a manual installation affects multiple directories, becoming cumbersome to manage and update.
+Vim's approach to plugin management is a little counterintuitive: by default, Vim looks into `~/.vim` for additional scripts to load, divided into subfolders according to the circumstances when they need to be activated. For example, a script can be split into the `plugin` and the `autoload` directory, the former for the bulk, load-once functionality while the latter for anything that requires constant recalculation. This means that a manual installation affects multiple directories, becoming cumbersome to manage and update.
 
 Enter [Pathogen](https://github.com/tpope/vim-pathogen), a package manager that makes this process painless and that reverses the perspective, as it lets you organize plugins by name. With Pathogen, you can simply clone a repository in your `~/.vim` folder and you're done. This is the first stepping stone to a proper dotfiles management through Github, where you can add every plugin as a git submodule and update them all with a single command.
 
