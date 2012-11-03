@@ -26,14 +26,13 @@ and weeks to come.
 Hermes combines plugins, settings, snippets, gists, and ideas from countless
 developers around the world. We would like to thank:
 
-- The [Vim](http://www.vim.org/) team;
-- The [Tmux](http://tmux.sourceforge.net/) team;
-- The Bash and [Fish](http://ridiculousfish.com/shell/) team;
-- The [Homebrew](http://mxcl.github.com/homebrew/) team;
-- [Tim Pope](http://tpo.pe/). Seriously, you're awesome;
+- The [Vim](http://www.vim.org/) team.
+- The [Tmux](http://tmux.sourceforge.net/) team.
+- The [Homebrew](http://mxcl.github.com/homebrew/) team.
+- [Tim Pope](http://tpo.pe/). Seriously, you're awesome.
 - [Thoughtbot](http://thoughtbot.com/) for their dotfiles, essential in getting
-  the Tmux configuration right;
-- [Vimcasts](http://vimcasts.org/), for showing how powerful Vim can be.
+  the Tmux configuration right.
+- [Vimcasts](http://vimcasts.org/), for showing the world just how powerful Vim can be.
 
 
 ## Installation
