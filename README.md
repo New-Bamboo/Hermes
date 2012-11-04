@@ -332,4 +332,48 @@ As always, you can associate a shortcut for a shell command you want to run: a g
 
 We use `noremap` to tell vim to create a key map for normal mode, assign it to `<leader>s` and then specify the command, a simple `bundle exec rspec` where we press the current file as an argument and then press enter (carriage return).
 
+##### Search and replace
+
+Search and replace in Vim is surprisingly similar to regular expression usage. Vim expects you to give a range and then a substitution command to perform.
+
+So if you type:
+
+    :%s/foo/bar
+
+It will search in the whole buffer `%` and substitute the first occurence of `foo` with `bar`. As you can imagine, you can pass flags to the command, like:
+
+    :%s/foo/bar/gi
+
+The `g` flag predictably tells Vim to perform a global search and replace, while the `i` (interactive) flag will let you confirm each substitution individually.
+
+If you need to act on a specific number of lines, you have two options:
+
+- you can pass a range of lines, like `:12,15s/foo/bar`
+- you can select a visual block, press `:` followed by the substitution command (`s/foo/bar`). Note that the command bar will be prepopulated with the expression indicating the currently selected visual range (`'<,'>`)
+
+A common complaint by many people who switch from a graphical editor to Vim is that there's no facility to execute a substitution command across files. Vim provides such tools by following a simple pattern:
+
+- add all the files to the arguments list
+- perform a search and replace on each file contained in such list
+
+This can be tricky: the argument list is the files of all currently open files and can be completely different from the buffer list. So if we wanted to perform a search and replace on all `*.rb` files in the current working directory we would do:
+
+    :args ./**.rb
+    :argdo %s/foo/bar/gi
+
+Note the `i` flag, which is a lifesaver. The `argdo` command iterates over the argument list and performs the sspecified command (we still need the `%` to act on the whole file).
+
+A different approach, and what we suggest, is not using Vim altogether but a shell based substitution.
+
+First of all, you should make sure that you're working with some sort of VCS, because what we're about to do is not reversible.
+
+We will be using Perl, as it's fast, powerful and simple.
+
+The aforementioned substitution can be achieved with:
+
+    perl -pi -e 's/foo/bar/g' ./**.rb
+
+A VERY IMPORTANT NOTE: the above pattern is usually safe in the context of a Rails application, but if the pattern you used finds files inside `.git`, it will perform the substitution on them as well, potentially damaging your Git index. This can happen if your glob pattern is too loose or if you have submodules written in the same language.
+
+A safer approach, which makes also the search and replace command easier to manage, is to move into subfolders and perform it in different steps. This will also make it easier to check, test and manage.
 
