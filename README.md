@@ -113,7 +113,7 @@ an upstream repository to make getting new project updates easier.
 
 ## How it's built
 
-Hermes goal is to provide a solid structure for you to build on top of without
+Hermes' goal is to provide a solid structure for you to build on top of without
 having to deal with any intermediate configuration layers.  For example, Vim's
 entire configuration is managed canonically through the `~/.vimrc` file and the
 `~/.vim` folder. The only significant difference is that under the hood, those
@@ -134,8 +134,8 @@ anything from outside the editor, it's not available in any of Vim's registers.
 Worse yet, if you copy anything in Vim using its internal commands, it won't be
 available to the rest of the system
 
-To sort this out, Hermes installed Homebrew's version of Vim, which can be made
-available through MacVim.
+To sort this out, Hermes installs Homebrew's version of Vim, which is
+available through the MacVim package:
 
     brew install macvim --override-system-vim
 
