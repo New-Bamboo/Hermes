@@ -7,7 +7,7 @@ LAUNCHAGENTS_DIR=$HOME/Library/LaunchAgents
 touch $TEMP_MANIFEST
 
 # Set to non-zero value for debugging
-DEBUG=1
+DEBUG=0
 
 # Colours
 text_reset=$(tput sgr0)
