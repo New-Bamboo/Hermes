@@ -6,6 +6,9 @@ TEMP_MANIFEST=/tmp/$USER-hermes_custom_manifest
 LAUNCHAGENTS_DIR=$HOME/Library/LaunchAgents
 touch $TEMP_MANIFEST
 
+# Set to non-zero value for debugging
+DEBUG=1
+
 # Colours
 txtund=$(tput sgr 0 1)          # Underline
 txtbld=$(tput bold)             # Bold
@@ -47,9 +50,11 @@ function link_dotfiles () {
     SOURCE_FILE=$HOME/.hermes/hermes/$file
     TARGET_FILE=$HOME/.$file
     if [ -e $SOURCE_FILE ]; then
-      echo "Symlinking hermes dotfile $file to $HOME"
-      ln -sf $SOURCE_FILE $TARGET_FILE
-      handle_error "Could not link to $TARGET_FILE" "Symlinking:"
+      echo "${notice}Linking ${hermes} ${package}$file ${notice}to $filename$HOME/.$file"
+      if [ $DEBUG == 0 ]; then
+        ln -sf $SOURCE_FILE $TARGET_FILE
+        handle_error "Could not link to $TARGET_FILE" "Symlinking:"
+      fi
     fi
   done
 }
@@ -61,14 +66,18 @@ function check_command_dependency () {
 
 function install_homebrew () {
   log "Installing Homebrew recipe $1."
-  HOMEBREW_OUTPUT=`brew install $1 2>&1`
-  handle_error $1 "Homebrew had a problem\n($HOMEBREW_OUTPUT):"
+  if [ $DEBUG == 0 ]; then
+    HOMEBREW_OUTPUT=`brew install $1 2>&1`
+    handle_error $1 "Homebrew had a problem\n($HOMEBREW_OUTPUT):"
+  fi
 }
 
 function remove_homebrew () {
   log "Removing homebrew recipe $1."
-  HOMEBREW_OUTPUT=`brew uninstall $1 2>&1`
-  handle_error $1 "Homebrew had a problem while removing\n($HOMEBREW_OUTPUT):"
+  if [ $DEBUG == 0 ]; then
+    HOMEBREW_OUTPUT=`brew uninstall $1 2>&1`
+    handle_error $1 "Homebrew had a problem while removing\n($HOMEBREW_OUTPUT):"
+  fi
 }
 
 function backup_dotfiles () {
@@ -76,9 +85,11 @@ function backup_dotfiles () {
   customise_manifest
   cd $HOME
   BACKUP_FILE=$INSTALL_DIR/dotfile_backup-$TIMESTAMP.tar.gz
-  tar zcvf $BACKUP_FILE -I $TEMP_MANIFEST >> $LOGFILE 2>&1
-  handle_error "($?)" "Backup failed, please see the install log for details"
   log "Your dotfiles are now backed up to $BACKUP_FILE."
+  if [ $DEBUG == 0 ]; then
+    tar zcvf $BACKUP_FILE -I $TEMP_MANIFEST >> $LOGFILE 2>&1
+    handle_error "($?)" "Backup failed, please see the install log for details"
+  fi
 }
 
 function homebrew_checkinstall_recipe () {
@@ -121,8 +132,10 @@ function homebrew_dependencies () {
 function get_submodules () {
   log "Installing git submodules. This may take a while."
   cd $INSTALL_DIR
-  git submodule init && git submodule update &> /dev/null
-  handle_error
+  if [ $DEBUG == 0 ]; then
+    git submodule init && git submodule update &> /dev/null
+    handle_error
+  fi
 }
 
 function install_tmux_paste_buffer () {
@@ -151,10 +164,11 @@ EOF
 ) > $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
 
   log "Installing Tmux paste buffer launch agent"
-  launchctl load -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
   log "Tmux paste buffer launch agent installed."
   log "To disable temporarily, run: launchctl unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
   log "To disable permanently, run: launchctl -w unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
+    launchctl load -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
+  fi
 }
 
 log "$(tput bold)Starting Hermes installation"
