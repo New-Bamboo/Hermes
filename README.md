@@ -78,7 +78,7 @@ This will perform the following actions:
 You may also want to add Hermes's repository as an upstream repository, so you
 can pull in the changes done on the main trunk whenever you need to.
 
-![Hermes installation](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes-install.png)
+![Hermes installation](https://raw.github.com/New-Bamboo/Hermes/master/hermes-install.png)
 
 ### What's included in the installer
 
