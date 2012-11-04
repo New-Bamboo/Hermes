@@ -140,7 +140,8 @@ function get_submodules () {
 
 function install_tmux_paste_buffer () {
 
-  mkdir -p $LAUNCHAGENTS_DIR
+  if [ $DEBUG == 0 ]; then
+    mkdir -p $LAUNCHAGENTS_DIR
 
 (
 cat <<EOF
@@ -170,6 +171,12 @@ EOF
     launchctl load -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
   fi
 }
+function make_config_dir () {
+  log "${notice}Making the ${hermes} ${notice}configuration folder"
+  if [ $DEBUG == 0 ]; then
+    mkdir -p $HOME/.config
+  fi
+}
 
 log "$(tput bold)Starting Hermes installation"
 
@@ -183,7 +190,7 @@ check_command_dependency rvm
 
 homebrew_dependencies
 
-mkdir -p $HOME/.config
+make_config_dir
 link_dotfiles
 
 install_tmux_paste_buffer
