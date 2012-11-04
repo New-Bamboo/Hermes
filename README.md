@@ -333,3 +333,30 @@ As always, you can associate a shortcut for a shell command you want to run: a g
 We use `noremap` to tell vim to create a key map for normal mode, assign it to `<leader>s` and then specify the command, a simple `bundle exec rspec` where we press the current file as an argument and then press enter (carriage return).
 
 
+##### Visual mode
+
+Vim supports a visual mode, accessible by pressing `v` (selecting the character under cursor) or `V` (selecting the whole line under cursor). When in visual mode, any movement will modify the selection. Another way to enter visual mode is using the mouse in the exact same way you would use it highlight a piece of text in another editor.
+
+Working in visual mode can be powerful, but in the long run it's advisable not to use it too often, as it usually introduces non repetable movements. Instead, trying to use normal mode commands and movements helps in embracing the modal approach in a more thorough way.
+
+There are, however, situations where visual mode can be extremely powerful. One technique, called visual block, can be used to perform a certain operation on all lines:
+
+    a = 1
+    b = 2
+    c = 3
+
+If we wanted to prepend the keyword `var` to every line shown above, we could to the following:
+
+- With the cursor on `a`, press `ctrl-v` and `jj` to move down two lines;
+- Press `I`, type `var ` and then press `Esc`;
+- The modification should appear on all other lines.
+
+Note that this is not the only way, a macro or a normal mode command would have worked equally well. This latter approach is in fact usually more effective:
+
+- With the cursor on `a`, press `V` and `jj` to highlight all 3 lines
+- Press `:` and ` :norm Ivar `
+- Press enter and see the exact same result
+
+When a visual range is selected, pressing `:` opens the command prompt with the range already selected. By typing `:norm`, Vim temporarily switches to normal mode, executing whatever command comes after on each line in the visual range. We just used `I` to jump before the first letter in normal mode and type `var`.
+
+This approach is good when the change we're making doesn't need to be repeated. In other situations, a macro is more effective.
