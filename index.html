@@ -78,6 +78,9 @@ careful, we strongly encourage you to install it in a separate
 user account, not your main one. That said, we <em>have</em> tested it on
 our own user accounts, where it worked just fine.</p>
 
+<p>You can check to see which files will be overwritten in
+manifests/dotfile_manifest.</p>
+
 <h3>Prerequisites</h3>
 
 <p>Hermes relies on Homebrew and RVM to work properly. While Homebrew is a de
@@ -109,7 +112,6 @@ cd ~/.hermes
 symlink them to the right locations in your home folder</li>
 </ul><p>You may also want to add Hermes's repository as an upstream repository, so you
 can pull in the changes done on the main trunk whenever you need to.</p>
-
 
 <p><img src="https://raw.github.com/New-Bamboo/Hermes/master/hermes-install.png" alt="Hermes installation"></p>
 
@@ -376,6 +378,29 @@ source $HOME/.vim/shortcuts.vim
 </code></pre>
 
 <p>We use <code>noremap</code> to tell vim to create a key map for normal mode, assign it to <code>&lt;leader&gt;s</code> and then specify the command, a simple <code>bundle exec rspec</code> where we press the current file as an argument and then press enter (carriage return).</p>
+
+<h1>License</h1>
+
+<h2>This code is free to use under the terms of the MIT license.</h2>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
