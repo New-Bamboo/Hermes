@@ -246,7 +246,7 @@ However, we encourage you to be wary of plugins for several reasons:
   possible to do things in many ways, it's important to try to understand the
   Vim way of doing things and play to its strengths.
 - One of Vim's benefits is speed and low memory footprint, making it responsive
-  even when opening huge files. Increasing Vim's footprint through exxcessive
+  even when opening huge files. Increasing Vim's footprint through excessive
   numbers of plugins can eliminate this benefit.
 - Sometimes a plugin is not necessary. Similar or identical effects can often
   be achieved with smaller, well thought-out changes in your .vimrc.
