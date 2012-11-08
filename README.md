@@ -382,6 +382,9 @@ Note the `i` flag, which is a lifesaver. The `argdo` command
 iterates over the argument list and performs the sspecified
 command (we still need the `%` to act on the whole file).
 
+(If you use Vim's tabs feature, see also `tabdo` for a way of
+doing operations across all your tabs.)
+
 A different approach, and what we suggest, is not using Vim
 altogether but a shell based substitution.
 
