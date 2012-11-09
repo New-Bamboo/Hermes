@@ -45,6 +45,11 @@ careful, we strongly encourage you to install it in a separate
 user account, not your main one. That said, we *have* tested it on
 our own user accounts, where it worked just fine.
 
+You can check to see which files will be overwritten in
+manifests/dotfile_manifest, or
+[follow this link](https://github.com/New-Bamboo/Hermes/blob/master/manifests/dotfile_manifest)
+to view it on Github.
+
 
 ### Prerequisites
 
@@ -78,7 +83,7 @@ This will perform the following actions:
 You may also want to add Hermes's repository as an upstream repository, so you
 can pull in the changes done on the main trunk whenever you need to.
 
-![Hermes installation](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes-install.png)
+![Hermes installation](https://raw.github.com/New-Bamboo/Hermes/master/hermes-install.png)
 
 ### What's included in the installer
 
@@ -243,7 +248,7 @@ However, we encourage you to be wary of plugins for several reasons:
   possible to do things in many ways, it's important to try to understand the
   Vim way of doing things and play to its strengths.
 - One of Vim's benefits is speed and low memory footprint, making it responsive
-  even when opening huge files. Increasing Vim's footprint through exxcessive
+  even when opening huge files. Increasing Vim's footprint through excessive
   numbers of plugins can eliminate this benefit.
 - Sometimes a plugin is not necessary. Similar or identical effects can often
   be achieved with smaller, well thought-out changes in your .vimrc.
@@ -268,68 +273,138 @@ stone to efficient dotfile management through a git repository
 where you can add all your plugins as git submodules and update
 all of them with a single command.
 
-Hermes uses the git submodule pattern: because every plugin can be kept in a single folder thanks to Pathogen, it's possible to add it as a submodule in the `hermes/vim/bundle` folder. This makes it dead easy to add other plugins when needed:
+Hermes uses git submodules extensively: since Pathogen allows
+us to keep each plugin in a separate folder, we can include all of
+our plugins as submodules in the `hermes/vim/bundle` folder. This
+makes it dead easy to add other plugins and keep them up-to-date:
 
     cd ~/.hermes
     git submodule add <github-url> hermes/vim/bundle/<plugin-name>
 
-And you're done! In a similar fashion, updating plugins is also straightforward
+And you're done! Updating plugins is similarly straightforward:
 
     cd ~/.hermes
     git submodule foreach git pull origin master
 
-As in every other github based project, it's advisable to fork a plugin if you need to make changes that go beyond simple configuration (which we usually add to `~/.hermes/vim/plugins.vim`). In that case, you need to remove the original submodule and add it back again using your fork as a url.
+As in every other Github-based project, it's advisable
+to fork a plugin if you need to make changes that go
+beyond simple configuration (which we usually add to
+`~/.hermes/vim/plugins.vim`). In that case, you would need to
+remove the original submodule completely and add it back again
+using your fork as the source.
 
-Pathogen loads the content of `~/.vim/bundle` by default. including itself. This is controlled by the first two lines in the `~/.vimrc` file:
+Pathogen loads the contents of `~/.vim/bundle` by default.
+including itself. This is controlled by the first two lines in the
+`~/.vimrc` file:
 
     " loading pathogen at runtime as it's bundled
     runtime bundle/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect()
 
+
 #### Managing configuration
 
-If you keep extending your `.vimrc`, it comes to a point where it's simply too long, so it makes sense to split it into separate chunks that are somewhat related: here's a sample from the bottom of my `.vimrc`:
+If you keep extending your `.vimrc`, it comes to a point where
+it's simply too long, so it makes sense to split it into separate
+chunks of related configuration. Here's an example from the bottom
+of a `.vimrc`:
 
     source $HOME/.vim/autocommands.vim
     source $HOME/.vim/plugins.vim
     source $HOME/.vim/shortcuts.vim
 
-As a bonus, pressing `gf` in normal mode will open the file under the cursor.
+**Tip**: Pressing `gf` in Vim's normal mode will open the file under
+the cursor.
 
-In addition, always take care of reading the documentation for the plugins you use, as they're usually extremely configurable (an example is the `plugins.vim`) file.
+We recommend that when working with new plugins, you add one at a
+time and pay close attention to their documentation. Plugins
+are often extremely configurable, as you can see in Hermes'
+`plugins.vim` file. Taking the time to develop a feel for how each
+plugin works and configuring them for your specific needs can go a
+long way in optimising your workflow.
 
-Documentation is usually available by typing `:help <term-to-search>`, however Hermes has a custom shortcut you can use: by pressing `<leader>h` with the cursor on a word, it will search the help docs for the word itself.
+Documentation is usually available by typing `:help <term-to-search>`. 
+However, Hermes has a custom shortcut you can use: by pressing `<leader>h` 
+with the cursor over a word, you can search for that word in Vim's help.
 
-Plugin configuration is vital in the long run, as the purpose of plugins should be to help you, not getting in your way.
-
-As an example, let's look at the configuration Hermes supplies for Ctrl-p (in `~/.hermes/hermes/vim/plugins.vim`):
+As an example, let's look at the configuration Hermes supplies for
+**Ctrl-p** (in `~/.hermes/hermes/vim/plugins.vim`):
 
     set wildignore+=*/.hg/*,*/.svn/*,*/vendor/cache/*,*/public/system/*,*/tmp/*,*/log/*,*/.git/*,*/.jhw-cache/*,*/solr/data/*,*/node_modules/*,*/.DS_Store
 
-The `wildignore` flag is not Ctrl-p specific, as it's used by Vim for a lot autocompletion and expansion functions: the more we remove paths and files it's unlikely we want to parse, the better Vim will perform. And as Ctrl-p uses this pattern to determine a baseline for excluding files to create its index, by setting it right we keep it snappy.
+The `wildignore` flag is not Ctrl-p specific, as it's used by Vim
+or many autocompletion and expansion functions: the more unlikely
+targets we remove, the better Vim's performance will be. Since
+Ctrl-p uses this pattern to determine a baseline for excluding
+files when creating its index, this simple addition will help keep
+it snappy.
+
 
 #### Daily use cases
 
-Here are a few examples of what you can do with Vim, bearing in mind that this is not meant to be an exhaustive guide. Instead, we will focus on recurring tasks that usually pop up during a normal workday.
+Here are a few examples of what you can do with Vim, bearing in
+mind that this is not meant to be an exhaustive guide. Instead, we
+will focus on frequent everyday tasks:
+
 
 ##### Shelling out
 
-Having the shell at your disposal can speed up your workflow tenfold, but to really take advantage of this it's important to learn how to alternate between Vim and the command line.
+Having the shell at your disposal can speed up your workflow many
+times over, but to really take advantage of this it's important to
+learn how to alternate between Vim and the command line.
 
-Sometimes you just need to run a simple shell command, like creating a directory or touching a file. In that situation, press `:` in normal mode to enter the command mode. Then type `!` to tell Vim to shell out and perform the command in the shell. So, if you want to create a `sample` directory, you can type:
+Sometimes you just need to run a simple shell command, like
+creating a file or directory (i.e. folder). In that situation,
+press `:` in normal mode to enter the command mode. Then type `!`
+to tell Vim to shell out and perform the command in the shell. So,
+if you want to create a `sample` directory, you can type:
 
     :!mkdir sample
 
-The command will be performed in the current working directory, you can verify that with `:pwd`.
+The command will be performed from within the current working
+directory, you can verify that with `:pwd`.
 
-When you need to step out the file you're editing, perform a few tasks and then go back, your best option is to suspend Vim with `ctrl-z` and then resume it with `fg` when you're done. This is a very straightforward approach, widely used in the Unix world. It works out of the box and has no other requirements.
+When you need to step out of the file you're editing, perform a
+few tasks and then go back, your best option is to suspend Vim
+using the shell via `ctrl-z` and then resume it with by typing
+the command `fg` (foreground) when you're done. This is a very
+straightforward approach and widely used in the Unix world. It
+works out of the box.
 
-Alternatively, you can use a different window or pane with Tmux, as we're detailing in chapter XXX.
+Alternatively, you can use a different window or pane with Tmux,
+as we shall explain later on.
 
-As always, you can associate a shortcut for a shell command you want to run: a good example is creating a leader command to run the current file as a spec.
+As always, you can associate a shortcut for a shell command you
+want to run: a good example is creating a leader command to run
+the current file as a spec.
 
     noremap <leader>s :!bundle exec rspec %<cr>
 
-We use `noremap` to tell vim to create a key map for normal mode, assign it to `<leader>s` and then specify the command, a simple `bundle exec rspec` where we press the current file as an argument and then press enter (carriage return).
+We use `noremap` to tell Vim to create a key map for normal mode,
+assign it to `<leader>s` and then specify the command, a simple
+`bundle exec rspec` where we include the current file as an argument
+and then press enter (carriage return).
 
 
+# License
+
+## This code is free to use under the terms of the MIT license.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
