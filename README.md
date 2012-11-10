@@ -486,9 +486,9 @@ for doing the same thing to several lines at once.
 
 Imagine this text in Vim:
 
-    var a = 1
-    var b = 2
-    var c = 3
+    a = 1
+    b = 2
+    c = 3
 
 If we wanted to prepend the keyword `var` to every line shown
 above, we could to the following:
