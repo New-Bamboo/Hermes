@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+find $(git rev-parse --show-toplevel)/db/migrate | tail -n 1 | xargs cat
