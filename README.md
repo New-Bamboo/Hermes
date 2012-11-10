@@ -335,28 +335,49 @@ We use `noremap` to tell vim to create a key map for normal mode, assign it to `
 
 ##### Visual mode
 
-Vim supports a visual mode, accessible by pressing `v` (selecting the character under cursor) or `V` (selecting the whole line under cursor). When in visual mode, any movement will modify the selection. Another way to enter visual mode is using the mouse in the exact same way you would use it highlight a piece of text in another editor.
+You can access Vim's "visual" model by pressing `v` (character
+selection) or `V` (line selection). When in visual mode, any
+movement will modify the selection. You can also click-drag a
+screen selection with the mouse, which will automatically put you
+in visual mode. Working in visual mode can be powerful, but in
+general it's advisable not to use it too often, since the actions
+you take in visual mode are not recorded in a way that can easily
+be repeated, e.g. `.` in normal mode.
 
-Working in visual mode can be powerful, but in the long run it's advisable not to use it too often, as it usually introduces non repetable movements. Instead, trying to use normal mode commands and movements helps in embracing the modal approach in a more thorough way.
+There are, however, situations where visual mode has a clear
+advantage. One technique, making use of a "visual block", is great
+for doing the same thing to several lines at once.
 
-There are, however, situations where visual mode can be extremely powerful. One technique, called visual block, can be used to perform a certain operation on all lines:
+Imagine this text in Vim:
 
-    a = 1
-    b = 2
-    c = 3
+    var a = 1
+    var b = 2
+    var c = 3
 
-If we wanted to prepend the keyword `var` to every line shown above, we could to the following:
+If we wanted to prepend the keyword `var` to every line shown
+above, we could to the following:
 
-- With the cursor on `a`, press `ctrl-v` and `jj` to move down two lines;
-- Press `I`, type `var ` and then press `Esc`;
-- The modification should appear on all other lines.
+- With the cursor on `a`, create a visual block by pressing
+  `ctrl-v`.
+- Hit `jj` to move down two lines.
+- Press `I`, type `var ` (with a space at the end) and then press
+  `Esc` to return to normal mode.
 
-Note that this is not the only way, a macro or a normal mode command would have worked equally well. This latter approach is in fact usually more effective:
+The var keyword should be prepended to each of the lines.
+
+Note that this is not the only way to do this. For example, a
+macro or a normal mode command would have worked equally well.
+This latter approach is in fact usually more effective:
 
 - With the cursor on `a`, press `V` and `jj` to highlight all 3 lines
-- Press `:` and ` :norm Ivar `
-- Press enter and see the exact same result
+- Enter `:` and ` :norm Ivar `
+- Press Enter
 
-When a visual range is selected, pressing `:` opens the command prompt with the range already selected. By typing `:norm`, Vim temporarily switches to normal mode, executing whatever command comes after on each line in the visual range. We just used `I` to jump before the first letter in normal mode and type `var`.
+When a visual range is selected, pressing `:` opens the command
+prompt with the range prefilled. By typing `:norm`, Vim
+temporarily switches to normal mode, executing the subsequent
+command for each line in the visual range. We just used `I` to
+jump before the first letter in normal mode and type `var`.
 
-This approach is good when the change we're making doesn't need to be repeated. In other situations, a macro is more effective.
+This approach is good when the change we're making doesn't need to
+be repeated. In other situations, a macro is more effective.
