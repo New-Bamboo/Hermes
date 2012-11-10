@@ -182,7 +182,7 @@ EOF
   fi
   log "${success}The ${component}Tmux ${success}paste buffer launch agent is now installed"
   log "${information}To disable temporarily, run: launchctl unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
-  log "${information}To disable permanently, run: launchctl -w unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
+  log "${information}To disable permanently, run: launchctl unload -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
 }
 
 function make_config_dir () {
