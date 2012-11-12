@@ -5,6 +5,7 @@ function rvm -d 'Ruby enVironment Manager'
 
   # apply rvm_* and *PATH variables from the captured environment
   and eval (grep '^rvm\|^[^=]*PATH\|^GEM_HOME' $env_file | sed '/^[^=]*PATH/y/:/ /; s/^/set -xg /; s/=/ /; s/$/ ;/; s/(//; s/)//')
+  set -xg MY_RUBY_HOME $GEM_HOME
   # clean up
   rm -f $env_file
 end
