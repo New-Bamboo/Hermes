@@ -12,6 +12,12 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" map ctrl-hjkl for easy window movement
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+
 " Faster shortcut for commenting. Requires T-Comment plugin
 map <leader>c <c-_><c-_>
 
