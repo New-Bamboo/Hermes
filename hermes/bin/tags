@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# usage: tags
+ROOT=$(git rev-parse --show-toplevel)
+/usr/local/bin/ctags -R --exclude=.git --exclude=log --exclude=public --exclude='*.js' --exclude='*.coffee' --exclude=tmp -f $ROOT/.tags $ROOT
