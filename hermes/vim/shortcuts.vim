@@ -52,3 +52,6 @@ nmap <F10> <C-w>t<C-w>K
 
 "enable . in visual mode
 vnoremap . :norm.<CR>
+
+"Markdown links without copied link
+nmap <leader>l ysiw]f]a()<Left>
