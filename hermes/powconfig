@@ -1,2 +1,3 @@
 export POW_TIMEOUT=1800
+export POW_WORKERS=1
 export PATH=/usr/local/bin:$HOME/.rvm/bin:$PATH
