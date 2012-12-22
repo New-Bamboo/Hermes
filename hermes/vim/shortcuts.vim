@@ -50,6 +50,9 @@ nmap <silent> <Right> :tabnext<cr>
 nmap <F9> <C-w>t<C-w>H
 nmap <F10> <C-w>t<C-w>K
 
+"tagbar
+nmap <F6> :TagbarToggle<CR>
+
 "enable . in visual mode
 vnoremap . :norm.<CR>
 
