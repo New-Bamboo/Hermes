@@ -1,6 +1,7 @@
 " Set up some useful Rails.vim bindings for working with Backbone.js
 " based on https://github.com/r00k/dotfiles/blob/master/vimrc#L284
 autocmd User Rails Rnavcommand template    app/assets/templates               -glob=**/*  -suffix=.jst.ejs
+autocmd User Rails Rnavcommand decorator   app/decorators                     -glob=**/*  -suffix=.rb
 autocmd User Rails Rnavcommand jmodel      app/assets/javascripts/models      -glob=**/*  -suffix=.js.coffee
 autocmd User Rails Rnavcommand jview       app/assets/javascripts/views       -glob=**/*  -suffix=.js.coffee
 autocmd User Rails Rnavcommand jcollection app/assets/javascripts/collections -glob=**/*  -suffix=.js.coffee
