@@ -518,6 +518,118 @@ jump before the first letter in normal mode and type `var`.
 This approach is good when the change we're making doesn't need to
 be repeated. In other situations, a macro is more effective.
 
+
+#### Working with Tmux
+
+Even if Vim by itself is indeed extremely powerful, it just shines when paired
+with Tmux. Tmux is a terminal multiplexer, a program to manage multiple shell
+instances in the scope of a single session (whether it's local or SSH it doesn't
+matter).
+
+In other words, Tmux allows the creation of separate tabs (called windows) and
+splits (called panes), interaction between them and an external api for
+programmatic control.
+
+The recurring question that people ask when hearing about Tmux for the first
+time is "Why should I use this instead of the native functionality provided by
+my terminal emulator?". Here's why:
+
+- Tmux is terminal emulator independent, i.e. you can use it with any terminal
+  emulator (there are a few edge cases in terms of compatibility, but the usual
+suspects on Mac OsX and Linux are well supported).
+- Tmux can start a session, suspend it (called detach) and resume it (called
+  attach), everything from different machines and over a network connection as
+well.
+- Tmux has an api for external control by a 3rd party software and we'll see
+  that this is key in our setup.
+- If you accidentally close your terminal emulator, you don't lose anything as
+  it runs in a separate process.
+- Tmux is designed to be controlled with keyboard only and it features a
+  powerful Vim compatibility mode that uses identical shortcuts.
+
+Hermes includes an opinionated Tmux setup that solves a few compatibility issues
+with OsX, rebinds many shortcuts to an easier to remember layout and adds a few
+bells and whistles (like date, time and battery information in the status bar).
+Huge thanks to Thoughtbot for sharing most of the code that made it into this
+configuration.
+
+##### Basic interaction
+
+If you type `tmux` in your shell, you will start a new session. As we haven't
+passed a name, the session will receive an incremental number to identify it.
+Tmux allows switching between different sessions, so ideally you would want a
+separate one for each project you're working on.
+
+At the bottom, you can see the list of windows on the left. This shows the
+current session windows, highlighting the current one. Windows also have an
+index, shown right on the left of the name.
+
+The window behaves exactly like a "normal" terminal window, with just a couple
+of exceptions:
+
+- Some shortcuts (like Cmd+k to clear the screen) can have unexpected
+  behaviours. Where sensible, the configuration provides fallbacks.
+- Mouse interaction is supported, but only with iTerm2 as terminal emulator (the
+  default OsX terminal doesn't support it)
+
+All tmux commands start with a prefix, set in this configuration to `Ctrl-a`: as
+a convention, this document will call this shortcut 'prefix', so `prefix-c`
+means 'press Ctrl-a, then c'.
+
+Here are some basic commands:
+
+- `prefix-1`, `prefix-2` switches to the window identified by that index;
+- `prefix-c` creates a new window;
+- `prefix-|` splits the current window **vertically**;
+- `prefix-_` splits the current window **horizontally**;
+- `prefix-spacebar` switches between horizontal and vertical layout for panes;
+- `prefix-x` closes the current pane.
+- `prefix-a` cycles focus among the current window panes;
+- `prefix-h/j/k/l` moves the focus respectively to the left, below, above and
+  right from the current pane (very similar to Vim);
+- `prefix-r` reloads the tmux configuration (useful if you make some changes);
+- `prefix-:` enters tmux command mode, where you can type tmux commands to
+  perform certain actions in a dedicated command line (this is advanced usage).
+
+You can also change focus from one pane to another using the mouse, however that
+is usually slower than mastering keyboard shortcuts.
+
+##### Scrolling, copy and paste
+
+As expected, you can scroll inside a pane with your mouse, but Tmux supports
+complete mouseless interaction even for this kind of operation. This is possible
+by entering 'copy mode', where (similarly to Vim's normal and visual modes,
+pressing keyboard keys doesn't enter text but performs actions). Copy mode is
+identified by a status indicator in the top right corner of the pane (showing
+your cursor position in the current scroll buffer).
+
+Copy mode can be entered by pressing `prefix-esc`, but it can be alternatively
+activated by:
+
+- pressing `prefix-pageUp` or `prefix-pageDown`, so that after entering copy
+  mode it scrolls up or down.
+- scrolling with the mouse on a pane, or initiating a drag and drop selection.
+
+Commands in copy mode are pretty much identical to Vim and that's because Tmux
+handily supports a Vim compatibility mode, so that you don't have to change your
+habits.
+
+- `/` will initiate a forward search. Simmetrically, `?` will initiate a
+  backward one;
+- `pageUp` and `pageDown` will scroll the pane;
+- `g` and `G` will go respectively to the top and the bottom;
+- `v` initiates visual selection, so that you can select a visual portion of
+  text and then, for example, press `y` to copy it.
+
+To see a list of all possible combinations, press `prefix-:` to enter command
+mode and type `list-keys -t vi-copy`. Note also that a good set of motions are
+supported, so you can type `v4w` to select 4 words from the current one.
+
+Allow yourself some time to master copy mode, as it's extremely powerful.
+
+Note that if you use the mouse and perform a drag selection, text will be
+automatically copied into the clipboard upon releasing the left mouse button.
+
 # License
 
 ## This code is free to use under the terms of the MIT license.
