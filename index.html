@@ -79,7 +79,9 @@ user account, not your main one. That said, we <em>have</em> tested it on
 our own user accounts, where it worked just fine.</p>
 
 <p>You can check to see which files will be overwritten in
-manifests/dotfile_manifest.</p>
+manifests/dotfile_manifest, or
+<a href="https://github.com/New-Bamboo/Hermes/blob/master/manifests/dotfile_manifest">follow this link</a>
+to view it on Github.</p>
 
 <h3>Prerequisites</h3>
 
@@ -284,7 +286,7 @@ support.</li>
 possible to do things in many ways, it's important to try to understand the
 Vim way of doing things and play to its strengths.</li>
 <li>One of Vim's benefits is speed and low memory footprint, making it responsive
-even when opening huge files. Increasing Vim's footprint through exxcessive
+even when opening huge files. Increasing Vim's footprint through excessive
 numbers of plugins can eliminate this benefit.</li>
 <li>Sometimes a plugin is not necessary. Similar or identical effects can often
 be achieved with smaller, well thought-out changes in your .vimrc.</li>
@@ -308,21 +310,31 @@ stone to efficient dotfile management through a git repository
 where you can add all your plugins as git submodules and update
 all of them with a single command.</p>
 
-<p>Hermes uses the git submodule pattern: because every plugin can be kept in a single folder thanks to Pathogen, it's possible to add it as a submodule in the <code>hermes/vim/bundle</code> folder. This makes it dead easy to add other plugins when needed:</p>
+<p>Hermes uses git submodules extensively: since Pathogen allows
+us to keep each plugin in a separate folder, we can include all of
+our plugins as submodules in the <code>hermes/vim/bundle</code> folder. This
+makes it dead easy to add other plugins and keep them up-to-date:</p>
 
 <pre><code>cd ~/.hermes
 git submodule add &lt;github-url&gt; hermes/vim/bundle/&lt;plugin-name&gt;
 </code></pre>
 
-<p>And you're done! In a similar fashion, updating plugins is also straightforward</p>
+<p>And you're done! Updating plugins is similarly straightforward:</p>
 
 <pre><code>cd ~/.hermes
 git submodule foreach git pull origin master
 </code></pre>
 
-<p>As in every other github based project, it's advisable to fork a plugin if you need to make changes that go beyond simple configuration (which we usually add to <code>~/.hermes/vim/plugins.vim</code>). In that case, you need to remove the original submodule and add it back again using your fork as a url.</p>
+<p>As in every other Github-based project, it's advisable
+to fork a plugin if you need to make changes that go
+beyond simple configuration (which we usually add to
+<code>~/.hermes/vim/plugins.vim</code>). In that case, you would need to
+remove the original submodule completely and add it back again
+using your fork as the source.</p>
 
-<p>Pathogen loads the content of <code>~/.vim/bundle</code> by default. including itself. This is controlled by the first two lines in the <code>~/.vimrc</code> file:</p>
+<p>Pathogen loads the contents of <code>~/.vim/bundle</code> by default.
+including itself. This is controlled by the first two lines in the
+<code>~/.vimrc</code> file:</p>
 
 <pre><code>" loading pathogen at runtime as it's bundled
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -331,53 +343,351 @@ call pathogen#infect()
 
 <h4>Managing configuration</h4>
 
-<p>If you keep extending your <code>.vimrc</code>, it comes to a point where it's simply too long, so it makes sense to split it into separate chunks that are somewhat related: here's a sample from the bottom of my <code>.vimrc</code>:</p>
+<p>If you keep extending your <code>.vimrc</code>, it comes to a point where
+it's simply too long, so it makes sense to split it into separate
+chunks of related configuration. Here's an example from the bottom
+of a <code>.vimrc</code>:</p>
 
 <pre><code>source $HOME/.vim/autocommands.vim
 source $HOME/.vim/plugins.vim
 source $HOME/.vim/shortcuts.vim
 </code></pre>
 
-<p>As a bonus, pressing <code>gf</code> in normal mode will open the file under the cursor.</p>
+<p><strong>Tip</strong>: Pressing <code>gf</code> in Vim's normal mode will open the file under
+the cursor.</p>
 
-<p>In addition, always take care of reading the documentation for the plugins you use, as they're usually extremely configurable (an example is the <code>plugins.vim</code>) file.</p>
+<p>We recommend that when working with new plugins, you add one at a
+time and pay close attention to their documentation. Plugins
+are often extremely configurable, as you can see in Hermes'
+<code>plugins.vim</code> file. Taking the time to develop a feel for how each
+plugin works and configuring them for your specific needs can go a
+long way in optimising your workflow.</p>
 
-<p>Documentation is usually available by typing <code>:help &lt;term-to-search&gt;</code>, however Hermes has a custom shortcut you can use: by pressing <code>&lt;leader&gt;h</code> with the cursor on a word, it will search the help docs for the word itself.</p>
+<p>Documentation is usually available by typing <code>:help &lt;term-to-search&gt;</code>. 
+However, Hermes has a custom shortcut you can use: by pressing <code>&lt;leader&gt;h</code> 
+with the cursor over a word, you can search for that word in Vim's help.</p>
 
-<p>Plugin configuration is vital in the long run, as the purpose of plugins should be to help you, not getting in your way.</p>
-
-<p>As an example, let's look at the configuration Hermes supplies for Ctrl-p (in <code>~/.hermes/hermes/vim/plugins.vim</code>):</p>
+<p>As an example, let's look at the configuration Hermes supplies for
+<strong>Ctrl-p</strong> (in <code>~/.hermes/hermes/vim/plugins.vim</code>):</p>
 
 <pre><code>set wildignore+=*/.hg/*,*/.svn/*,*/vendor/cache/*,*/public/system/*,*/tmp/*,*/log/*,*/.git/*,*/.jhw-cache/*,*/solr/data/*,*/node_modules/*,*/.DS_Store
 </code></pre>
 
-<p>The <code>wildignore</code> flag is not Ctrl-p specific, as it's used by Vim for a lot autocompletion and expansion functions: the more we remove paths and files it's unlikely we want to parse, the better Vim will perform. And as Ctrl-p uses this pattern to determine a baseline for excluding files to create its index, by setting it right we keep it snappy.</p>
+<p>The <code>wildignore</code> flag is not Ctrl-p specific, as it's used by Vim
+or many autocompletion and expansion functions: the more unlikely
+targets we remove, the better Vim's performance will be. Since
+Ctrl-p uses this pattern to determine a baseline for excluding
+files when creating its index, this simple addition will help keep
+it snappy.</p>
 
 <h4>Daily use cases</h4>
 
-<p>Here are a few examples of what you can do with Vim, bearing in mind that this is not meant to be an exhaustive guide. Instead, we will focus on recurring tasks that usually pop up during a normal workday.</p>
+<p>Here are a few examples of what you can do with Vim, bearing in
+mind that this is not meant to be an exhaustive guide. Instead, we
+will focus on frequent everyday tasks:</p>
 
 <h5>Shelling out</h5>
 
-<p>Having the shell at your disposal can speed up your workflow tenfold, but to really take advantage of this it's important to learn how to alternate between Vim and the command line.</p>
+<p>Having the shell at your disposal can speed up your workflow many
+times over, but to really take advantage of this it's important to
+learn how to alternate between Vim and the command line.</p>
 
-<p>Sometimes you just need to run a simple shell command, like creating a directory or touching a file. In that situation, press <code>:</code> in normal mode to enter the command mode. Then type <code>!</code> to tell Vim to shell out and perform the command in the shell. So, if you want to create a <code>sample</code> directory, you can type:</p>
+<p>Sometimes you just need to run a simple shell command, like
+creating a file or directory (i.e. folder). In that situation,
+press <code>:</code> in normal mode to enter the command mode. Then type <code>!</code>
+to tell Vim to shell out and perform the command in the shell. So,
+if you want to create a <code>sample</code> directory, you can type:</p>
 
 <pre><code>:!mkdir sample
 </code></pre>
 
-<p>The command will be performed in the current working directory, you can verify that with <code>:pwd</code>.</p>
+<p>The command will be performed from within the current working
+directory, you can verify that with <code>:pwd</code>.</p>
 
-<p>When you need to step out the file you're editing, perform a few tasks and then go back, your best option is to suspend Vim with <code>ctrl-z</code> and then resume it with <code>fg</code> when you're done. This is a very straightforward approach, widely used in the Unix world. It works out of the box and has no other requirements.</p>
+<p>When you need to step out of the file you're editing, perform a
+few tasks and then go back, your best option is to suspend Vim
+using the shell via <code>ctrl-z</code> and then resume it with by typing
+the command <code>fg</code> (foreground) when you're done. This is a very
+straightforward approach and widely used in the Unix world. It
+works out of the box.</p>
 
-<p>Alternatively, you can use a different window or pane with Tmux, as we're detailing in chapter XXX.</p>
+<p>Alternatively, you can use a different window or pane with Tmux,
+as we shall explain later on.</p>
 
-<p>As always, you can associate a shortcut for a shell command you want to run: a good example is creating a leader command to run the current file as a spec.</p>
+<p>As always, you can associate a shortcut for a shell command you
+want to run: a good example is creating a leader command to run
+the current file as a spec.</p>
 
 <pre><code>noremap &lt;leader&gt;s :!bundle exec rspec %&lt;cr&gt;
 </code></pre>
 
-<p>We use <code>noremap</code> to tell vim to create a key map for normal mode, assign it to <code>&lt;leader&gt;s</code> and then specify the command, a simple <code>bundle exec rspec</code> where we press the current file as an argument and then press enter (carriage return).</p>
+<p>We use <code>noremap</code> to tell Vim to create a key map for normal mode,
+assign it to <code>&lt;leader&gt;s</code> and then specify the command, a simple
+<code>bundle exec rspec</code> where we include the current file as an argument
+and then press enter (carriage return).</p>
+
+<h5>Search and replace</h5>
+
+<p>Search and replace in Vim is a kind of regular expression usage.
+Vim expects you to provide a range and then a substitution command
+to perform.</p>
+
+<p>So if you type:</p>
+
+<pre><code>:%s/foo/bar
+</code></pre>
+
+<p>It will search in the whole buffer <code>%</code> and substitute the first
+occurence of <code>foo</code> with <code>bar</code>. As you can imagine, you can pass
+flags to the command, like:</p>
+
+<pre><code>:%s/foo/bar/gi
+</code></pre>
+
+<p>The <code>g</code> flag predictably tells Vim to perform a global search and
+replace, with multiple replacements, while the <code>i</code> (interactive)
+flag will allow you to confirm each substitution individually.</p>
+
+<p>If you need to act on a specific number of lines, you have two
+options:</p>
+
+<ul>
+<li>You can pass a range of lines, like <code>:12,15s/foo/bar</code>
+</li>
+<li>You can select a visual block, press <code>:</code> followed by the
+substitution command (<code>s/foo/bar</code>). Note that the command bar
+will be prepopulated with the expression indicating the currently
+selected visual range (<code>'&lt;,'&gt;</code>)</li>
+</ul><p>A common complaint by many people who switch from a graphical
+editor to Vim is that there's no facility to execute a
+substitution command across files. Vim provides such tools by
+following a simple pattern:</p>
+
+<ul>
+<li>Add all the files to the arguments list</li>
+<li>Perform a search and replace on each file contained in such list</li>
+</ul><p>This can be tricky: the argument list is the files of all
+currently open files and can be completely different from the
+buffer list. So if we wanted to perform a search and replace on
+all <code>*.rb</code> files in the current working directory we would do:</p>
+
+<pre><code>:args ./**.rb
+:argdo %s/foo/bar/gi
+</code></pre>
+
+<p>Note the <code>i</code> flag, which is a lifesaver. The <code>argdo</code> command
+iterates over the argument list and performs the sspecified
+command (we still need the <code>%</code> to act on the whole file).</p>
+
+<p>(If you use Vim's tabs feature, see also <code>tabdo</code> for a way of
+doing operations across all your tabs.)</p>
+
+<p>A different approach, and what we suggest, is not using Vim
+altogether but a shell based substitution.</p>
+
+<p>First of all, you should make sure that you're working with some
+sort of VCS, because what we're about to do is not easily
+reversible.</p>
+
+<p>We will be using Perl, as it's fast, powerful and simple.</p>
+
+<p>The aforementioned substitution can be achieved with:</p>
+
+<pre><code>perl -i.bak -pe's/foo/bar/g' ./**.rb
+</code></pre>
+
+<p>A VERY IMPORTANT NOTE: the above pattern is usually safe in the
+context of a Rails application, but if the pattern you used finds
+files inside <code>.git</code>, it will perform the substitution on them as
+well, potentially damaging your Git index. This can happen if your
+glob pattern is too loose or if you have submodules written in the
+same language.</p>
+
+<p>However, the <code>-i.bak</code> argument does create a backup of the
+original file, so you'll need to delete the .bak files after the
+substitution. If you really know what you're doing, you can just
+use the <code>-i</code> by itself.</p>
+
+<p>A safer approach, and one which makes also the search and replace
+command easier to manage, is to move into subfolders and perform
+it in different steps. This will also make it easier to check,
+test and manage.</p>
+
+<h5>Visual mode</h5>
+
+<p>You can access Vim's "visual" model by pressing <code>v</code> (character
+selection) or <code>V</code> (line selection). When in visual mode, any
+movement will modify the selection. You can also click-drag a
+screen selection with the mouse, which will automatically put you
+in visual mode. Working in visual mode can be powerful, but in
+general it's advisable not to use it too often, since the actions
+you take in visual mode are not recorded in a way that can easily
+be repeated, e.g. <code>.</code> in normal mode.</p>
+
+<p>There are, however, situations where visual mode has a clear
+advantage. One technique, making use of a "visual block", is great
+for doing the same thing to several lines at once.</p>
+
+<p>Imagine this text in Vim:</p>
+
+<pre><code>a = 1
+b = 2
+c = 3
+</code></pre>
+
+<p>If we wanted to prepend the keyword <code>var</code> to every line shown
+above, we could to the following:</p>
+
+<ul>
+<li>With the cursor on <code>a</code>, create a visual block by pressing
+<code>ctrl-v</code>.</li>
+<li>Hit <code>jj</code> to move down two lines.</li>
+<li>Press <code>I</code>, type <code>var</code> (with a space at the end) and then press
+<code>Esc</code> to return to normal mode.</li>
+</ul><p>The var keyword should be prepended to each of the lines.</p>
+
+<p>Note that this is not the only way to do this. For example, a
+macro or a normal mode command would have worked equally well.
+This latter approach is in fact usually more effective:</p>
+
+<ul>
+<li>With the cursor on <code>a</code>, press <code>V</code> and <code>jj</code> to highlight all 3 lines</li>
+<li>Enter <code>:</code> and <code>:norm Ivar</code>
+</li>
+<li>Press Enter</li>
+</ul><p>When a visual range is selected, pressing <code>:</code> opens the command
+prompt with the range prefilled. By typing <code>:norm</code>, Vim
+temporarily switches to normal mode, executing the subsequent
+command for each line in the visual range. We just used <code>I</code> to
+jump before the first letter in normal mode and type <code>var</code>.</p>
+
+<p>This approach is good when the change we're making doesn't need to
+be repeated. In other situations, a macro is more effective.</p>
+
+<h4>Working with Tmux</h4>
+
+<p>Even if Vim by itself is indeed extremely powerful, it just shines when paired
+with Tmux. Tmux is a terminal multiplexer, a program to manage multiple shell
+instances in the scope of a single session (whether it's local or SSH it doesn't
+matter).</p>
+
+<p>In other words, Tmux allows the creation of separate tabs (called windows) and
+splits (called panes), interaction between them and an external api for
+programmatic control.</p>
+
+<p>The recurring question that people ask when hearing about Tmux for the first
+time is "Why should I use this instead of the native functionality provided by
+my terminal emulator?". Here's why:</p>
+
+<ul>
+<li>Tmux is terminal emulator independent, i.e. you can use it with any terminal
+emulator (there are a few edge cases in terms of compatibility, but the usual
+suspects on Mac OsX and Linux are well supported).</li>
+<li>Tmux can start a session, suspend it (called detach) and resume it (called
+attach), everything from different machines and over a network connection as
+well.</li>
+<li>Tmux has an api for external control by a 3rd party software and we'll see
+that this is key in our setup.</li>
+<li>If you accidentally close your terminal emulator, you don't lose anything as
+it runs in a separate process.</li>
+<li>Tmux is designed to be controlled with keyboard only and it features a
+powerful Vim compatibility mode that uses identical shortcuts.</li>
+</ul><p>Hermes includes an opinionated Tmux setup that solves a few compatibility issues
+with OsX, rebinds many shortcuts to an easier to remember layout and adds a few
+bells and whistles (like date, time and battery information in the status bar).
+Huge thanks to Thoughtbot for sharing most of the code that made it into this
+configuration.</p>
+
+<h5>Basic interaction</h5>
+
+<p>If you type <code>tmux</code> in your shell, you will start a new session. As we haven't
+passed a name, the session will receive an incremental number to identify it.
+Tmux allows switching between different sessions, so ideally you would want a
+separate one for each project you're working on.</p>
+
+<p>At the bottom, you can see the list of windows on the left. This shows the
+current session windows, highlighting the current one. Windows also have an
+index, shown right on the left of the name.</p>
+
+<p>The window behaves exactly like a "normal" terminal window, with just a couple
+of exceptions:</p>
+
+<ul>
+<li>Some shortcuts (like Cmd+k to clear the screen) can have unexpected
+behaviours. Where sensible, the configuration provides fallbacks.</li>
+<li>Mouse interaction is supported, but only with iTerm2 as terminal emulator (the
+default OsX terminal doesn't support it)</li>
+</ul><p>All tmux commands start with a prefix, set in this configuration to <code>Ctrl-a</code>: as
+a convention, this document will call this shortcut 'prefix', so <code>prefix-c</code>
+means 'press Ctrl-a, then c'.</p>
+
+<p>Here are some basic commands:</p>
+
+<ul>
+<li>
+<code>prefix-1</code>, <code>prefix-2</code> switches to the window identified by that index;</li>
+<li>
+<code>prefix-c</code> creates a new window;</li>
+<li>
+<code>prefix-|</code> splits the current window <strong>vertically</strong>;</li>
+<li>
+<code>prefix-_</code> splits the current window <strong>horizontally</strong>;</li>
+<li>
+<code>prefix-spacebar</code> switches between horizontal and vertical layout for panes;</li>
+<li>
+<code>prefix-x</code> closes the current pane.</li>
+<li>
+<code>prefix-a</code> cycles focus among the current window panes;</li>
+<li>
+<code>prefix-h/j/k/l</code> moves the focus respectively to the left, below, above and
+right from the current pane (very similar to Vim);</li>
+<li>
+<code>prefix-r</code> reloads the tmux configuration (useful if you make some changes);</li>
+<li>
+<code>prefix-:</code> enters tmux command mode, where you can type tmux commands to
+perform certain actions in a dedicated command line (this is advanced usage).</li>
+</ul><p>You can also change focus from one pane to another using the mouse, however that
+is usually slower than mastering keyboard shortcuts.</p>
+
+<h5>Scrolling, copy and paste</h5>
+
+<p>As expected, you can scroll inside a pane with your mouse, but Tmux supports
+complete mouseless interaction even for this kind of operation. This is possible
+by entering 'copy mode', where (similarly to Vim's normal and visual modes,
+pressing keyboard keys doesn't enter text but performs actions). Copy mode is
+identified by a status indicator in the top right corner of the pane (showing
+your cursor position in the current scroll buffer).</p>
+
+<p>Copy mode can be entered by pressing <code>prefix-esc</code>, but it can be alternatively
+activated by:</p>
+
+<ul>
+<li>pressing <code>prefix-pageUp</code> or <code>prefix-pageDown</code>, so that after entering copy
+mode it scrolls up or down.</li>
+<li>scrolling with the mouse on a pane, or initiating a drag and drop selection.</li>
+</ul><p>Commands in copy mode are pretty much identical to Vim and that's because Tmux
+handily supports a Vim compatibility mode, so that you don't have to change your
+habits.</p>
+
+<ul>
+<li>
+<code>/</code> will initiate a forward search. Simmetrically, <code>?</code> will initiate a
+backward one;</li>
+<li>
+<code>pageUp</code> and <code>pageDown</code> will scroll the pane;</li>
+<li>
+<code>g</code> and <code>G</code> will go respectively to the top and the bottom;</li>
+<li>
+<code>v</code> initiates visual selection, so that you can select a visual portion of
+text and then, for example, press <code>y</code> to copy it.</li>
+</ul><p>To see a list of all possible combinations, press <code>prefix-:</code> to enter command
+mode and type <code>list-keys -t vi-copy</code>. Note also that a good set of motions are
+supported, so you can type <code>v4w</code> to select 4 words from the current one.</p>
+
+<p>Allow yourself some time to master copy mode, as it's extremely powerful.</p>
+
+<p>Note that if you use the mouse and perform a drag selection, text will be
+automatically copied into the clipboard upon releasing the left mouse button.</p>
 
 <h1>License</h1>
 
@@ -401,6 +711,10 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<h1>Copyright</h1>
+
+<p>Copyright ©2012 New Bamboo Web Development Limited</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
