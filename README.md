@@ -30,7 +30,7 @@ developers around the world. We would like to thank:
 
 - The [Vim](http://www.vim.org/) team.
 - The [Tmux](http://tmux.sourceforge.net/) team.
-- The [GNU Bash](http://www.gnu.org/software/bash/bash.html) and [Fish](http://ridiculousfish.com/shell/) teams
+- The [GNU Bash](http://www.gnu.org/software/bash/bash.html) team
 - The [Homebrew](http://mxcl.github.com/homebrew/) team.
 - [Tim Pope](http://tpo.pe/). Seriously, you're awesome.
 - [Thoughtbot](http://thoughtbot.com/) for their dotfiles, essential in getting
