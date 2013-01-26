@@ -17,6 +17,10 @@ set laststatus=2  " Always display the status line
 set t_Co=256
 syntax on
 
+" Fix backspace
+set backspace=indent,eol,start
+fixdel
+
 " Send more characters for redraws
 set ttyfast
 
