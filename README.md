@@ -314,7 +314,9 @@ of a `.vimrc`:
     source $HOME/.vim/shortcuts.vim
 
 **Tip**: Pressing `gf` in Vim's normal mode will open the file under
-the cursor.
+the cursor. This works with many other file types, including html documents.
+
+![Using gf](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/gf.gif)
 
 We recommend that when working with new plugins, you add one at a
 time and pay close attention to their documentation. Plugins
