@@ -520,6 +520,29 @@ jump before the first letter in normal mode and type `var`.
 This approach is good when the change we're making doesn't need to
 be repeated. In other situations, a macro is more effective.
 
+##### Ctrl-p and fuzzy file search
+
+![Using Ctrl-p](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/ctrl-p.gif)
+
+Ctrl-p is a native Vim fuzzy finder. It can be used to search for files, buffers
+and tags with great configurability.
+
+Hermes ships a ctrl-p configuration that uses the following defaults:
+
+- uses the VCS root as a working directory, falling back to the current one if
+  you're working outside a git repository;
+- ignores tmp, database, log and VCS specific directories;
+- current match at the top of the window;
+- tag extension to search into the ctags database
+
+Ctrl-p can be easily invoked with... `ctrl-p`. As reported in [its original
+readme](https://github.com/kien/ctrlp.vim), here are some commands you can use:
+
+- Press `<c-f>` and `<c-b>` to cycle between modes.
+- Press `<c-d>` to switch to filename only search instead of full path.
+
+Note that any filesystem change (new or deleted files) requires a cache refresh,
+achievable by typing `:CtrlPClearCache`.
 
 #### Working with Tmux
 
