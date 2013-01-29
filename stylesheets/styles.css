@@ -531,7 +531,7 @@ table {
 body {
   padding: 0px 0 20px 0px;
   margin: 0px;
-  font: 20px/1.6 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 14px/1.5 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #f0e7d5;
   font-weight: normal;
   background: #252525;
@@ -556,15 +556,15 @@ p, ul, ol, table, pre, dl {
 }
 
 h1, h2, h3 {
-  line-height: 1.1em;
+  line-height: 1.1;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 28px;
 }
 
 h2 {
-  font-size: 1.8em;
+  font-size: 24px;
 }
 
 h4, h5, h6 {
@@ -572,8 +572,8 @@ h4, h5, h6 {
 }
 
 h3 {
-  font-size: 1.4em;
-  line-height: 1.3em;
+  font-size: 18px;
+  line-height: 24px;
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: normal;
   color: #b6b6b6;
@@ -605,7 +605,7 @@ strong {
 }
 
 .wrapper {
-  max-width: 800px;
+  max-width: 650px;
   margin: 0 auto;
   position: relative;
   padding: 0 20px;
@@ -623,10 +623,9 @@ blockquote {
 }
 
 code {
-  font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  font-family: "Lucida Sans", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
   color: #efefef;
-  background: #191919;
-  font-size: 0.8em;
+  font-size: 13px;
   margin: 0 4px;
   padding: 4px 6px;
   -moz-border-radius: 2px;
@@ -635,11 +634,6 @@ code {
   -ms-border-radius: 2px;
   -khtml-border-radius: 2px;
   border-radius: 2px;
-  border: 1px solid #121212;
-  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-  -o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 pre {
@@ -715,7 +709,7 @@ dt {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
 }
 #header nav {
-  max-width: 800px;
+  max-width: 650px;
   margin: 0 auto;
   padding: 0 10px;
   background: blue;
@@ -787,6 +781,7 @@ dt {
 }
 
 section {
+  max-width: 650px;
   padding: 30px 0px 50px 0px;
   margin: 20px 0;
   margin-top: 70px;
@@ -800,9 +795,9 @@ section #title {
 section #title h1 {
   font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 2.5em;
+  font-size: 40px;
   text-align: center;
-  line-height: 1.2em;
+  line-height: 36px;
 }
 section #title p {
   color: #d7cfbe;
@@ -812,7 +807,7 @@ section #title p {
   text-align: center;
 }
 section #title .credits {
-  font-size: 0.8em;
+  font-size: 11px;
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #696969;
@@ -826,11 +821,6 @@ section #title .credits.right {
 }
 
 @media print, screen and (max-width: 720px) {
-
-  body {
-    font: 18px/1.6 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-
   #title .credits {
     display: block;
     width: 100%;
@@ -847,11 +837,6 @@ section #title .credits.right {
   }
 }
 @media print, screen and (max-width: 480px) {
-
-  body {
-    font: 16px/1.6 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-
   #header {
     margin-top: -20px;
   }
