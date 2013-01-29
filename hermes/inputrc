@@ -9,7 +9,7 @@
 "\e\e[C": forward-word
 "\e\e[D": backward-word
 
-set completion-ignore-case On
+set completion-ignore-case on
 set expand-tilde on
 set convert-meta off
 set input-meta on
