@@ -551,7 +551,7 @@ achievable by typing `:CtrlPClearCache`.
 
 
 ### Working with Rails
-j
+
 Rails.vim supercharges Vim with functions, shortcuts and a general
 'rails-awareness' factor that proves to be invaluable when editing a Rails
 project.
