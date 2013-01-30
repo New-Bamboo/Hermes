@@ -173,8 +173,6 @@ but it doesn&#8217;t cover the totality of what&#8217;s provided by all plugins,
 when it comes to Vim. Please refer to their original documentation for more
 details.</p>
 
-<h2 id="howitsbuilt">How it&#8217;s built</h2>
-
 <p>Hermes&#8217; goal is to provide a solid structure for you to build on top of without
 having to deal with any intermediate configuration layers. For example, Vim&#8217;s
 entire configuration is managed canonically through the <code>~/.vimrc</code> file and the
@@ -184,7 +182,7 @@ files are actually symlinks to your <code>hermes</code> folder.</p>
 <p>Knowing how Hermes ties everything together is useful when it comes time to
 configure it.</p>
 
-<h3 id="vim">Vim</h3>
+<h2 id="vim">Vim</h2>
 
 <p>A stock vim installation with a basic configuration can go a long way and can
 be really beneficial when it comes to editing files on a server.</p>
@@ -261,7 +259,7 @@ enable standard features like line numbering and syntax highlighting and also
 turn on features like mouse support and clipboard sharing that are useful in
 integrating Vim into iTerm and OS X.</p>
 
-<h4 id="plugins">Plugins</h4>
+<h3 id="plugins">Plugins</h3>
 
 <p>Plugins are a powerful way to extend Vim&#8217;s capabilities. The implementation may
 change, but we feel you should be able to expect the following from a modern
@@ -367,7 +365,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 </code></pre>
 
-<h4 id="managingconfiguration">Managing configuration</h4>
+<h3 id="managingconfiguration">Managing configuration</h3>
 
 <p>If you keep extending your <code>.vimrc</code>, it comes to a point where
 it&#8217;s simply too long, so it makes sense to split it into separate
@@ -412,13 +410,13 @@ Ctrl-p uses this pattern to determine a baseline for excluding
 files when creating its index, this simple addition will help keep
 it snappy.</p>
 
-<h4 id="dailyusecases">Daily use cases</h4>
+<h3 id="dailyusecases">Daily use cases</h3>
 
 <p>Here are a few examples of what you can do with Vim, bearing in
 mind that this is not meant to be an exhaustive guide. Instead, we
 will focus on frequent everyday tasks:</p>
 
-<h5 id="shellingout">Shelling out</h5>
+<h4 id="shellingout">Shelling out</h4>
 
 <p>Having the shell at your disposal can speed up your workflow many
 times over, but to really take advantage of this it&#8217;s important to
@@ -458,7 +456,7 @@ assign it to <code>&lt;leader&gt;s</code> and then specify the command, a simple
 <code>bundle exec rspec</code> where we include the current file as an argument
 and then press enter (carriage return).</p>
 
-<h5 id="searchandreplace">Search and replace</h5>
+<h4 id="searchandreplace">Search and replace</h4>
 
 <p>Search and replace in Vim is a kind of regular expression usage.
 Vim expects you to provide a range and then a substitution command
@@ -548,7 +546,7 @@ command easier to manage, is to move into subfolders and perform
 it in different steps. This will also make it easier to check,
 test and manage.</p>
 
-<h5 id="visualmode">Visual mode</h5>
+<h4 id="visualmode">Visual mode</h4>
 
 <p>You can access Vim&#8217;s &#8220;visual&#8221; model by pressing <code>v</code> (character
 selection) or <code>V</code> (line selection). When in visual mode, any
@@ -602,7 +600,7 @@ jump before the first letter in normal mode and type <code>var</code>.</p>
 <p>This approach is good when the change we&#8217;re making doesn&#8217;t need to
 be repeated. In other situations, a macro is more effective.</p>
 
-<h5 id="ctrl-pandfuzzyfilesearch">Ctrl-p and fuzzy file search</h5>
+<h4 id="ctrl-pandfuzzyfilesearch">Ctrl-p and fuzzy file search</h4>
 
 <figure>
 <img src="https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/ctrl-p.gif" alt="Using Ctrl-p" />
@@ -634,14 +632,14 @@ readme</a>, here are some commands you can use:</p>
 <p>Note that any filesystem change (new or deleted files) requires a cache refresh,
 achievable by typing <code>:CtrlPClearCache</code>.</p>
 
-<h4 id="workingwithrails">Working with Rails</h4>
+<h3 id="workingwithrails">Working with Rails</h3>
 
 <p>j
 Rails.vim supercharges Vim with functions, shortcuts and a general
 &#8216;rails-awareness&#8217; factor that proves to be invaluable when editing a Rails
 project.</p>
 
-<h5 id="filenavigation">File navigation</h5>
+<h4 id="filenavigation">File navigation</h4>
 
 <p>Due to Rails&#8217;s conventional nature, any project uses the same folder structure,
 and all files the same naming conventions. Rails.vim leverages this factor and
@@ -658,7 +656,7 @@ and so on.</p>
 <code>RVcontroller</code> will open the file in a vertically split pane. For a complete
 list, type <code>:help rails-navigation</code>.</p>
 
-<h5 id="alternateandrelatedfiles">Alternate and related files</h5>
+<h4 id="alternateandrelatedfiles">Alternate and related files</h4>
 
 <p>When working on a certain feature, it&#8217;s common to switch between certain files:
 model to test, controller to related view and so on. Rails.vim provides
@@ -713,7 +711,7 @@ controller <code>index</code> action will take us to the related <code>index</co
 commands can be combined with modifiers to open the file in a new tab or split
 (<code>:RV</code>, <code>:RE</code>, etc.).</p>
 
-<h5 id="overchargedgf">Overcharged gf</h5>
+<h4 id="overchargedgf">Overcharged gf</h4>
 
 <p>Other commands, like the afore-mentioned <code>gf</code>, get a proper boost, becoming
 shortcuts to jump to the right file when pressed over a certain keyword. As an
@@ -729,7 +727,7 @@ end
 <p>Pressing <code>gf</code> on <code>:author</code> (any character) will open <code>app/models/author.rb</code>.
 Other examples are included in the relevant help section (<code>help rails-gf</code>).</p>
 
-<h5 id="generatorsandrake">Generators and Rake</h5>
+<h4 id="generatorsandrake">Generators and Rake</h4>
 
 <p>You can use generators straight from Vim with <code>RGenerate</code>, with the nice side
 effects that the first generated file is automatically opened in the editor.</p>
@@ -748,7 +746,7 @@ plugin included with Hermes,
 <a href="https://github.com/tpope/vim-bundler">vim-bundler</a>, takes care of prepending
 <code>bundle exec</code> to all commands.</p>
 
-<h5 id="partialrefactoring">Partial refactoring</h5>
+<h4 id="partialrefactoring">Partial refactoring</h4>
 
 <p>Another common operation is partial extraction, i.e. moving a certain portion of
 erb code into a separate partial file.</p>
@@ -777,7 +775,7 @@ content:</p>
 &lt;/ul&gt;
 </code></pre>
 
-<h4 id="workingwithtmux">Working with Tmux</h4>
+<h3 id="workingwithtmux">Working with Tmux</h3>
 
 <p>Even if Vim by itself is indeed extremely powerful, it just shines when paired
 with Tmux. Tmux is a terminal multiplexer, a program to manage multiple shell
@@ -813,7 +811,7 @@ bells and whistles (like date, time and battery information in the status bar).
 Huge thanks to Thoughtbot for sharing most of the code that made it into this
 configuration.</p>
 
-<h5 id="basicinteraction">Basic interaction</h5>
+<h4 id="basicinteraction">Basic interaction</h4>
 
 <p>If you type <code>tmux</code> in your shell, you will start a new session. As we haven&#8217;t
 passed a name, the session will receive an incremental number to identify it.
@@ -858,7 +856,7 @@ means &#8216;press Ctrl-a, then c&#8217;.</p>
 <p>You can also change focus from one pane to another using the mouse, however that
 is usually slower than mastering keyboard shortcuts.</p>
 
-<h5 id="scrollingcopyandpaste">Scrolling, copy and paste</h5>
+<h4 id="scrollingcopyandpaste">Scrolling, copy and paste</h4>
 
 <p>As expected, you can scroll inside a pane with your mouse, but Tmux supports
 complete mouseless interaction even for this kind of operation. This is possible
@@ -898,7 +896,7 @@ supported, so you can type <code>v4w</code> to select 4 words from the current o
 <p>Note that if you use the mouse and perform a drag selection, text will be
 automatically copied into the clipboard upon releasing the left mouse button.</p>
 
-<h4 id="tmuxandvim">Tmux and Vim</h4>
+<h3 id="tmuxandvim">Tmux and Vim</h3>
 
 <p>Let&#8217;s assume you are working on Rails application. Thanks to Rails.vim, you can
 easily navigate the codebase, but running tests is still a bit painful. You can
@@ -962,6 +960,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h1 id="copyright">Copyright</h1>
 
 <p>Copyright ©2012 New Bamboo Web Development Limited</p>
+
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->

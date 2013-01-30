@@ -794,7 +794,7 @@ dt {
 #toc {
   position: fixed;
   margin-top: 80px;
-  max-width: 80px;
+  max-width: 160px;
   font-size: 14px;
 }
 
@@ -836,7 +836,7 @@ section #title .credits.right {
   float: right;
 }
 
-@media print, screen and (max-width: 720px) {
+@media print, screen and (max-width: 1024px) {
 
   body {
     font: 18px/1.6 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -855,6 +855,10 @@ section #title .credits.right {
   #title .credits .right {
     float: none;
     display: block;
+  }
+
+  #toc {
+    display: none;
   }
 }
 @media print, screen and (max-width: 480px) {
