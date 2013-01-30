@@ -38,7 +38,7 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
         </div>
 
-        <h1>Hermes</h1>
+<h1 id="hermes">Hermes</h1>
 
 <p>Hermes is an environment for Ruby and JavaScript developers in Darwin using
 <a href="http://tmux.sourceforge.net/">Tmux</a>, <a href="http://www.vim.org/">Vim</a> and <a href="http://www.iterm2.com/">iTerm
@@ -53,16 +53,22 @@ prevent you from customizing your tools.</p>
 <li>Sensible defaults for developers.</li>
 <li>Integration of Vim into tmux and tmux into iTerm 2.</li>
 <li>Mouse and window integration, allowing selections within tmux and Vim panes,
-not across them.</li>
+ not across them.</li>
 <li>Vim packages that provide git integration, command- and block-completion,
-fuzzy file search and ease of testing.</li>
-</ul><p>We feel that good documentation is a key part of using any new technology with
-lots of moving parts, so we will be improving Hermes' documentation in the days
+ fuzzy file search and ease of testing.</li>
+</ul>
+
+<p>We feel that good documentation is a key part of using any new technology with
+lots of moving parts, so we will be improving Hermes&#8217; documentation in the days
 and weeks to come.</p>
 
-<p><img src="https://raw.github.com/New-Bamboo/Hermes/master/hermes.png" alt="Hermes screenshot"></p>
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/master/hermes.png" alt="Hermes screenshot" />
+<figcaption>Hermes screenshot</figcaption></figure>
 
-<h2>Preliminary Thanks</h2>
+
+
+<h2 id="preliminarythanks">Preliminary Thanks</h2>
 
 <p>Hermes combines plugins, settings, snippets, gists, and ideas from countless
 developers around the world. We would like to thank:</p>
@@ -70,16 +76,15 @@ developers around the world. We would like to thank:</p>
 <ul>
 <li>The <a href="http://www.vim.org/">Vim</a> team.</li>
 <li>The <a href="http://tmux.sourceforge.net/">Tmux</a> team.</li>
-<li>The <a href="http://www.gnu.org/software/bash/bash.html">GNU Bash</a> and <a href="http://ridiculousfish.com/shell/">Fish</a> teams</li>
+<li>The <a href="http://www.gnu.org/software/bash/bash.html">GNU Bash</a> team</li>
 <li>The <a href="http://mxcl.github.com/homebrew/">Homebrew</a> team.</li>
-<li>
-<a href="http://tpo.pe/">Tim Pope</a>. Seriously, you're awesome.</li>
-<li>
-<a href="http://thoughtbot.com/">Thoughtbot</a> for their dotfiles, essential in getting
-the Tmux configuration right.</li>
-<li>
-<a href="http://vimcasts.org/">Vimcasts</a>, for showing the world just how powerful Vim can be.</li>
-</ul><h2>Installation</h2>
+<li><a href="http://tpo.pe/">Tim Pope</a>. Seriously, you&#8217;re awesome.</li>
+<li><a href="http://thoughtbot.com/">Thoughtbot</a> for their dotfiles, essential in getting
+ the Tmux configuration right.</li>
+<li><a href="http://vimcasts.org/">Vimcasts</a>, for showing the world just how powerful Vim can be.</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
 
 <p><strong>Warning!</strong> Hermes is still early in development, so just to be
 careful, we strongly encourage you to install it in a separate
@@ -91,7 +96,7 @@ manifests/dotfile_manifest, or
 <a href="https://github.com/New-Bamboo/Hermes/blob/master/manifests/dotfile_manifest">follow this link</a>
 to view it on Github.</p>
 
-<h3>Prerequisites</h3>
+<h3 id="prerequisites">Prerequisites</h3>
 
 <p>Hermes relies on Homebrew and RVM to work properly. While Homebrew is a de
 facto standard developers using OS X, there are a good number of people that
@@ -99,12 +104,12 @@ use RBenv, so support for that is in the pipeline. We are happy to look at any
 pull requests.</p>
 
 <p>If these two tools are not available, the installer script will halt. Please
-refer to these tools' excellent documentation for installation instructions.</p>
+refer to these tools&#8217; excellent documentation for installation instructions.</p>
 
-<h3>Fork first!</h3>
+<h3 id="forkfirst">Fork first!</h3>
 
 <p>As the very first step, you should fork the Hermes on Github since this will
-make it easier for you to customize your installation. After you're done, you
+make it easier for you to customize your installation. After you&#8217;re done, you
 can run:</p>
 
 <pre><code>mkdir -p ~/.hermes
@@ -119,46 +124,55 @@ cd ~/.hermes
 <li>Check that you have all the needed Homebrew dependencies</li>
 <li>Back up any file or folder that would be overwritten by the installer process</li>
 <li>Install all dotfiles and plugins available in the <code>hermes</code> directory and
-symlink them to the right locations in your home folder</li>
-</ul><p>You may also want to add Hermes's repository as an upstream repository, so you
+ symlink them to the right locations in your home folder</li>
+</ul>
+
+<p>You may also want to add Hermes&#8217;s repository as an upstream repository, so you
 can pull in the changes done on the main trunk whenever you need to.</p>
 
-<p><img src="https://raw.github.com/New-Bamboo/Hermes/master/hermes-install.png" alt="Hermes installation"></p>
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/master/hermes-install.png" alt="Hermes installation" />
+<figcaption>Hermes installation</figcaption></figure>
 
-<h3>What's included in the installer</h3>
+
+
+<h3 id="whatsincludedintheinstaller">What&#8217;s included in the installer</h3>
 
 <p>The installer will:</p>
 
 <ul>
 <li>check for dependencies</li>
 <li>backup any existing dotfile that would be overwritten in a timestamped tar
-file that you can use to restore your previous configuration</li>
+ file that you can use to restore your previous configuration</li>
 <li>install a number of required Homebrew packages</li>
 <li>create a <code>~/hermes</code> directory and symlink its content to your home folder
-where every piece of software expects to find its main configuration file(s)</li>
-</ul><p>Hermes includes:</p>
+ where every piece of software expects to find its main configuration file(s)</li>
+</ul>
+
+<p>Hermes includes:</p>
 
 <ul>
 <li>configuration and plugins for Vim</li>
 <li>configuration for Tmux</li>
 <li>configuration for git</li>
 <li>configuration and additional functionality for two shells: Bash and Fish.</li>
-<li>settings for <code>gem</code>, <code>ack</code>, <code>pow</code>, <code>pry</code> and <code>irb</code>
-</li>
-</ul><p>In addition, Hermes glues all components together so they play nicely with each
-other and the OS. Two examples of this integration are are Hermes' support for
+<li>settings for <code>gem</code>, <code>ack</code>, <code>pow</code>, <code>pry</code> and <code>irb</code></li>
+</ul>
+
+<p>In addition, Hermes glues all components together so they play nicely with each
+other and the OS. Two examples of this integration are are Hermes&#8217; support for
 the system clipboard in OS X and window/pane aware mouse integration.</p>
 
-<h3>Updates</h3>
+<h3 id="updates">Updates</h3>
 
 <p>Being a git-based project, you can update Hermes by simply pulling from the
 remote. If you forked the project, please remember to add the original repo as
 an upstream repository to make getting new project updates easier.</p>
 
-<h2>How it's built</h2>
+<h2 id="howitsbuilt">How it&#8217;s built</h2>
 
-<p>Hermes' goal is to provide a solid structure for you to build on top of without
-having to deal with any intermediate configuration layers.  For example, Vim's
+<p>Hermes&#8217; goal is to provide a solid structure for you to build on top of without
+having to deal with any intermediate configuration layers. For example, Vim&#8217;s
 entire configuration is managed canonically through the <code>~/.vimrc</code> file and the
 <code>~/.vim</code> folder. The only significant difference is that under the hood, those
 files are actually symlinks to your <code>hermes</code> folder.</p>
@@ -166,18 +180,25 @@ files are actually symlinks to your <code>hermes</code> folder.</p>
 <p>Knowing how Hermes ties everything together is useful when it comes time to
 configure it.</p>
 
-<h3>Vim</h3>
+<h2 id="documentationforeword">Documentation foreword</h2>
+
+<p>This document provides enough information to make you productive with Hermes,
+but it doesn&#8217;t cover the totality of what&#8217;s provided by all plugins, especially
+when it comes to Vim. Please refer to their original documentation for more
+details.</p>
+
+<h3 id="vim">Vim</h3>
 
 <p>A stock vim installation with a basic configuration can go a long way and can
 be really beneficial when it comes to editing files on a server.</p>
 
 <p>There is however a very simple problem with the default Vim installation that
 OS X provides: it cannot access the system clipboard. That means if you copy
-anything from outside the editor, it's not available in any of Vim's registers.
-Worse yet, if you copy anything in Vim using its internal commands, it won't be
+anything from outside the editor, it&#8217;s not available in any of Vim&#8217;s registers.
+Worse yet, if you copy anything in Vim using its internal commands, it won&#8217;t be
 available to the rest of the system</p>
 
-<p>To sort this out, Hermes installs Homebrew's version of Vim, which is
+<p>To sort this out, Hermes installs Homebrew&#8217;s version of Vim, which is
 available through the MacVim package:</p>
 
 <pre><code>brew install macvim --override-system-vim
@@ -185,56 +206,56 @@ available through the MacVim package:</p>
 
 <p>This has some additional benefits, like having support for Ruby in plugins.</p>
 
-<p>Let's now go with some defaults for a basic <code>.vimrc</code> file:</p>
+<p>Let&#8217;s now go with some defaults for a basic <code>.vimrc</code> file:</p>
 
-<pre><code>set nocompatible    "don't need Vi compatibility
-set nobackup        "don't create backup files
+<pre><code>set nocompatible    &quot;don't need Vi compatibility
+set nobackup        &quot;don't create backup files
 set nowritebackup
 set notimeout
 set ttimeout
 set ttimeoutlen=10
-set noswapfile      "don't create swap files
-set history=50      "keep a small history
-set ruler           "always show position
+set noswapfile      &quot;don't create swap files
+set history=50      &quot;keep a small history
+set ruler           &quot;always show position
 set showcmd
 set incsearch
-set laststatus=2    "full status bar
-set t_Co=256        "256 colors - requires a properly configured terminal emulator
-syntax on           "turn syntax highlight on
+set laststatus=2    &quot;full status bar
+set t_Co=256        &quot;256 colors - requires a properly configured terminal emulator
+syntax on           &quot;turn syntax highlight on
 
-filetype plugin indent on "let plugins manage indentation
+filetype plugin indent on &quot;let plugins manage indentation
 
-" Send more characters for redraws
+&quot; Send more characters for redraws
 set ttyfast
-" Enable mouse use in all modes
+&quot; Enable mouse use in all modes
 set mouse=a
 set ttymouse=xterm2
 
-" Fix backspace
+&quot; Fix backspace
 set backspace=indent,eol,start
 fixdel
 
-" Softtabs, 2 spaces
+&quot; Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Display extra whitespace at the end of the line
+&quot; Display extra whitespace at the end of the line
 set list listchars=tab:»·,trail:·
-" Clipboard fix for OsX
+&quot; Clipboard fix for OsX
 set clipboard=unnamed
 
-" Numbers
+&quot; Numbers
 set number
 set numberwidth=2
 
-"Folding
+&quot;Folding
 set foldmethod=indent
 set foldlevelstart=99
 
-" Autocompletion options
+&quot; Autocompletion options
 set wildmode=list:longest,list:full
-set complete=.,w,b"
+set complete=.,w,b&quot;
 </code></pre>
 
 <p>These settings will allow you to efficiently edit any file whose type is
@@ -243,23 +264,25 @@ enable standard features like line numbering and syntax highlighting and also
 turn on features like mouse support and clipboard sharing that are useful in
 integrating Vim into iTerm and OS X.</p>
 
-<h4>Plugins</h4>
+<h4 id="plugins">Plugins</h4>
 
-<p>Plugins are a powerful way to extend Vim's capabilities. The implementation may
+<p>Plugins are a powerful way to extend Vim&#8217;s capabilities. The implementation may
 change, but we feel you should be able to expect the following from a modern
 text editor:</p>
 
 <ul>
 <li>Support for fuzzy search inside a directory tree. You should be able to
-easily open a file by name without navigating the tree.</li>
+ easily open a file by name without navigating the tree.</li>
 <li>Full text search inside a directory tree.</li>
 <li>Snippet support with expansion, tab stops and completion. Like Textmate.</li>
 <li>Integration with testing frameworks. You should be able to run tests without
-leaving the editor.</li>
+ leaving the editor.</li>
 <li>Tabs and split windows. You should be able to see tests and the corresponding
-code at the same time and be able to easily switch from one to the other.</li>
+ code at the same time and be able to easily switch from one to the other.</li>
 <li>Language specific features, like syntax-aware indentation and navigation.</li>
-</ul><p>Needless to say, a number of other text editors support these features. Vim,
+</ul>
+
+<p>Needless to say, a number of other text editors support these features. Vim,
 however, combines this with its extremely efficient modal editing approach.</p>
 
 <p>Hermes provides a good number of plugins, aiming to strike a balance between
@@ -267,39 +290,37 @@ features and speed. You can see the complete list under <code>hermes/vim/bundle<
 but here are some highlights:</p>
 
 <ul>
-<li>
-<a href="https://github.com/kien/ctrlp.vim">Ctrlp</a>: a tool for fuzzy searching by
-file and tag.</li>
-<li>
-<a href="https://github.com/msanders/snipmate.vim">Snipmate</a>: unashamedly borrowing
-from Textmate, Snipmate provides tab completion based on snippet files.</li>
-<li>
-<a href="https://github.com/epmatsw/ag.vim">The silver searcher</a>: <code>ag</code> is a faster
-alternative to Ack.</li>
-<li>
-<a href="https://github.com/vim-scripts/tComment">TComment</a>: toggles comments in
-nearly any language.</li>
-<li>
-<a href="https://github.com/tpope/vim-rails">Rails.vim</a>: provides shortcuts,
-generators and settings for working with Ruby on Rails projects.  Absolutely
-killer.</li>
-<li>
-<a href="https://github.com/benmills/vimux">Vimux</a>: forms a bridge with Tmux to send
-text and commands to a Tmux pane. Vimux is essential for Hermes' testing
-support.</li>
-</ul><p>However, we encourage you to be wary of plugins for several reasons:</p>
+<li><a href="https://github.com/kien/ctrlp.vim">Ctrlp</a>: a tool for fuzzy searching by
+ file and tag.</li>
+<li><a href="https://github.com/msanders/snipmate.vim">Snipmate</a>: unashamedly borrowing
+ from Textmate, Snipmate provides tab completion based on snippet files.</li>
+<li><a href="https://github.com/epmatsw/ag.vim">The silver searcher</a>: <code>ag</code> is a faster
+ alternative to Ack.</li>
+<li><a href="https://github.com/vim-scripts/tComment">TComment</a>: toggles comments in
+ nearly any language.</li>
+<li><a href="https://github.com/tpope/vim-rails">Rails.vim</a>: provides shortcuts,
+ generators and settings for working with Ruby on Rails projects. Absolutely
+ killer.</li>
+<li><a href="https://github.com/benmills/vimux">Vimux</a>: forms a bridge with Tmux to send
+ text and commands to a Tmux pane. Vimux is essential for Hermes&#8217; testing
+ support.</li>
+</ul>
+
+<p>However, we encourage you to be wary of plugins for several reasons:</p>
 
 <ul>
-<li>Vim has many conventional ways to accomplish certain tasks, and while it's
-possible to do things in many ways, it's important to try to understand the
-Vim way of doing things and play to its strengths.</li>
-<li>One of Vim's benefits is speed and low memory footprint, making it responsive
-even when opening huge files. Increasing Vim's footprint through excessive
-numbers of plugins can eliminate this benefit.</li>
+<li>Vim has many conventional ways to accomplish certain tasks, and while it&#8217;s
+ possible to do things in many ways, it&#8217;s important to try to understand the
+ Vim way of doing things and play to its strengths.</li>
+<li>One of Vim&#8217;s benefits is speed and low memory footprint, making it responsive
+ even when opening huge files. Increasing Vim&#8217;s footprint through excessive
+ numbers of plugins can eliminate this benefit.</li>
 <li>Sometimes a plugin is not necessary. Similar or identical effects can often
-be achieved with smaller, well thought-out changes in your .vimrc.</li>
+ be achieved with smaller, well thought-out changes in your .vimrc.</li>
 <li>Although powerful, Vim is a text editor and should do just this one job well.</li>
-</ul><p>Vim's approach to plugin management is a little counterintuitive:
+</ul>
+
+<p>Vim&#8217;s approach to plugin management is a little counterintuitive:
 by default, Vim looks for additional scripts to load in <code>~/.vim</code>,
 which has subfolders that determine when the configuration is
 loaded. For example, a script can be split across the <code>plugin</code> and
@@ -313,7 +334,7 @@ difficult to maintain and update.</p>
 manager that makes this process painless and that inverts the
 usual installation pattern, as it lets you organize plugins based
 on their name. With Pathogen, you can simply clone a repository into
-your <code>~/.vim</code> folder and you're done. This is the first stepping
+your <code>~/.vim</code> folder and you&#8217;re done. This is the first stepping
 stone to efficient dotfile management through a git repository
 where you can add all your plugins as git submodules and update
 all of them with a single command.</p>
@@ -327,13 +348,13 @@ makes it dead easy to add other plugins and keep them up-to-date:</p>
 git submodule add &lt;github-url&gt; hermes/vim/bundle/&lt;plugin-name&gt;
 </code></pre>
 
-<p>And you're done! Updating plugins is similarly straightforward:</p>
+<p>And you&#8217;re done! Updating plugins is similarly straightforward:</p>
 
 <pre><code>cd ~/.hermes
 git submodule foreach git pull origin master
 </code></pre>
 
-<p>As in every other Github-based project, it's advisable
+<p>As in every other Github-based project, it&#8217;s advisable
 to fork a plugin if you need to make changes that go
 beyond simple configuration (which we usually add to
 <code>~/.hermes/vim/plugins.vim</code>). In that case, you would need to
@@ -344,16 +365,16 @@ using your fork as the source.</p>
 including itself. This is controlled by the first two lines in the
 <code>~/.vimrc</code> file:</p>
 
-<pre><code>" loading pathogen at runtime as it's bundled
+<pre><code>&quot; loading pathogen at runtime as it's bundled
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 </code></pre>
 
-<h4>Managing configuration</h4>
+<h4 id="managingconfiguration">Managing configuration</h4>
 
 <p>If you keep extending your <code>.vimrc</code>, it comes to a point where
-it's simply too long, so it makes sense to split it into separate
-chunks of related configuration. Here's an example from the bottom
+it&#8217;s simply too long, so it makes sense to split it into separate
+chunks of related configuration. Here&#8217;s an example from the bottom
 of a <code>.vimrc</code>:</p>
 
 <pre><code>source $HOME/.vim/autocommands.vim
@@ -361,43 +382,49 @@ source $HOME/.vim/plugins.vim
 source $HOME/.vim/shortcuts.vim
 </code></pre>
 
-<p><strong>Tip</strong>: Pressing <code>gf</code> in Vim's normal mode will open the file under
-the cursor.</p>
+<p><strong>Tip</strong>: Pressing <code>gf</code> in Vim&#8217;s normal mode will open the file under
+the cursor. This works with many other file types, including html documents.</p>
+
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/gf.gif" alt="Using gf" />
+<figcaption>Using gf</figcaption></figure>
+
+
 
 <p>We recommend that when working with new plugins, you add one at a
 time and pay close attention to their documentation. Plugins
-are often extremely configurable, as you can see in Hermes'
+are often extremely configurable, as you can see in Hermes&#8217;
 <code>plugins.vim</code> file. Taking the time to develop a feel for how each
 plugin works and configuring them for your specific needs can go a
 long way in optimising your workflow.</p>
 
-<p>Documentation is usually available by typing <code>:help &lt;term-to-search&gt;</code>. 
-However, Hermes has a custom shortcut you can use: by pressing <code>&lt;leader&gt;h</code> 
-with the cursor over a word, you can search for that word in Vim's help.</p>
+<p>Documentation is usually available by typing <code>:help &lt;term-to-search&gt;</code>.
+However, Hermes has a custom shortcut you can use: by pressing <code>&lt;leader&gt;h</code>
+with the cursor over a word, you can search for that word in Vim&#8217;s help.</p>
 
-<p>As an example, let's look at the configuration Hermes supplies for
+<p>As an example, let&#8217;s look at the configuration Hermes supplies for
 <strong>Ctrl-p</strong> (in <code>~/.hermes/hermes/vim/plugins.vim</code>):</p>
 
 <pre><code>set wildignore+=*/.hg/*,*/.svn/*,*/vendor/cache/*,*/public/system/*,*/tmp/*,*/log/*,*/.git/*,*/.jhw-cache/*,*/solr/data/*,*/node_modules/*,*/.DS_Store
 </code></pre>
 
-<p>The <code>wildignore</code> flag is not Ctrl-p specific, as it's used by Vim
+<p>The <code>wildignore</code> flag is not Ctrl-p specific, as it&#8217;s used by Vim
 or many autocompletion and expansion functions: the more unlikely
-targets we remove, the better Vim's performance will be. Since
+targets we remove, the better Vim&#8217;s performance will be. Since
 Ctrl-p uses this pattern to determine a baseline for excluding
 files when creating its index, this simple addition will help keep
 it snappy.</p>
 
-<h4>Daily use cases</h4>
+<h4 id="dailyusecases">Daily use cases</h4>
 
 <p>Here are a few examples of what you can do with Vim, bearing in
 mind that this is not meant to be an exhaustive guide. Instead, we
 will focus on frequent everyday tasks:</p>
 
-<h5>Shelling out</h5>
+<h5 id="shellingout">Shelling out</h5>
 
 <p>Having the shell at your disposal can speed up your workflow many
-times over, but to really take advantage of this it's important to
+times over, but to really take advantage of this it&#8217;s important to
 learn how to alternate between Vim and the command line.</p>
 
 <p>Sometimes you just need to run a simple shell command, like
@@ -412,10 +439,10 @@ if you want to create a <code>sample</code> directory, you can type:</p>
 <p>The command will be performed from within the current working
 directory, you can verify that with <code>:pwd</code>.</p>
 
-<p>When you need to step out of the file you're editing, perform a
+<p>When you need to step out of the file you&#8217;re editing, perform a
 few tasks and then go back, your best option is to suspend Vim
 using the shell via <code>ctrl-z</code> and then resume it with by typing
-the command <code>fg</code> (foreground) when you're done. This is a very
+the command <code>fg</code> (foreground) when you&#8217;re done. This is a very
 straightforward approach and widely used in the Unix world. It
 works out of the box.</p>
 
@@ -434,7 +461,7 @@ assign it to <code>&lt;leader&gt;s</code> and then specify the command, a simple
 <code>bundle exec rspec</code> where we include the current file as an argument
 and then press enter (carriage return).</p>
 
-<h5>Search and replace</h5>
+<h5 id="searchandreplace">Search and replace</h5>
 
 <p>Search and replace in Vim is a kind of regular expression usage.
 Vim expects you to provide a range and then a substitution command
@@ -460,21 +487,24 @@ flag will allow you to confirm each substitution individually.</p>
 options:</p>
 
 <ul>
-<li>You can pass a range of lines, like <code>:12,15s/foo/bar</code>
-</li>
+<li>You can pass a range of lines, like <code>:12,15s/foo/bar</code></li>
 <li>You can select a visual block, press <code>:</code> followed by the
-substitution command (<code>s/foo/bar</code>). Note that the command bar
-will be prepopulated with the expression indicating the currently
-selected visual range (<code>'&lt;,'&gt;</code>)</li>
-</ul><p>A common complaint by many people who switch from a graphical
-editor to Vim is that there's no facility to execute a
+ substitution command (<code>s/foo/bar</code>). Note that the command bar
+ will be prepopulated with the expression indicating the currently
+ selected visual range (<code>'&lt;,'&gt;</code>)</li>
+</ul>
+
+<p>A common complaint by many people who switch from a graphical
+editor to Vim is that there&#8217;s no facility to execute a
 substitution command across files. Vim provides such tools by
 following a simple pattern:</p>
 
 <ul>
 <li>Add all the files to the arguments list</li>
 <li>Perform a search and replace on each file contained in such list</li>
-</ul><p>This can be tricky: the argument list is the files of all
+</ul>
+
+<p>This can be tricky: the argument list is the files of all
 currently open files and can be completely different from the
 buffer list. So if we wanted to perform a search and replace on
 all <code>*.rb</code> files in the current working directory we would do:</p>
@@ -487,17 +517,17 @@ all <code>*.rb</code> files in the current working directory we would do:</p>
 iterates over the argument list and performs the sspecified
 command (we still need the <code>%</code> to act on the whole file).</p>
 
-<p>(If you use Vim's tabs feature, see also <code>tabdo</code> for a way of
+<p>(If you use Vim&#8217;s tabs feature, see also <code>tabdo</code> for a way of
 doing operations across all your tabs.)</p>
 
 <p>A different approach, and what we suggest, is not using Vim
 altogether but a shell based substitution.</p>
 
-<p>First of all, you should make sure that you're working with some
-sort of VCS, because what we're about to do is not easily
+<p>First of all, you should make sure that you&#8217;re working with some
+sort of VCS, because what we&#8217;re about to do is not easily
 reversible.</p>
 
-<p>We will be using Perl, as it's fast, powerful and simple.</p>
+<p>We will be using Perl, as it&#8217;s fast, powerful and simple.</p>
 
 <p>The aforementioned substitution can be achieved with:</p>
 
@@ -512,8 +542,8 @@ glob pattern is too loose or if you have submodules written in the
 same language.</p>
 
 <p>However, the <code>-i.bak</code> argument does create a backup of the
-original file, so you'll need to delete the .bak files after the
-substitution. If you really know what you're doing, you can just
+original file, so you&#8217;ll need to delete the .bak files after the
+substitution. If you really know what you&#8217;re doing, you can just
 use the <code>-i</code> by itself.</p>
 
 <p>A safer approach, and one which makes also the search and replace
@@ -521,19 +551,19 @@ command easier to manage, is to move into subfolders and perform
 it in different steps. This will also make it easier to check,
 test and manage.</p>
 
-<h5>Visual mode</h5>
+<h5 id="visualmode">Visual mode</h5>
 
-<p>You can access Vim's "visual" model by pressing <code>v</code> (character
+<p>You can access Vim&#8217;s &#8220;visual&#8221; model by pressing <code>v</code> (character
 selection) or <code>V</code> (line selection). When in visual mode, any
 movement will modify the selection. You can also click-drag a
 screen selection with the mouse, which will automatically put you
 in visual mode. Working in visual mode can be powerful, but in
-general it's advisable not to use it too often, since the actions
+general it&#8217;s advisable not to use it too often, since the actions
 you take in visual mode are not recorded in a way that can easily
 be repeated, e.g. <code>.</code> in normal mode.</p>
 
 <p>There are, however, situations where visual mode has a clear
-advantage. One technique, making use of a "visual block", is great
+advantage. One technique, making use of a &#8220;visual block&#8221;, is great
 for doing the same thing to several lines at once.</p>
 
 <p>Imagine this text in Vim:</p>
@@ -548,11 +578,13 @@ above, we could to the following:</p>
 
 <ul>
 <li>With the cursor on <code>a</code>, create a visual block by pressing
-<code>ctrl-v</code>.</li>
+ <code>ctrl-v</code>.</li>
 <li>Hit <code>jj</code> to move down two lines.</li>
 <li>Press <code>I</code>, type <code>var</code> (with a space at the end) and then press
-<code>Esc</code> to return to normal mode.</li>
-</ul><p>The var keyword should be prepended to each of the lines.</p>
+ <code>Esc</code> to return to normal mode.</li>
+</ul>
+
+<p>The var keyword should be prepended to each of the lines.</p>
 
 <p>Note that this is not the only way to do this. For example, a
 macro or a normal mode command would have worked equally well.
@@ -560,23 +592,199 @@ This latter approach is in fact usually more effective:</p>
 
 <ul>
 <li>With the cursor on <code>a</code>, press <code>V</code> and <code>jj</code> to highlight all 3 lines</li>
-<li>Enter <code>:</code> and <code>:norm Ivar</code>
-</li>
+<li>Enter <code>:</code> and <code>:norm Ivar</code></li>
 <li>Press Enter</li>
-</ul><p>When a visual range is selected, pressing <code>:</code> opens the command
+</ul>
+
+<p>When a visual range is selected, pressing <code>:</code> opens the command
 prompt with the range prefilled. By typing <code>:norm</code>, Vim
 temporarily switches to normal mode, executing the subsequent
 command for each line in the visual range. We just used <code>I</code> to
 jump before the first letter in normal mode and type <code>var</code>.</p>
 
-<p>This approach is good when the change we're making doesn't need to
+<p>This approach is good when the change we&#8217;re making doesn&#8217;t need to
 be repeated. In other situations, a macro is more effective.</p>
 
-<h4>Working with Tmux</h4>
+<h5 id="ctrl-pandfuzzyfilesearch">Ctrl-p and fuzzy file search</h5>
+
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/ctrl-p.gif" alt="Using Ctrl-p" />
+<figcaption>Using Ctrl-p</figcaption></figure>
+
+
+
+<p>Ctrl-p is a native Vim fuzzy finder. It can be used to search for files, buffers
+and tags with great configurability.</p>
+
+<p>Hermes ships a ctrl-p configuration that uses the following defaults:</p>
+
+<ul>
+<li>uses the VCS root as a working directory, falling back to the current one if
+ you&#8217;re working outside a git repository;</li>
+<li>ignores tmp, database, log and VCS specific directories;</li>
+<li>current match at the top of the window;</li>
+<li>tag extension to search into the ctags database</li>
+</ul>
+
+<p>Ctrl-p can be easily invoked with&#8230; <code>ctrl-p</code>. As reported in <a href="https://github.com/kien/ctrlp.vim">its original
+readme</a>, here are some commands you can use:</p>
+
+<ul>
+<li>Press <code>&lt;c-f&gt;</code> and <code>&lt;c-b&gt;</code> to cycle between modes.</li>
+<li>Press <code>&lt;c-d&gt;</code> to switch to filename only search instead of full path.</li>
+</ul>
+
+<p>Note that any filesystem change (new or deleted files) requires a cache refresh,
+achievable by typing <code>:CtrlPClearCache</code>.</p>
+
+<h4 id="workingwithrails">Working with Rails</h4>
+
+<p>j
+Rails.vim supercharges Vim with functions, shortcuts and a general
+&#8216;rails-awareness&#8217; factor that proves to be invaluable when editing a Rails
+project.</p>
+
+<h5 id="filenavigation">File navigation</h5>
+
+<p>Due to Rails&#8217;s conventional nature, any project uses the same folder structure,
+and all files the same naming conventions. Rails.vim leverages this factor and
+provides a series of commands to open specific files in a Rails project without
+manually navigating to the file and keeping the current working directory at the
+root of the Rails application.</p>
+
+<p>These commands always follow the same pattern and are prefixed with <code>R</code> and are
+followed by the name of the file you want to open (stripped of the extension).
+Some examples are <code>:Rmodel</code> to open a model, <code>:Rcontroller</code> for a controller,
+and so on.</p>
+
+<p>All commands support variations to tweak the behaviour: for example,
+<code>RVcontroller</code> will open the file in a vertically split pane. For a complete
+list, type <code>:help rails-navigation</code>.</p>
+
+<h5 id="alternateandrelatedfiles">Alternate and related files</h5>
+
+<p>When working on a certain feature, it&#8217;s common to switch between certain files:
+model to test, controller to related view and so on. Rails.vim provides
+shortcuts for this file jumps: every file has got two counterparts: alternate
+and related. As reported in the guide (<code>:help rails-alternate</code>):</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Current file</th>
+	<th style="text-align:left;">Alternate file</th>
+	<th style="text-align:left;">Related file</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">model</td>
+	<td style="text-align:left;">unit test</td>
+	<td style="text-align:left;">schema definition</td>
+</tr>
+<tr>
+	<td style="text-align:left;">controller (in method)</td>
+	<td style="text-align:left;">functional test</td>
+	<td style="text-align:left;">template (view)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">template (view)</td>
+	<td style="text-align:left;">functional test</td>
+	<td style="text-align:left;">controller (jump to method)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">migration</td>
+	<td style="text-align:left;">previous migration</td>
+	<td style="text-align:left;">next migration</td>
+</tr>
+<tr>
+	<td style="text-align:left;">config/database.yml</td>
+	<td style="text-align:left;">config/routes.rb</td>
+	<td style="text-align:left;">config/environments/*.rb</td>
+</tr>
+</tbody>
+</table>
+<p>So pressing <code>:A</code> will switch between a model and its test file, while <code>:R</code> on a
+controller <code>index</code> action will take us to the related <code>index</code> view. Again, this
+commands can be combined with modifiers to open the file in a new tab or split
+(<code>:RV</code>, <code>:RE</code>, etc.).</p>
+
+<h5 id="overchargedgf">Overcharged gf</h5>
+
+<p>Other commands, like the afore-mentioned <code>gf</code>, get a proper boost, becoming
+shortcuts to jump to the right file when pressed over a certain keyword. As an
+example, let&#8217;s look at the following code:</p>
+
+<pre><code>class Post &lt; ActiveRecord::Base
+
+  belongs_to :author
+
+end
+</code></pre>
+
+<p>Pressing <code>gf</code> on <code>:author</code> (any character) will open <code>app/models/author.rb</code>.
+Other examples are included in the relevant help section (<code>help rails-gf</code>).</p>
+
+<h5 id="generatorsandrake">Generators and Rake</h5>
+
+<p>You can use generators straight from Vim with <code>RGenerate</code>, with the nice side
+effects that the first generated file is automatically opened in the editor.</p>
+
+<p>So, if you want to generate a new migration you can:</p>
+
+<ul>
+<li>type <code>:Rgenerate migration ...</code></li>
+<li>make the relevant changes in the file</li>
+<li>type <code>:Rake</code> to execute it</li>
+</ul>
+
+<p>This leads us to the <code>:Rake</code> command: depending on the open file, it performs
+different functions. See <code>:help rails-rake</code> for details. Note that another
+plugin included with Hermes,
+<a href="https://github.com/tpope/vim-bundler">vim-bundler</a>, takes care of prepending
+<code>bundle exec</code> to all commands.</p>
+
+<h5 id="partialrefactoring">Partial refactoring</h5>
+
+<p>Another common operation is partial extraction, i.e. moving a certain portion of
+erb code into a separate partial file.</p>
+
+<p>Let&#8217;s assume you have a file called <code>app/views/users/show.html.erb</code> with this
+content:</p>
+
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;&lt;%= @user.name %&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;%= @user.email %&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>Using visual block mode (<code>V</code>), highlight the two <code>&lt;li&gt;</code> tags. Then type
+<code>:Rextract user</code> and press enter. This will create a file called
+<code>app/views/users/_user.html.erb</code> with the following content:</p>
+
+<pre><code>&lt;li&gt;&lt;%= user.name %&gt;&lt;/li&gt;
+&lt;li&gt;&lt;%= user.email %&gt;&lt;/li&gt;
+</code></pre>
+
+<p>It will also update the <code>show</code> view by referencing that new partial:</p>
+
+<pre><code>&lt;ul&gt;
+  &lt;%= render :partial =&gt; 'user' %&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h4 id="workingwithtmux">Working with Tmux</h4>
 
 <p>Even if Vim by itself is indeed extremely powerful, it just shines when paired
 with Tmux. Tmux is a terminal multiplexer, a program to manage multiple shell
-instances in the scope of a single session (whether it's local or SSH it doesn't
+instances in the scope of a single session (whether it&#8217;s local or SSH it doesn&#8217;t
 matter).</p>
 
 <p>In other words, Tmux allows the creation of separate tabs (called windows) and
@@ -584,85 +792,81 @@ splits (called panes), interaction between them and an external api for
 programmatic control.</p>
 
 <p>The recurring question that people ask when hearing about Tmux for the first
-time is "Why should I use this instead of the native functionality provided by
-my terminal emulator?". Here's why:</p>
+time is &#8220;Why should I use this instead of the native functionality provided by
+my terminal emulator?&#8221;. Here&#8217;s why:</p>
 
 <ul>
 <li>Tmux is terminal emulator independent, i.e. you can use it with any terminal
-emulator (there are a few edge cases in terms of compatibility, but the usual
+ emulator (there are a few edge cases in terms of compatibility, but the usual
 suspects on Mac OsX and Linux are well supported).</li>
 <li>Tmux can start a session, suspend it (called detach) and resume it (called
-attach), everything from different machines and over a network connection as
+ attach), everything from different machines and over a network connection as
 well.</li>
-<li>Tmux has an api for external control by a 3rd party software and we'll see
-that this is key in our setup.</li>
-<li>If you accidentally close your terminal emulator, you don't lose anything as
-it runs in a separate process.</li>
+<li>Tmux has an api for external control by a 3rd party software and we&#8217;ll see
+ that this is key in our setup.</li>
+<li>If you accidentally close your terminal emulator, you don&#8217;t lose anything as
+ it runs in a separate process.</li>
 <li>Tmux is designed to be controlled with keyboard only and it features a
-powerful Vim compatibility mode that uses identical shortcuts.</li>
-</ul><p>Hermes includes an opinionated Tmux setup that solves a few compatibility issues
+ powerful Vim compatibility mode that uses identical shortcuts.</li>
+</ul>
+
+<p>Hermes includes an opinionated Tmux setup that solves a few compatibility issues
 with OsX, rebinds many shortcuts to an easier to remember layout and adds a few
 bells and whistles (like date, time and battery information in the status bar).
 Huge thanks to Thoughtbot for sharing most of the code that made it into this
 configuration.</p>
 
-<h5>Basic interaction</h5>
+<h5 id="basicinteraction">Basic interaction</h5>
 
-<p>If you type <code>tmux</code> in your shell, you will start a new session. As we haven't
+<p>If you type <code>tmux</code> in your shell, you will start a new session. As we haven&#8217;t
 passed a name, the session will receive an incremental number to identify it.
 Tmux allows switching between different sessions, so ideally you would want a
-separate one for each project you're working on.</p>
+separate one for each project you&#8217;re working on.</p>
 
 <p>At the bottom, you can see the list of windows on the left. This shows the
 current session windows, highlighting the current one. Windows also have an
 index, shown right on the left of the name.</p>
 
-<p>The window behaves exactly like a "normal" terminal window, with just a couple
+<p>The window behaves exactly like a &#8220;normal&#8221; terminal window, with just a couple
 of exceptions:</p>
 
 <ul>
 <li>Some shortcuts (like Cmd+k to clear the screen) can have unexpected
-behaviours. Where sensible, the configuration provides fallbacks.</li>
+ behaviours. Where sensible, the configuration provides fallbacks.</li>
 <li>Mouse interaction is supported, but only with iTerm2 as terminal emulator (the
-default OsX terminal doesn't support it)</li>
-</ul><p>All tmux commands start with a prefix, set in this configuration to <code>Ctrl-a</code>: as
-a convention, this document will call this shortcut 'prefix', so <code>prefix-c</code>
-means 'press Ctrl-a, then c'.</p>
+ default OsX terminal doesn&#8217;t support it)</li>
+</ul>
+
+<p>All tmux commands start with a prefix, set in this configuration to <code>Ctrl-a</code>: as
+a convention, this document will call this shortcut &#8216;prefix&#8217;, so <code>prefix-c</code>
+means &#8216;press Ctrl-a, then c&#8217;.</p>
 
 <p>Here are some basic commands:</p>
 
 <ul>
-<li>
-<code>prefix-1</code>, <code>prefix-2</code> switches to the window identified by that index;</li>
-<li>
-<code>prefix-c</code> creates a new window;</li>
-<li>
-<code>prefix-|</code> splits the current window <strong>vertically</strong>;</li>
-<li>
-<code>prefix-_</code> splits the current window <strong>horizontally</strong>;</li>
-<li>
-<code>prefix-spacebar</code> switches between horizontal and vertical layout for panes;</li>
-<li>
-<code>prefix-x</code> closes the current pane.</li>
-<li>
-<code>prefix-a</code> cycles focus among the current window panes;</li>
-<li>
-<code>prefix-h/j/k/l</code> moves the focus respectively to the left, below, above and
-right from the current pane (very similar to Vim);</li>
-<li>
-<code>prefix-r</code> reloads the tmux configuration (useful if you make some changes);</li>
-<li>
-<code>prefix-:</code> enters tmux command mode, where you can type tmux commands to
-perform certain actions in a dedicated command line (this is advanced usage).</li>
-</ul><p>You can also change focus from one pane to another using the mouse, however that
+<li><code>prefix-1</code>, <code>prefix-2</code> switches to the window identified by that index;</li>
+<li><code>prefix-c</code> creates a new window;</li>
+<li><code>prefix-|</code> splits the current window <strong>vertically</strong>;</li>
+<li><code>prefix-_</code> splits the current window <strong>horizontally</strong>;</li>
+<li><code>prefix-spacebar</code> switches between horizontal and vertical layout for panes;</li>
+<li><code>prefix-x</code> closes the current pane.</li>
+<li><code>prefix-a</code> cycles focus among the current window panes;</li>
+<li><code>prefix-h/j/k/l</code> moves the focus respectively to the left, below, above and
+ right from the current pane (very similar to Vim);</li>
+<li><code>prefix-r</code> reloads the tmux configuration (useful if you make some changes);</li>
+<li><code>prefix-:</code> enters tmux command mode, where you can type tmux commands to
+ perform certain actions in a dedicated command line (this is advanced usage).</li>
+</ul>
+
+<p>You can also change focus from one pane to another using the mouse, however that
 is usually slower than mastering keyboard shortcuts.</p>
 
-<h5>Scrolling, copy and paste</h5>
+<h5 id="scrollingcopyandpaste">Scrolling, copy and paste</h5>
 
 <p>As expected, you can scroll inside a pane with your mouse, but Tmux supports
 complete mouseless interaction even for this kind of operation. This is possible
-by entering 'copy mode', where (similarly to Vim's normal and visual modes,
-pressing keyboard keys doesn't enter text but performs actions). Copy mode is
+by entering &#8216;copy mode&#8217;, where (similarly to Vim&#8217;s normal and visual modes,
+pressing keyboard keys doesn&#8217;t enter text but performs actions). Copy mode is
 identified by a status indicator in the top right corner of the pane (showing
 your cursor position in the current scroll buffer).</p>
 
@@ -671,39 +875,77 @@ activated by:</p>
 
 <ul>
 <li>pressing <code>prefix-pageUp</code> or <code>prefix-pageDown</code>, so that after entering copy
-mode it scrolls up or down.</li>
+ mode it scrolls up or down.</li>
 <li>scrolling with the mouse on a pane, or initiating a drag and drop selection.</li>
-</ul><p>Commands in copy mode are pretty much identical to Vim and that's because Tmux
-handily supports a Vim compatibility mode, so that you don't have to change your
+</ul>
+
+<p>Commands in copy mode are pretty much identical to Vim and that&#8217;s because Tmux
+handily supports a Vim compatibility mode, so that you don&#8217;t have to change your
 habits.</p>
 
 <ul>
-<li>
-<code>/</code> will initiate a forward search. Simmetrically, <code>?</code> will initiate a
-backward one;</li>
-<li>
-<code>pageUp</code> and <code>pageDown</code> will scroll the pane;</li>
-<li>
-<code>g</code> and <code>G</code> will go respectively to the top and the bottom;</li>
-<li>
-<code>v</code> initiates visual selection, so that you can select a visual portion of
-text and then, for example, press <code>y</code> to copy it.</li>
-</ul><p>To see a list of all possible combinations, press <code>prefix-:</code> to enter command
+<li><code>/</code> will initiate a forward search. Simmetrically, <code>?</code> will initiate a
+ backward one;</li>
+<li><code>pageUp</code> and <code>pageDown</code> will scroll the pane;</li>
+<li><code>g</code> and <code>G</code> will go respectively to the top and the bottom;</li>
+<li><code>v</code> initiates visual selection, so that you can select a visual portion of
+ text and then, for example, press <code>y</code> to copy it.</li>
+</ul>
+
+<p>To see a list of all possible combinations, press <code>prefix-:</code> to enter command
 mode and type <code>list-keys -t vi-copy</code>. Note also that a good set of motions are
 supported, so you can type <code>v4w</code> to select 4 words from the current one.</p>
 
-<p>Allow yourself some time to master copy mode, as it's extremely powerful.</p>
+<p>Allow yourself some time to master copy mode, as it&#8217;s extremely powerful.</p>
 
 <p>Note that if you use the mouse and perform a drag selection, text will be
 automatically copied into the clipboard upon releasing the left mouse button.</p>
 
-<h1>License</h1>
+<h4 id="tmuxandvim">Tmux and Vim</h4>
 
-<h2>This code is free to use under the terms of the MIT license.</h2>
+<p>Let&#8217;s assume you are working on Rails application. Thanks to Rails.vim, you can
+easily navigate the codebase, but running tests is still a bit painful. You can
+create some bindings as shown above, but reality is, it would be great if you
+could type a shortctut to run tests &#8220;somewhere&#8221; else without interrupting your
+flow.</p>
+
+<p>Hermes ships a combination of plugins that let you control your test suite runs
+from Vim using a separate pane in a Tmux session, so that you can benefit from
+asynchronous test runs without leaving your editor. This is achieved thanks to
+different plugins (vimux, vimux-ruby-test, vimux-cucumber and vim-turbux). It
+may seem a complicated setup, but in reality it allows to work in a much more
+natural way.</p>
+
+<p>As an example, navigate to a Rails application folder on your machine and start
+a Tmux session (if you&#8217;re not inside one already). Then, open <code>vim</code>.</p>
+
+<p>Let&#8217;s assume you have a <code>User</code> model (really, any model is fine, this is just
+for example purposes), so open <code>app/models/user.rb</code>. We already know that <code>:A</code>
+lets us navigate to the corresponding spec file and back, but we can also do
+better:</p>
+
+<ul>
+<li><p>Press <code>leader-t</code>: that creates (if not present) a pane below in the current
+ window to run the spec for the current file. So if you press it with
+<code>app/models/user.rb</code> visible, it&#8217;s smart enough to execute the test for that
+file, independently from the testing framework (RSpec, TestUnit or MiniTest).</p></li>
+<li><p>Now switch to the spec file and press <code>leader-f</code>: it will run the test passing
+ the current line number as an extra argument (a properly focused test).</p></li>
+<li><p>If you now switch back to the implementation file and rerun <code>leader-f</code>, Vim
+ will remember the line number used in step 2, so that you can easily run only
+the test you need for the implementation you&#8217;re working on.</p></li>
+<li><p>What if you want to run a complex piece of code in the rails console? Just
+ open one in the split pane, select a visual block in Vim and press <code>leader-r</code>.
+It will send it to the split pane, running it into the console.</p></li>
+</ul>
+
+<h1 id="license">License</h1>
+
+<p><strong>This code is free to use under the terms of the MIT license.</strong></p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
+&#8220;Software&#8221;), to deal in the Software without restriction, including
 without limitation the rights to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
@@ -712,7 +954,7 @@ the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included
 in all copies or substantial portions of the Software.</p>
 
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+<p>THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
@@ -720,7 +962,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 
-<h1>Copyright</h1>
+<h1 id="copyright">Copyright</h1>
 
 <p>Copyright ©2012 New Bamboo Web Development Limited</p>
       </section>
