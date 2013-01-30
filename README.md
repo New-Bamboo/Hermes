@@ -116,6 +116,14 @@ remote. If you forked the project, please remember to add the original repo as
 an upstream repository to make getting new project updates easier.
 
 
+## Documentation foreword
+
+This document provides enough information to make you productive with Hermes,
+but it doesn't cover the totality of what's provided by all plugins, especially
+when it comes to Vim. Please refer to their original documentation for more
+details.
+
+
 ## How it's built
 
 Hermes' goal is to provide a solid structure for you to build on top of without
@@ -126,14 +134,6 @@ files are actually symlinks to your `hermes` folder.
 
 Knowing how Hermes ties everything together is useful when it comes time to
 configure it.
-
-
-## Documentation foreword
-
-This document provides enough information to make you productive with Hermes,
-but it doesn't cover the totality of what's provided by all plugins, especially
-when it comes to Vim. Please refer to their original documentation for more
-details.
 
 
 ### Vim
