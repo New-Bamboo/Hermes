@@ -166,6 +166,13 @@ the system clipboard in OS X and window/pane aware mouse integration.</p>
 remote. If you forked the project, please remember to add the original repo as
 an upstream repository to make getting new project updates easier.</p>
 
+<h2 id="documentationforeword">Documentation foreword</h2>
+
+<p>This document provides enough information to make you productive with Hermes,
+but it doesn&#8217;t cover the totality of what&#8217;s provided by all plugins, especially
+when it comes to Vim. Please refer to their original documentation for more
+details.</p>
+
 <h2 id="howitsbuilt">How it&#8217;s built</h2>
 
 <p>Hermes&#8217; goal is to provide a solid structure for you to build on top of without
@@ -176,13 +183,6 @@ files are actually symlinks to your <code>hermes</code> folder.</p>
 
 <p>Knowing how Hermes ties everything together is useful when it comes time to
 configure it.</p>
-
-<h2 id="documentationforeword">Documentation foreword</h2>
-
-<p>This document provides enough information to make you productive with Hermes,
-but it doesn&#8217;t cover the totality of what&#8217;s provided by all plugins, especially
-when it comes to Vim. Please refer to their original documentation for more
-details.</p>
 
 <h3 id="vim">Vim</h3>
 
@@ -674,37 +674,37 @@ and related. As reported in the guide (<code>:help rails-alternate</code>):</p>
 
 <thead>
 <tr>
-	<th style="text-align:left;">Current file</th>
-	<th style="text-align:left;">Alternate file</th>
-	<th style="text-align:left;">Related file</th>
+  <th style="text-align:left;">Current file</th>
+  <th style="text-align:left;">Alternate file</th>
+  <th style="text-align:left;">Related file</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">model</td>
-	<td style="text-align:left;">unit test</td>
-	<td style="text-align:left;">schema definition</td>
+  <td style="text-align:left;">model</td>
+  <td style="text-align:left;">unit test</td>
+  <td style="text-align:left;">schema definition</td>
 </tr>
 <tr>
-	<td style="text-align:left;">controller (in method)</td>
-	<td style="text-align:left;">functional test</td>
-	<td style="text-align:left;">template (view)</td>
+  <td style="text-align:left;">controller (in method)</td>
+  <td style="text-align:left;">functional test</td>
+  <td style="text-align:left;">template (view)</td>
 </tr>
 <tr>
-	<td style="text-align:left;">template (view)</td>
-	<td style="text-align:left;">functional test</td>
-	<td style="text-align:left;">controller (jump to method)</td>
+  <td style="text-align:left;">template (view)</td>
+  <td style="text-align:left;">functional test</td>
+  <td style="text-align:left;">controller (jump to method)</td>
 </tr>
 <tr>
-	<td style="text-align:left;">migration</td>
-	<td style="text-align:left;">previous migration</td>
-	<td style="text-align:left;">next migration</td>
+  <td style="text-align:left;">migration</td>
+  <td style="text-align:left;">previous migration</td>
+  <td style="text-align:left;">next migration</td>
 </tr>
 <tr>
-	<td style="text-align:left;">config/database.yml</td>
-	<td style="text-align:left;">config/routes.rb</td>
-	<td style="text-align:left;">config/environments/*.rb</td>
+  <td style="text-align:left;">config/database.yml</td>
+  <td style="text-align:left;">config/routes.rb</td>
+  <td style="text-align:left;">config/environments/*.rb</td>
 </tr>
 </tbody>
 </table>
@@ -962,7 +962,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h1 id="copyright">Copyright</h1>
 
 <p>Copyright ©2012 New Bamboo Web Development Limited</p>
-      </section>
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
@@ -978,7 +977,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
       $(document).ready(function(){
         $("ul#toc").tableOfContents(null, {
           startLevel: 2,
-          depth: 1
+          depth: 2
         });
       })
     </script>
