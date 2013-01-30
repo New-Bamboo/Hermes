@@ -123,9 +123,6 @@ but it doesn't cover the totality of what's provided by all plugins, especially
 when it comes to Vim. Please refer to their original documentation for more
 details.
 
-
-## How it's built
-
 Hermes' goal is to provide a solid structure for you to build on top of without
 having to deal with any intermediate configuration layers.  For example, Vim's
 entire configuration is managed canonically through the `~/.vimrc` file and the
@@ -136,7 +133,7 @@ Knowing how Hermes ties everything together is useful when it comes time to
 configure it.
 
 
-### Vim
+## Vim
 
 A stock vim installation with a basic configuration can go a long way and can
 be really beneficial when it comes to editing files on a server.
@@ -212,7 +209,7 @@ turn on features like mouse support and clipboard sharing that are useful in
 integrating Vim into iTerm and OS X.
 
 
-#### Plugins
+### Plugins
 
 Plugins are a powerful way to extend Vim's capabilities. The implementation may
 change, but we feel you should be able to expect the following from a modern
@@ -310,7 +307,7 @@ including itself. This is controlled by the first two lines in the
     call pathogen#infect()
 
 
-#### Managing configuration
+### Managing configuration
 
 If you keep extending your `.vimrc`, it comes to a point where
 it's simply too long, so it makes sense to split it into separate
@@ -350,14 +347,14 @@ files when creating its index, this simple addition will help keep
 it snappy.
 
 
-#### Daily use cases
+### Daily use cases
 
 Here are a few examples of what you can do with Vim, bearing in
 mind that this is not meant to be an exhaustive guide. Instead, we
 will focus on frequent everyday tasks:
 
 
-##### Shelling out
+#### Shelling out
 
 Having the shell at your disposal can speed up your workflow many
 times over, but to really take advantage of this it's important to
@@ -396,7 +393,7 @@ assign it to `<leader>s` and then specify the command, a simple
 and then press enter (carriage return).
 
 
-##### Search and replace
+#### Search and replace
 
 Search and replace in Vim is a kind of regular expression usage.
 Vim expects you to provide a range and then a substitution command
@@ -479,7 +476,7 @@ it in different steps. This will also make it easier to check,
 test and manage.
 
 
-##### Visual mode
+#### Visual mode
 
 You can access Vim's "visual" model by pressing `v` (character
 selection) or `V` (line selection). When in visual mode, any
@@ -528,7 +525,7 @@ jump before the first letter in normal mode and type `var`.
 This approach is good when the change we're making doesn't need to
 be repeated. In other situations, a macro is more effective.
 
-##### Ctrl-p and fuzzy file search
+#### Ctrl-p and fuzzy file search
 
 ![Using Ctrl-p](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/ctrl-p.gif)
 
@@ -553,13 +550,13 @@ Note that any filesystem change (new or deleted files) requires a cache refresh,
 achievable by typing `:CtrlPClearCache`.
 
 
-#### Working with Rails
+### Working with Rails
 j
 Rails.vim supercharges Vim with functions, shortcuts and a general
 'rails-awareness' factor that proves to be invaluable when editing a Rails
 project.
 
-##### File navigation
+#### File navigation
 
 Due to Rails's conventional nature, any project uses the same folder structure,
 and all files the same naming conventions. Rails.vim leverages this factor and
@@ -576,7 +573,7 @@ All commands support variations to tweak the behaviour: for example,
 `RVcontroller` will open the file in a vertically split pane. For a complete
 list, type `:help rails-navigation`.
 
-##### Alternate and related files
+#### Alternate and related files
 
 When working on a certain feature, it's common to switch between certain files:
 model to test, controller to related view and so on. Rails.vim provides
@@ -596,7 +593,7 @@ controller `index` action will take us to the related `index` view. Again, this
 commands can be combined with modifiers to open the file in a new tab or split
 (`:RV`, `:RE`, etc.).
 
-##### Overcharged gf
+#### Overcharged gf
 
 Other commands, like the afore-mentioned `gf`, get a proper boost, becoming
 shortcuts to jump to the right file when pressed over a certain keyword. As an
@@ -611,7 +608,7 @@ example, let's look at the following code:
 Pressing `gf` on `:author` (any character) will open `app/models/author.rb`.
 Other examples are included in the relevant help section (`help rails-gf`).
 
-##### Generators and Rake
+#### Generators and Rake
 
 You can use generators straight from Vim with `RGenerate`, with the nice side
 effects that the first generated file is automatically opened in the editor.
@@ -628,7 +625,7 @@ plugin included with Hermes,
 [vim-bundler](https://github.com/tpope/vim-bundler), takes care of prepending
 `bundle exec` to all commands.
 
-##### Partial refactoring
+#### Partial refactoring
 
 Another common operation is partial extraction, i.e. moving a certain portion of
 erb code into a separate partial file.
@@ -655,7 +652,7 @@ It will also update the `show` view by referencing that new partial:
     </ul>
 
 
-#### Working with Tmux
+### Working with Tmux
 
 Even if Vim by itself is indeed extremely powerful, it just shines when paired
 with Tmux. Tmux is a terminal multiplexer, a program to manage multiple shell
@@ -689,7 +686,7 @@ bells and whistles (like date, time and battery information in the status bar).
 Huge thanks to Thoughtbot for sharing most of the code that made it into this
 configuration.
 
-##### Basic interaction
+#### Basic interaction
 
 If you type `tmux` in your shell, you will start a new session. As we haven't
 passed a name, the session will receive an incremental number to identify it.
@@ -730,7 +727,7 @@ Here are some basic commands:
 You can also change focus from one pane to another using the mouse, however that
 is usually slower than mastering keyboard shortcuts.
 
-##### Scrolling, copy and paste
+#### Scrolling, copy and paste
 
 As expected, you can scroll inside a pane with your mouse, but Tmux supports
 complete mouseless interaction even for this kind of operation. This is possible
@@ -766,7 +763,7 @@ Allow yourself some time to master copy mode, as it's extremely powerful.
 Note that if you use the mouse and perform a drag selection, text will be
 automatically copied into the clipboard upon releasing the left mouse button.
 
-#### Tmux and Vim
+### Tmux and Vim
 
 Let's assume you are working on Rails application. Thanks to Rails.vim, you can
 easily navigate the codebase, but running tests is still a bit painful. You can
