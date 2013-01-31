@@ -680,7 +680,7 @@ It will also update the `show` view by referencing that new partial:
     </ul>
 
 
-### Working with Tmux
+## Working with Tmux
 
 Even if Vim by itself is indeed extremely powerful, it just shines when paired
 with Tmux. Tmux is a terminal multiplexer, a program to manage multiple shell
@@ -714,7 +714,7 @@ bells and whistles (like date, time and battery information in the status bar).
 Huge thanks to Thoughtbot for sharing most of the code that made it into this
 configuration.
 
-#### Basic interaction
+### Basic interaction
 
 If you type `tmux` in your shell, you will start a new session. As we haven't
 passed a name, the session will receive an incremental number to identify it.
@@ -755,7 +755,7 @@ Here are some basic commands:
 You can also change focus from one pane to another using the mouse, however that
 is usually slower than mastering keyboard shortcuts.
 
-#### Scrolling, copy and paste
+### Scrolling, copy and paste
 
 As expected, you can scroll inside a pane with your mouse, but Tmux supports
 complete mouseless interaction even for this kind of operation. This is possible
@@ -791,7 +791,7 @@ Allow yourself some time to master copy mode, as it's extremely powerful.
 Note that if you use the mouse and perform a drag selection, text will be
 automatically copied into the clipboard upon releasing the left mouse button.
 
-### Tmux and Vim
+## Tmux and Vim
 
 Let's assume you are working on Rails application. Thanks to Rails.vim, you can
 easily navigate the codebase, but running tests is still a bit painful. You can
