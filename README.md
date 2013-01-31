@@ -46,7 +46,7 @@ user account, not your main one. That said, we *have* tested it on
 our own user accounts, where it worked just fine.
 
 You can check to see which files will be overwritten in
-manifests/dotfile_manifest, or
+`manifests/dotfile_manifest`, or
 [follow this link](https://github.com/New-Bamboo/Hermes/blob/master/manifests/dotfile_manifest)
 to view it on Github.
 
