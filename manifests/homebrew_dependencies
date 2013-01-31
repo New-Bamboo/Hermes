@@ -1,6 +1,7 @@
 autojump
 bash
 bash-completion
+direnv
 macvim --override-system-vim
 reattach-to-user-namespace
 ack

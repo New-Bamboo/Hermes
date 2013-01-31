@@ -44,3 +44,4 @@ configure_rvm
 configure_editor
 tmuxify_command_prompt
 
+eval `direnv hook $0`
