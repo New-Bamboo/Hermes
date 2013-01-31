@@ -371,12 +371,16 @@ if you want to create a `sample` directory, you can type:
 The command will be performed from within the current working
 directory, you can verify that with `:pwd`.
 
+![Shelling out](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/shelling-out.gif)
+
 When you need to step out of the file you're editing, perform a
 few tasks and then go back, your best option is to suspend Vim
 using the shell via `ctrl-z` and then resume it with by typing
 the command `fg` (foreground) when you're done. This is a very
 straightforward approach and widely used in the Unix world. It
 works out of the box.
+
+![Suspending](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/suspending.gif)
 
 Alternatively, you can use a different window or pane with Tmux,
 as we shall explain later on.
@@ -430,6 +434,8 @@ flags to the command, like:
 The `g` flag predictably tells Vim to perform a global search and
 replace, with multiple replacements, while the `i` (interactive)
 flag will allow you to confirm each substitution individually.
+
+![Search and replace on the whole file](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/search-and-replace.gif)
 
 If you need to act on a specific number of lines, you have two
 options:
@@ -526,6 +532,8 @@ above, we could to the following:
 
 The var keyword should be prepended to each of the lines.
 
+![Visual block editing](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/visual-block-substitution.gif)
+
 Note that this is not the only way to do this. For example, a
 macro or a normal mode command would have worked equally well.
 This latter approach is in fact usually more effective:
@@ -539,6 +547,8 @@ prompt with the range prefilled. By typing `:norm`, Vim
 temporarily switches to normal mode, executing the subsequent
 command for each line in the visual range. We just used `I` to
 jump before the first letter in normal mode and type `var`.
+
+![Visual block normal mode](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/visual-block-normal-mode.gif)
 
 This approach is good when the change we're making doesn't need to
 be repeated. In other situations, a macro is more effective.
