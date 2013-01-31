@@ -84,4 +84,4 @@
 	url = https://github.com/majutsushi/tagbar
 [submodule "hermes/vim/bundle/supertab"]
 	path = hermes/vim/bundle/supertab
-	url = https://github.com/ervandew/supertab
+	url = git@github.com:New-Bamboo/supertab.git
