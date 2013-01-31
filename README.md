@@ -393,6 +393,24 @@ assign it to `<leader>s` and then specify the command, a simple
 and then press enter (carriage return).
 
 
+#### Reading from a source into the current buffer
+
+Another common use case is having to add content from a different source, like
+another file or a unix process.
+
+Vim provides a very simple way to do this: the `:r` command.
+
+If you have two files, `a.txt` and `b.txt`, you can open the first one and type:
+`:r b.txt`. This will add the contents of the second file in the current buffer
+(where you have opened `a.txt`).
+
+You can combine the `:r` command with `!` to shell out and get the contents from
+any command you wish. For example, you can use `ls` to list the contents of a
+directory to easily generate a manifest file. The full command would then be `:r!
+ls`.
+
+![Reading from the shell](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/reading-from-shell.gif)
+
 #### Search and replace
 
 Search and replace in Vim is a kind of regular expression usage.
