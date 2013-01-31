@@ -7,11 +7,9 @@ function handle_error () {
 function load_and_handle_errors () {
     source "$1" 2>&1
     handle_error "There was a problem while sourcing $1\n\n\t$SOURCE_OUTPUT"
-    echo -en '.'
 }
 
 function load_homebrew_command_completions {
-  echo -e "Loading command-line completions for bash"
   for f in /usr/local/etc/bash_completion.d/*.bash; do
     load_and_handle_errors $f
   done
@@ -19,27 +17,22 @@ function load_homebrew_command_completions {
 }
 
 function source_modules {
-  echo -en "Sourcing bash modules in $HOME/.bashrc.d/"
   for f in $HOME/.bashrc.d/*.bash; do
     load_and_handle_errors $f
   done
-  echo -e ""
   unset f
 }
 
 function configure_rvm {
-  echo -e "Configuring RVM"
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
   export PATH=$PATH:$HOME/.rvm/bin
 }
 
 function tmuxify_command_prompt {
-  echo -e "Configuring command prompt for tmux"
   export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 }
 
 function configure_editor {
-  echo -e "Configuring editor"
   export EDITOR=/usr/local/bin/vim
 }
 
