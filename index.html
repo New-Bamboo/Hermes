@@ -36,7 +36,7 @@
           <span class="credits right">Originally based on the <a href="https://github.com/mattgraham/Midnight">Midnight</a> theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
         </div>
 
-<h1 id="hermes">Hermes</h1>
+        <h1 id="hermes">Hermes</h1>
 
 <p>Hermes is an environment for Ruby and JavaScript developers in Darwin using
 <a href="http://tmux.sourceforge.net/">Tmux</a>, <a href="http://www.vim.org/">Vim</a> and <a href="http://www.iterm2.com/">iTerm
@@ -90,7 +90,7 @@ user account, not your main one. That said, we <em>have</em> tested it on
 our own user accounts, where it worked just fine.</p>
 
 <p>You can check to see which files will be overwritten in
-manifests/dotfile_manifest, or
+<code>manifests/dotfile_manifest</code>, or
 <a href="https://github.com/New-Bamboo/Hermes/blob/master/manifests/dotfile_manifest">follow this link</a>
 to view it on Github.</p>
 
@@ -435,12 +435,24 @@ if you want to create a <code>sample</code> directory, you can type:</p>
 <p>The command will be performed from within the current working
 directory, you can verify that with <code>:pwd</code>.</p>
 
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/shelling-out.gif" alt="Shelling out" />
+<figcaption>Shelling out</figcaption></figure>
+
+
+
 <p>When you need to step out of the file you&#8217;re editing, perform a
 few tasks and then go back, your best option is to suspend Vim
 using the shell via <code>ctrl-z</code> and then resume it with by typing
 the command <code>fg</code> (foreground) when you&#8217;re done. This is a very
 straightforward approach and widely used in the Unix world. It
 works out of the box.</p>
+
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/suspending.gif" alt="Suspending" />
+<figcaption>Suspending</figcaption></figure>
+
+
 
 <p>Alternatively, you can use a different window or pane with Tmux,
 as we shall explain later on.</p>
@@ -456,6 +468,28 @@ the current file as a spec.</p>
 assign it to <code>&lt;leader&gt;s</code> and then specify the command, a simple
 <code>bundle exec rspec</code> where we include the current file as an argument
 and then press enter (carriage return).</p>
+
+<h4 id="readingfromasourceintothecurrentbuffer">Reading from a source into the current buffer</h4>
+
+<p>Another common use case is having to add content from a different source, like
+another file or a unix process.</p>
+
+<p>Vim provides a very simple way to do this: the <code>:r</code> command.</p>
+
+<p>If you have two files, <code>a.txt</code> and <code>b.txt</code>, you can open the first one and type:
+<code>:r b.txt</code>. This will add the contents of the second file in the current buffer
+(where you have opened <code>a.txt</code>).</p>
+
+<p>You can combine the <code>:r</code> command with <code>!</code> to shell out and get the contents from
+any command you wish. For example, you can use <code>ls</code> to list the contents of a
+directory to easily generate a manifest file. The full command would then be <code>:r!
+ls</code>.</p>
+
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/reading-from-shell.gif" alt="Reading from the shell" />
+<figcaption>Reading from the shell</figcaption></figure>
+
+
 
 <h4 id="searchandreplace">Search and replace</h4>
 
@@ -478,6 +512,12 @@ flags to the command, like:</p>
 <p>The <code>g</code> flag predictably tells Vim to perform a global search and
 replace, with multiple replacements, while the <code>i</code> (interactive)
 flag will allow you to confirm each substitution individually.</p>
+
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/search-and-replace.gif" alt="Search and replace on the whole file" />
+<figcaption>Search and replace on the whole file</figcaption></figure>
+
+
 
 <p>If you need to act on a specific number of lines, you have two
 options:</p>
@@ -582,6 +622,12 @@ above, we could to the following:</p>
 
 <p>The var keyword should be prepended to each of the lines.</p>
 
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/visual-block-substitution.gif" alt="Visual block editing" />
+<figcaption>Visual block editing</figcaption></figure>
+
+
+
 <p>Note that this is not the only way to do this. For example, a
 macro or a normal mode command would have worked equally well.
 This latter approach is in fact usually more effective:</p>
@@ -597,6 +643,12 @@ prompt with the range prefilled. By typing <code>:norm</code>, Vim
 temporarily switches to normal mode, executing the subsequent
 command for each line in the visual range. We just used <code>I</code> to
 jump before the first letter in normal mode and type <code>var</code>.</p>
+
+<figure>
+<img src="https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/visual-block-normal-mode.gif" alt="Visual block normal mode" />
+<figcaption>Visual block normal mode</figcaption></figure>
+
+
 
 <p>This approach is good when the change we&#8217;re making doesn&#8217;t need to
 be repeated. In other situations, a macro is more effective.</p>
@@ -960,6 +1012,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h1 id="copyright">Copyright</h1>
 
 <p>Copyright ©2012 New Bamboo Web Development Limited</p>
+
+
+      </section>
 
 
     </div>
