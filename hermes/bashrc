@@ -34,12 +34,20 @@ function configure_rvm {
 }
 
 function tmuxify_command_prompt {
-  echo "Configuring command prompt for tmux"
+  echo -e "Configuring command prompt for tmux"
   export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 }
+
+function configure_editor {
+  echo -e "Configuring editor"
+  export EDITOR=/usr/local/bin/vim
+}
+
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 load_homebrew_command_completions
 source_modules
 configure_rvm
+configure_editor
 tmuxify_command_prompt
 
