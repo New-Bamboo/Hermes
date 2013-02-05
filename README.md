@@ -737,6 +737,8 @@ All tmux commands start with a prefix, set in this configuration to `Ctrl-a`: as
 a convention, this document will call this shortcut 'prefix', so `prefix-c`
 means 'press Ctrl-a, then c'.
 
+![Using Tmux windows](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/tmux-windows.gif)
+
 Here are some basic commands:
 
 - `prefix-1`, `prefix-2` switches to the window identified by that index;
@@ -754,6 +756,8 @@ Here are some basic commands:
 
 You can also change focus from one pane to another using the mouse, however that
 is usually slower than mastering keyboard shortcuts.
+
+![Using Tmux panes](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/tmux-panes.gif)
 
 ### Scrolling, copy and paste
 
@@ -781,6 +785,9 @@ habits.
 - `g` and `G` will go respectively to the top and the bottom;
 - `v` initiates visual selection, so that you can select a visual portion of
   text and then, for example, press `y` to copy it.
+
+![Using Tmux copy mode](https://raw.github.com/New-Bamboo/Hermes/gh-pages/images/hermes/tmux-copy-mode.gif)
+
 
 To see a list of all possible combinations, press `prefix-:` to enter command
 mode and type `list-keys -t vi-copy`. Note also that a good set of motions are
