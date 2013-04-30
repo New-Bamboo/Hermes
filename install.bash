@@ -151,40 +151,6 @@ function get_submodules () {
   fi
 }
 
-function install_tmux_paste_buffer () {
-
-  log "${notice}Installing the ${component}Tmux ${notice}paste buffer launch agent"
-  if [ $DEBUG == 0 ]; then
-    mkdir -p $LAUNCHAGENTS_DIR
-
-(
-cat <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>Label</key>
-    <string>uk.co.newbamboo.hermes</string>
-    <key>ProgramArguments</key>
-    <array>
-      <string>$(which reattach-to-user-namespace)</string>
-      <string>-l</string>
-      <string>$HOME/.hermes/hermes/bin/tmux-paste-buffer</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-  </dict>
-</plist>
-EOF
-) > $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
-
-    launchctl load -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
-  fi
-  log "${success}The ${component}Tmux ${success}paste buffer launch agent is now installed"
-  log "${information}To disable temporarily, run: launchctl unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
-  log "${information}To disable permanently, run: launchctl unload -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
-}
-
 function make_config_dir () {
   log "${notice}Making the ${hermes} ${notice}configuration folder"
   if [ $DEBUG == 0 ]; then
@@ -206,8 +172,6 @@ homebrew_dependencies
 
 make_config_dir
 link_dotfiles
-
-install_tmux_paste_buffer
 
 log "\n${hermes} ${success}is now installed."
 log "${attention}Open a new ${component}iTerm ${attention}window to load your new environment.\n"
