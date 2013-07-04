@@ -142,11 +142,11 @@ function homebrew_dependencies () {
   done < "$INSTALL_DIR/manifests/homebrew_dependencies"
 }
 
-function get_submodules () {
-  log "${notice}Installing ${component}git ${notice}submodules. This may take a while"
+function install_vundle () {
+  log "${notice}Installing Vundle"
   cd $INSTALL_DIR
   if [ $DEBUG == 0 ]; then
-    git submodule init && git submodule update &> /dev/null
+    git clone https://github.com/gmarik/vundle.git hermes/vim/bundle/vundle
     handle_error
   fi
 }
@@ -162,7 +162,7 @@ log "${attention}Starting ${hermes} ${attention}installation"
 
 backup_dotfiles
 
-get_submodules
+install_vundle
 
 # Check for dependencies
 check_command_dependency brew
