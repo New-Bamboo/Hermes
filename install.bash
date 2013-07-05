@@ -146,6 +146,7 @@ function install_vundle () {
   log "${notice}Installing Vundle"
   cd $INSTALL_DIR
   if [ $DEBUG == 0 ]; then
+    mkdir -p hermes/vim/bundle
     git clone https://github.com/gmarik/vundle.git hermes/vim/bundle/vundle
     handle_error
   fi
