@@ -32,6 +32,8 @@ Bundle 'pgr0ss/vimux-ruby-test'
 Bundle 'cloud8421/vimux-cucumber'
 Bundle 'jgdavey/vim-turbux'
 
+Bundle 'cloud8421/vim-neatstatus'
+
 set nobackup
 set nowritebackup
 set notimeout
