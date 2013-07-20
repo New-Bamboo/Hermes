@@ -6,7 +6,6 @@ set rtp+=bundle/vundle/
 call vundle#rc()
 
 Bundle 'rking/ag.vim'
-Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp'
 Bundle 'scrooloose/nerdtree'
@@ -84,7 +83,7 @@ set foldlevelstart=99
 
 " Autocompletion options
 set wildmode=list:longest,list:full
-set complete=.,w,b
+set complete=.,w,b,u,t
 
 " Tags
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags -R --exclude=.git --exclude=log -f ./.tags *"
