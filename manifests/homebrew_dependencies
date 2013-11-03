@@ -2,10 +2,12 @@ autojump
 bash
 bash-completion
 direnv
-macvim --override-system-vim
 reattach-to-user-namespace
 ack
 the_silver_searcher
 tmux
 grc
 tree
+rbenv
+ruby-build
+vim

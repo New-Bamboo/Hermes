@@ -167,7 +167,6 @@ install_vundle
 
 # Check for dependencies
 check_command_dependency brew
-check_command_dependency rvm
 
 homebrew_dependencies
 
