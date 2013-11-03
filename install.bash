@@ -60,7 +60,7 @@ function link_dotfiles () {
   log "${notice}Linking $hermes dotfiles to your home folder"
   CONTENT=`cat $INSTALL_DIR/manifests/dotfile_manifest`
   for file in $CONTENT; do
-    SOURCE_FILE=$HOME/.hermes/hermes/$file
+    SOURCE_FILE=$PWD/hermes/$file
     TARGET_FILE=$HOME/.$file
     if [ -e $SOURCE_FILE ]; then
       echo "${notice}Linking ${hermes} ${package}$file ${notice}to $filename$HOME/.$file"
