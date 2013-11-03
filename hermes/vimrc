@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 
 " Setup Vundle
-set rtp+=bundle/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'rking/ag.vim'
