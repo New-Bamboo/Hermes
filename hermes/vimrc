@@ -7,7 +7,7 @@ call vundle#rc()
 
 Bundle 'rking/ag.vim'
 Bundle 'godlygeek/tabular'
-Bundle 'kien/ctrlp'
+Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tmhedberg/matchit'
 Bundle 'vim-scripts/tComment'
