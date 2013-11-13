@@ -12,3 +12,4 @@ rbenv
 ruby-build
 vim
 git
+wget
