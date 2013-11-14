@@ -32,6 +32,7 @@ Bundle 'cloud8421/vimux-cucumber'
 Bundle 'jgdavey/vim-turbux'
 
 Bundle 'cloud8421/vim-neatstatus'
+Bundle 'tomasr/molokai'
 
 set nobackup
 set nowritebackup
