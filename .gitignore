@@ -1,3 +1,4 @@
 *.log
 *.gz
 hermes/vim/bundle
+hermes/bashrc.d/hermes-install-path.bash

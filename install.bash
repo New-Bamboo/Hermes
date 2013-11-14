@@ -159,6 +159,15 @@ function make_config_dir () {
   fi
 }
 
+function set_hermes_path () {
+  log "Setting up the HERMES path"
+  if [ $DEBUG == 0 ]; then
+    touch "$INSTALL_DIR/hermes/bashrc.d/hermes-install-path.bash"
+    echo "export HERMES_PATH=$INSTALL_DIR" > "$INSTALL_DIR/hermes/bashrc.d/hermes-install-path.bash"
+  fi
+}
+
+
 log "${attention}Starting ${hermes} ${attention}installation"
 
 backup_dotfiles
@@ -172,6 +181,7 @@ homebrew_dependencies
 
 make_config_dir
 link_dotfiles
+set_hermes_path
 
 log "\n${hermes} ${success}is now installed."
 log "${attention}Open a new ${component}iTerm ${attention}window to load your new environment.\n"
