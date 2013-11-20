@@ -48,6 +48,9 @@ set laststatus=2  " Always display the status line
 set t_Co=256
 syntax on
 
+set spelllang=en
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+
 " Fix backspace
 set backspace=indent,eol,start
 fixdel
@@ -85,6 +88,9 @@ set foldlevelstart=99
 " Autocompletion options
 set wildmode=list:longest,list:full
 set complete=.,w,b,u,t
+
+" When spellcheck is enabled, autocomplete from dictionary
+set complete+=kspell
 
 " Tags
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags -R --exclude=.git --exclude=log -f ./.tags *"

@@ -1,4 +1,6 @@
 *.log
 *.gz
 hermes/vim/bundle
+hermes/vim/spell/*.add
+hermes/vim/spell/*.add.spl
 hermes/bashrc.d/hermes-install-path.bash
