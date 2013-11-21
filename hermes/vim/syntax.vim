@@ -22,5 +22,5 @@ nnoremap vi/ T/v,
 nnoremap va/ F/v,
 
 " Enable spellcheck when needed
-autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit setlocal spell textwidth=72
 autocmd BufRead,BufNewFile {*.md,*.mkd} setlocal spell
