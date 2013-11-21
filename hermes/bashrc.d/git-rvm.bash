@@ -1,8 +1,3 @@
-function __git_dirty {
-  git diff --quiet HEAD &>/dev/null 
-  [ $? == 1 ] && echo "!"
-}
-
 function __git_branch {
   __git_ps1 " %s"
 }
@@ -58,7 +53,9 @@ bash_prompt() {
   local UC=$W                 # user's color
   [ $UID -eq "0" ] && UC=$R   # root's color
 
-  PS1="$C\$(__rbenv_ps1) $EMY\$(_pwd 20)$EMW\$(__git_branch)$EMM\$(__git_dirty)${NONE} 🚀  "
+  GIT_PS1_SHOWDIRTYSTATE=true
+  GIT_PS1_SHOWUNTRACKEDFILES=true
+  PS1="$C\$(__rbenv_ps1) $EMY\$(_pwd 20)$EMW\$(__git_branch)${NONE} 🚀  "
 }
 
 bash_prompt
