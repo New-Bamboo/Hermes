@@ -43,4 +43,4 @@ configure_rbenv
 configure_editor
 tmuxify_command_prompt
 
-eval `direnv hook $0`
+eval "$(direnv hook $0)"
