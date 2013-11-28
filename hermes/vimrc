@@ -19,6 +19,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'AndrewRadev/splitjoin.vim'
 
 Bundle 'mattn/zencoding-vim'
 Bundle 'vim-ruby/vim-ruby'

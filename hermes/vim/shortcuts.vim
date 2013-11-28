@@ -81,3 +81,10 @@ nmap <silent> <leader>3 :NERDTreeToggle<cr>
 
 "Remap CtrlP
 nmap <silent> <leader>1 :CtrlP<cr>
+
+"SplitJoin
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+
+nmap <Leader>j :SplitjoinJoin<cr>
+nmap <Leader>s :SplitjoinSplit<cr>
