@@ -89,6 +89,15 @@ function backup_dotfiles () {
   log "${notice}Your dotfiles are now backed up to $filename$BACKUP_FILE"
 }
 
+function check_homebrew_version () {
+  cd $(brew --prefix)
+  count=$(git rev-list HEAD --count)
+  if [ $count -lt 25122 ]; then
+    handle_error "You need to update Homebrew to support .brewfile"
+  fi
+  cd - 2>&1 >/dev/null
+}
+
 function homebrew_dependencies () {
   log "${notice}Installing ${component}Homebrew ${notice}dependencies. This may take a while"
   cd $INSTALL_DIR
@@ -122,6 +131,8 @@ function set_hermes_path () {
 
 
 log "${attention}Starting ${hermes} ${attention}installation"
+
+check_homebrew_version
 
 backup_dotfiles
 
