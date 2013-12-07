@@ -23,9 +23,8 @@ function source_modules {
   unset f
 }
 
-function configure_rvm {
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-  export PATH=$PATH:$HOME/.rvm/bin
+function configure_rbenv {
+  if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 }
 
 function tmuxify_command_prompt {
@@ -40,8 +39,8 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 load_homebrew_command_completions
 source_modules
-configure_rvm
+configure_rbenv
 configure_editor
 tmuxify_command_prompt
 
-eval `direnv hook $0`
+eval "$(direnv hook $0)"

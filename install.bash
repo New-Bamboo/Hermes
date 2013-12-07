@@ -60,7 +60,7 @@ function link_dotfiles () {
   log "${notice}Linking $hermes dotfiles to your home folder"
   CONTENT=`cat $INSTALL_DIR/manifests/dotfile_manifest`
   for file in $CONTENT; do
-    SOURCE_FILE=$HOME/.hermes/hermes/$file
+    SOURCE_FILE=$PWD/hermes/$file
     TARGET_FILE=$HOME/.$file
     if [ -e $SOURCE_FILE ]; then
       echo "${notice}Linking ${hermes} ${package}$file ${notice}to $filename$HOME/.$file"
@@ -77,22 +77,6 @@ function check_command_dependency () {
   handle_error $1 'There was a problem with:'
 }
 
-function install_homebrew () {
-  log "${notice}Installing ${component}Homebrew ${notice}recipe ${package}$1"
-  if [ $DEBUG == 0 ]; then
-    HOMEBREW_OUTPUT=`brew install $1 2>&1`
-    handle_error $1 "Homebrew had a problem\n($HOMEBREW_OUTPUT):"
-  fi
-}
-
-function remove_homebrew () {
-  log "Removing homebrew recipe $1"
-  if [ $DEBUG == 0 ]; then
-    HOMEBREW_OUTPUT=`brew uninstall $1 2>&1`
-    handle_error $1 "Homebrew had a problem while removing\n($HOMEBREW_OUTPUT):"
-  fi
-}
-
 function backup_dotfiles () {
   log "${notice}Backing up your dotfiles"
   customise_manifest
@@ -105,84 +89,29 @@ function backup_dotfiles () {
   log "${notice}Your dotfiles are now backed up to $filename$BACKUP_FILE"
 }
 
-function homebrew_checkinstall_recipe () {
-  brew list $1 &> /dev/null
-  if [ $? == 0 ]; then
-    log "${success}Your $package$1 ${success}installation is fine. Doing nothing"
-  else
-    install_homebrew $1
+function check_homebrew_version () {
+  cd $(brew --prefix)
+  count=$(git rev-list HEAD --count)
+  if [ $count -lt 25122 ]; then
+    handle_error "You need to update Homebrew to support .brewfile"
   fi
-}
-
-function homebrew_checkinstall_vim () {
-  log "${notice}Checking for a sane ${component}Vim ${notice}installation"
-  SKIP=`vim --version | grep '+clipboard'`
-  if [[ "$SKIP" == "" ]]; then
-    brew list macvim &> /dev/null
-    if [ $? == 0 ]; then
-      log "${attention}Removing ${component}Homebrew's ${package}macvim ${attention}recipe"
-      remove_homebrew "macvim"
-    else
-      log "${notice}You don't have ${component}Homebrew's ${package}macvim ${notice}installed at all"
-    fi
-    install_homebrew $1
-  else
-    log "${success}Your ${component}Vim ${success}installation is fine. Doing nothing"
-  fi
+  cd - 2>&1 >/dev/null
 }
 
 function homebrew_dependencies () {
   log "${notice}Installing ${component}Homebrew ${notice}dependencies. This may take a while"
-  while read recipe; do
-    if [[ $recipe == macvim* ]]; then
-      homebrew_checkinstall_vim $recipe
-    else
-      homebrew_checkinstall_recipe $recipe
-    fi
-  done < "$INSTALL_DIR/manifests/homebrew_dependencies"
+  cd $INSTALL_DIR
+  brew bundle
 }
 
-function get_submodules () {
-  log "${notice}Installing ${component}git ${notice}submodules. This may take a while"
+function install_vundle () {
+  log "${notice}Installing Vundle"
   cd $INSTALL_DIR
   if [ $DEBUG == 0 ]; then
-    git submodule init && git submodule update &> /dev/null
+    mkdir -p hermes/vim/bundle
+    git clone https://github.com/gmarik/vundle.git hermes/vim/bundle/vundle
     handle_error
   fi
-}
-
-function install_tmux_paste_buffer () {
-
-  log "${notice}Installing the ${component}Tmux ${notice}paste buffer launch agent"
-  if [ $DEBUG == 0 ]; then
-    mkdir -p $LAUNCHAGENTS_DIR
-
-(
-cat <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>Label</key>
-    <string>uk.co.newbamboo.hermes</string>
-    <key>ProgramArguments</key>
-    <array>
-      <string>$(which reattach-to-user-namespace)</string>
-      <string>-l</string>
-      <string>$HOME/.hermes/hermes/bin/tmux-paste-buffer</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-  </dict>
-</plist>
-EOF
-) > $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
-
-    launchctl load -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist
-  fi
-  log "${success}The ${component}Tmux ${success}paste buffer launch agent is now installed"
-  log "${information}To disable temporarily, run: launchctl unload $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
-  log "${information}To disable permanently, run: launchctl unload -w $LAUNCHAGENTS_DIR/uk.co.newbamboo.hermes.plist"
 }
 
 function make_config_dir () {
@@ -192,22 +121,31 @@ function make_config_dir () {
   fi
 }
 
+function set_hermes_path () {
+  log "Setting up the HERMES path"
+  if [ $DEBUG == 0 ]; then
+    touch "$INSTALL_DIR/hermes/bashrc.d/hermes-install-path.bash"
+    echo "export HERMES_PATH=$INSTALL_DIR" > "$INSTALL_DIR/hermes/bashrc.d/hermes-install-path.bash"
+  fi
+}
+
+
 log "${attention}Starting ${hermes} ${attention}installation"
+
+check_homebrew_version
 
 backup_dotfiles
 
-get_submodules
+install_vundle
 
 # Check for dependencies
 check_command_dependency brew
-check_command_dependency rvm
 
 homebrew_dependencies
 
 make_config_dir
 link_dotfiles
-
-install_tmux_paste_buffer
+set_hermes_path
 
 log "\n${hermes} ${success}is now installed."
 log "${attention}Open a new ${component}iTerm ${attention}window to load your new environment.\n"

@@ -1,5 +1,18 @@
+" Set leader key
+let mapleader = ","
+
 " Help for word under cursor
 :map <leader>h "zyw:exe "h ".@z.""<CR>
+
+" Autocomplete
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 " Fixes pasting
 noremap <leader>y "*y
@@ -62,3 +75,16 @@ nmap <leader>l ysiw]f]a()<Left>
 " Zencoding
 let g:user_zen_expandabbr_key = '<c-e>'
 let g:use_zen_complete_tag = 1
+
+"Remap NerdTree
+nmap <silent> <leader>3 :NERDTreeToggle<cr>
+
+"Remap CtrlP
+nmap <silent> <leader>1 :CtrlP<cr>
+
+"SplitJoin
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+
+nmap <Leader>j :SplitjoinJoin<cr>
+nmap <Leader>s :SplitjoinSplit<cr>

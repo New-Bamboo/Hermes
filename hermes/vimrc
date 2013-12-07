@@ -1,9 +1,40 @@
-" loading pathogen at runtime as it's bundled
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-Helptags
+set nocompatible
+filetype off
 
-set nocompatible  " Use Vim settings, rather then Vi settings
+" Setup Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'rking/ag.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tmhedberg/matchit'
+Bundle 'vim-scripts/tComment'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'AndrewRadev/splitjoin.vim'
+
+Bundle 'mattn/zencoding-vim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'davidoc/taskpaper.vim'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+
+Bundle 'benmills/vimux'
+Bundle 'pgr0ss/vimux-ruby-test'
+Bundle 'cloud8421/vimux-cucumber'
+Bundle 'jgdavey/vim-turbux'
+
+Bundle 'cloud8421/vim-neatstatus'
+Bundle 'tomasr/molokai'
+
 set nobackup
 set nowritebackup
 set notimeout
@@ -17,6 +48,9 @@ set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set t_Co=256
 syntax on
+
+set spelllang=en
+set spellfile=$HOME/.vim/spell/en.utf-8.add
 
 " Fix backspace
 set backspace=indent,eol,start
@@ -54,7 +88,10 @@ set foldlevelstart=99
 
 " Autocompletion options
 set wildmode=list:longest,list:full
-set complete=.,w,b
+set complete=.,w,b,u,t
+
+" When spellcheck is enabled, autocomplete from dictionary
+set complete+=kspell
 
 " Tags
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags -R --exclude=.git --exclude=log -f ./.tags *"

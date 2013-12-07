@@ -269,43 +269,39 @@ recalculation. This means that a manual installation may be spread
 across multiple directories, resulting in a structure that is
 difficult to maintain and update.
 
-Enter [Pathogen](https://github.com/tpope/vim-pathogen), a package
+Enter [Vundle](https://github.com/gmarik/vundle), a package
 manager that makes this process painless and that inverts the
 usual installation pattern, as it lets you organize plugins based
-on their name. With Pathogen, you can simply clone a repository into
-your `~/.vim` folder and you're done. This is the first stepping
-stone to efficient dotfile management through a git repository
-where you can add all your plugins as git submodules and update
-all of them with a single command.
+on their name.
 
-Hermes uses git submodules extensively: since Pathogen allows
-us to keep each plugin in a separate folder, we can include all of
-our plugins as submodules in the `hermes/vim/bundle` folder. This
-makes it dead easy to add other plugins and keep them up-to-date:
+Vundle has been inspired by [Bundler](http://gembundler.com), the package
+manager for Ruby and it uses a similar approach. Let's say that we want to add
+the NerdTree plugin to our configuration, available at
+<http://github.com/scrooloose/nerdtree>.
 
-    cd ~/.hermes
-    git submodule add <github-url> hermes/vim/bundle/<plugin-name>
+We can just open `~/.vimrc`, add a single line:
 
-And you're done! Updating plugins is similarly straightforward:
+    Bundle 'scrooloose/nerdtree'
 
-    cd ~/.hermes
-    git submodule foreach git pull origin master
+And then run `:BundleInstall` as a normal mode command. Done!
 
-As in every other Github-based project, it's advisable
-to fork a plugin if you need to make changes that go
-beyond simple configuration (which we usually add to
-`~/.hermes/vim/plugins.vim`). In that case, you would need to
-remove the original submodule completely and add it back again
-using your fork as the source.
+Under the hood, Vundle will download the plugin, store it into `vim/bundle` and
+load it into the runtime.
 
-Pathogen loads the contents of `~/.vim/bundle` by default.
-including itself. This is controlled by the first two lines in the
-`~/.vimrc` file:
+Using Vundle requires just a preliminary installation (included in the Hermes
+installation script) and a few lines at the top of our `~/.vimrc`:
 
-    " loading pathogen at runtime as it's bundled
-    runtime bundle/vim-pathogen/autoload/pathogen.vim
-    call pathogen#infect()
+    " Options required by Vundle
+    set nocompatible
+    filetype off
 
+    " Setup Vundle
+    set rtp+=bundle/vundle/
+    call vundle#rc()
+
+Vundle is capable of searching, updating and installing other plugins and
+features an interactive mode. Be sure to run `:help vundle` to learn all of
+these tricks.
 
 ### Managing configuration
 

@@ -1,21 +1,20 @@
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-function __git_dirty {
-  git diff --quiet HEAD &>/dev/null 
-  [ $? == 1 ] && echo "!"
-}
-
 function __git_branch {
   __git_ps1 " %s"
 }
 
-function __my_rvm_ruby_version {
-  local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
-  [ "$gemset" != "" ] && gemset="@$gemset"
-  local version=$(echo $MY_RUBY_HOME | awk -F'-' '{print $2}')
-  [ "$version" == "1.8.7" ] && version=""
-  local full="$version$gemset"
-  [ "$full" != "" ] && echo "$full "
+_pwd ()
+{
+    local PRE= NAME="$PWD" LENGTH="$1";
+    [[ "$NAME" != "${NAME#$HOME/}" || -z "${NAME#$HOME}" ]] &&
+        PRE+='~' NAME="${NAME#$HOME}" LENGTH=$[LENGTH-1];
+    ((${#NAME}>$LENGTH)) && NAME="/...${NAME:$[${#NAME}-LENGTH+4]}";
+    echo "$PRE$NAME"
+}
+
+__rbenv_ps1 ()
+{
+  rbenv_ruby_version=`rbenv version | sed -e 's/ .*//'`
+  printf $rbenv_ruby_version
 }
 
 bash_prompt() {
@@ -54,8 +53,9 @@ bash_prompt() {
   local UC=$W                 # user's color
   [ $UID -eq "0" ] && UC=$R   # root's color
 
-  PS1="$C\$(__my_rvm_ruby_version)$Y\h$W:$EMY\w$EMW\$(__git_branch)$EMY\$(__git_dirty)${NONE}
-$ "
+  GIT_PS1_SHOWDIRTYSTATE=true
+  GIT_PS1_SHOWUNTRACKEDFILES=true
+  PS1="$C\$(__rbenv_ps1) $EMY\$(_pwd 20)$EMW\$(__git_branch)${NONE} 🚀  "
 }
 
 bash_prompt
