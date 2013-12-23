@@ -72,9 +72,8 @@ vnoremap . :norm.<CR>
 "Markdown links without copied link
 nmap <leader>l ysiw]f]a()<Left>
 
-" Zencoding
-let g:user_zen_expandabbr_key = '<c-e>'
-let g:use_zen_complete_tag = 1
+" Emmet
+let g:user_emmet_expandabbr_key = '<c-e>'
 
 "Remap NerdTree
 nmap <silent> <leader>3 :NERDTreeToggle<cr>

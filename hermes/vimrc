@@ -21,7 +21,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'AndrewRadev/splitjoin.vim'
 
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'davidoc/taskpaper.vim'
 Bundle 'kana/vim-textobj-user'
