@@ -44,3 +44,5 @@ configure_editor
 tmuxify_command_prompt
 
 eval "$(direnv hook $0)"
+
+export PATH=$HOME/bin:$PATH
