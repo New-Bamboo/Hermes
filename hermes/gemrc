@@ -1,7 +1,7 @@
 ---
 gem: --no-ri --no-rdoc
 :sources:
-- http://rubygems.org/
+- https://rubygems.org/
 :benchmark: false
 :bulk_threshold: 1000
 :update_sources: true
