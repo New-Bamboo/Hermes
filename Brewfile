@@ -7,9 +7,11 @@ install ctags
 install direnv
 install git
 install grc
+install postgresql
 install rbenv
 install reattach-to-user-namespace
 install ruby-build
+install ssh-copy-id
 install the_silver_searcher
 install tmux
 install tree
