@@ -4,6 +4,8 @@ map [B <C-Down>
 map [D <C-Left>
 map [C <C-Right>
 
+let g:vimix_map_keys = 1
+
 " Vimux
 let VimuxHeight = "30"
 let VimuxOrientation = "v"
@@ -32,6 +34,9 @@ if exists('$TMUX')
   nmap <Leader>r vip<LocalLeader>vs<CR>
 
   " Run tests
-  nmap <leader>t <Plug>SendTestToTmux
-  nmap <leader>f <Plug>SendFocusedTestToTmux
+  autocmd filetype ruby nmap <leader>t <Plug>SendTestToTmux
+  autocmd filetype ruby nmap <leader>f <Plug>SendFocusedTestToTmux
+  autocmd filetype erlang nmap <leader>t :RunEunitTests<CR>
+  autocmd filetype elixir nmap <leader>t :RunExunitTests<CR>
+  autocmd filetype elixir nmap <leader>f :RunExunitFocusedTest<CR>
 endif

@@ -19,3 +19,6 @@ endif
 let NERDTreeShowHidden=0
 let NERDTreeShowBookmarks=0
 let g:NERDTreeChDirMode=2
+
+" Turbux
+let g:turbux_command_prefix = 'bundle exec'

@@ -16,22 +16,30 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-projectionist'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'burnettk/vim-angular'
+Bundle 'jnwhiteh/vim-golang'
 
 Bundle 'mattn/emmet-vim'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'davidoc/taskpaper.vim'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'jimenezrick/vimerl'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'wolfy87/vim-enmasse'
+Bundle 'wellle/tmux-complete.vim'
+Bundle 'SirVer/ultisnips'
 
 Bundle 'benmills/vimux'
 Bundle 'pgr0ss/vimux-ruby-test'
 Bundle 'cloud8421/vimux-cucumber'
 Bundle 'jgdavey/vim-turbux'
+Bundle 'spiegela/vimix'
 
 Bundle 'cloud8421/vim-neatstatus'
 Bundle 'tomasr/molokai'
@@ -48,6 +56,8 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set t_Co=256
+set modeline
+set autoread
 syntax on
 
 set spelllang=en
