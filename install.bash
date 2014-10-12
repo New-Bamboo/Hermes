@@ -77,6 +77,22 @@ function check_command_dependency () {
   handle_error $1 'There was a problem with:'
 }
 
+function install_homebrew () {
+  log "${notice}Installing ${component}Homebrew ${notice}recipe ${package}$1"
+  if [ $DEBUG == 0 ]; then
+    HOMEBREW_OUTPUT=`brew install $1 2>&1`
+    handle_error $1 "Homebrew had a problem\n($HOMEBREW_OUTPUT):"
+  fi
+}
+
+function remove_homebrew () {
+  log "Removing homebrew recipe $1"
+  if [ $DEBUG == 0 ]; then
+    HOMEBREW_OUTPUT=`brew uninstall $1 2>&1`
+    handle_error $1 "Homebrew had a problem while removing\n($HOMEBREW_OUTPUT):"
+  fi
+}
+
 function backup_dotfiles () {
   log "${notice}Backing up your dotfiles"
   customise_manifest
@@ -89,19 +105,20 @@ function backup_dotfiles () {
   log "${notice}Your dotfiles are now backed up to $filename$BACKUP_FILE"
 }
 
-function check_homebrew_version () {
-  cd $(brew --prefix)
-  count=$(git rev-list HEAD --count)
-  if [ $count -lt 25122 ]; then
-    handle_error "You need to update Homebrew to support .brewfile"
+function homebrew_checkinstall_recipe () {
+  brew list $1 &> /dev/null
+  if [ $? == 0 ]; then
+    log "${success}Your $package$1 ${success}installation is fine. Doing nothing"
+  else
+    install_homebrew $1
   fi
-  cd - 2>&1 >/dev/null
 }
 
 function homebrew_dependencies () {
   log "${notice}Installing ${component}Homebrew ${notice}dependencies. This may take a while"
-  cd $INSTALL_DIR
-  brew bundle
+  while read recipe; do
+    homebrew_checkinstall_recipe $recipe
+  done < "$INSTALL_DIR/manifests/homebrew_dependencies"
 }
 
 function install_vundle () {
@@ -131,8 +148,6 @@ function set_hermes_path () {
 
 
 log "${attention}Starting ${hermes} ${attention}installation"
-
-check_homebrew_version
 
 backup_dotfiles
 
