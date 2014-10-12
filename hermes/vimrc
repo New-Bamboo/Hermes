@@ -33,7 +33,6 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'wolfy87/vim-enmasse'
 Bundle 'wellle/tmux-complete.vim'
-Bundle 'SirVer/ultisnips'
 
 Bundle 'benmills/vimux'
 Bundle 'pgr0ss/vimux-ruby-test'
