@@ -24,6 +24,8 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'burnettk/vim-angular'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
 
 Bundle 'mattn/emmet-vim'
 Bundle 'vim-ruby/vim-ruby'

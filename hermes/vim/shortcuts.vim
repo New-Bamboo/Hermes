@@ -87,3 +87,5 @@ let g:splitjoin_join_mapping = ''
 
 nmap <Leader>j :SplitjoinJoin<cr>
 nmap <Leader>s :SplitjoinSplit<cr>
+
+autocmd filetype clojure nmap <leader>e :Eval<cr>
