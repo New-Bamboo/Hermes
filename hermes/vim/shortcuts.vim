@@ -89,3 +89,10 @@ nmap <Leader>j :SplitjoinJoin<cr>
 nmap <Leader>s :SplitjoinSplit<cr>
 
 autocmd filetype clojure nmap <leader>e :Eval<cr>
+
+" Testing
+
+nmap <silent> <leader>f :TestNearest<CR>
+nmap <silent> <leader>t :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>

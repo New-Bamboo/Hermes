@@ -37,10 +37,7 @@ Bundle 'wolfy87/vim-enmasse'
 Bundle 'wellle/tmux-complete.vim'
 
 Bundle 'benmills/vimux'
-Bundle 'pgr0ss/vimux-ruby-test'
-Bundle 'cloud8421/vimux-cucumber'
-Bundle 'jgdavey/vim-turbux'
-Bundle 'spiegela/vimix'
+Bundle 'janko-m/vim-test'
 
 Bundle 'cloud8421/vim-neatstatus'
 Bundle 'tomasr/molokai'

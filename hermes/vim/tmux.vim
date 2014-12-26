@@ -4,14 +4,14 @@ map [B <C-Down>
 map [D <C-Left>
 map [C <C-Right>
 
-let g:vimix_map_keys = 1
-
 " Vimux
 let VimuxHeight = "30"
 let VimuxOrientation = "v"
 let VimuxUseNearestPane = 1
 
 if exists('$TMUX')
+  let g:test#strategy = 'vimux'
+
   " Prompt for a command to run
   map <Leader>rp :PromptVimTmuxCommand<CR>
 
@@ -32,11 +32,4 @@ if exists('$TMUX')
 
   " Select current paragraph and send it to tmux
   nmap <Leader>r vip<LocalLeader>vs<CR>
-
-  " Run tests
-  autocmd filetype ruby nmap <leader>t <Plug>SendTestToTmux
-  autocmd filetype ruby nmap <leader>f <Plug>SendFocusedTestToTmux
-  autocmd filetype erlang nmap <leader>t :RunEunitTests<CR>
-  autocmd filetype elixir nmap <leader>t :RunExunitTests<CR>
-  autocmd filetype elixir nmap <leader>f :RunExunitFocusedTest<CR>
 endif
