@@ -26,6 +26,7 @@ Bundle 'burnettk/vim-angular'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
+Bundle 'ervandew/supertab'
 
 Bundle 'mattn/emmet-vim'
 Bundle 'vim-ruby/vim-ruby'
@@ -98,6 +99,7 @@ set foldlevelstart=99
 " Autocompletion options
 set wildmode=list:longest,list:full
 set complete=.,w,b,u,t
+set omnifunc=syntaxcomplete#Complete
 
 " When spellcheck is enabled, autocomplete from dictionary
 set complete+=kspell
