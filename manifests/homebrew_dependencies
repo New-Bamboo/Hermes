@@ -6,6 +6,7 @@ ctags
 direnv
 git
 grc
+icdiff
 jq
 rbenv
 reattach-to-user-namespace
