@@ -27,6 +27,7 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'ervandew/supertab'
+Bundle 'ntpeters/vim-better-whitespace'
 
 Bundle 'mattn/emmet-vim'
 Bundle 'vim-ruby/vim-ruby'
